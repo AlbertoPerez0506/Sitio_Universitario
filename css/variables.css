@@ -15,6 +15,10 @@
     --color-secondary:      #30BF97;
     --color-secondary-dark: #2DA683;
 
+    /* ---------- Colores exactos del logo (para texto de marca) ---------- */
+--color-logo-blue:  #0D378C;
+--color-logo-green: #078C5B;
+
     /* ---------- Neutros ---------- */
     --color-surface:        #FFFFFF;
     --color-surface-alt:    #F7F8FC;
@@ -116,3 +120,4 @@
         --t-slow: 0.01ms;
     }
 }
+

@@ -186,10 +186,14 @@ export function html() {
 <header class="site-header" data-header>
     <div class="site-header__inner">
         <a class="site-header__brand" href="/" aria-label="UTU — Inicio">
-            <img class="site-header__logo" src="/assets/images/branding/logo-utu.png"
-                 alt="Universidad Tecnológica del Usumacinta"
-                 width="2000" height="800" decoding="async" data-img-fallback="Logotipo UTU">
-        </a>
+    <img class="site-header__logo" src="/assets/images/branding/logo-utu.png"
+         alt="Universidad Tecnológica del Usumacinta"
+         width="2000" height="800" decoding="async" data-img-fallback="Logotipo UTU">
+    <span class="site-header__brand-text" aria-hidden="true">
+        <span class="site-header__brand-name">Universidad Tecnológica</span>
+        <span class="site-header__brand-name site-header__brand-name--accent">del Usumacinta</span>
+    </span>
+</a>
 
         <nav class="site-header__nav" aria-label="Navegación principal">
             <ul class="nav__list">${navDesktop}</ul>

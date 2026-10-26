@@ -279,6 +279,67 @@
 }
 
 /* ============================================================
+   MARCA — Texto junto al logo (solo móvil/tablet)
+   ------------------------------------------------------------
+   · En escritorio se mantiene exactamente igual: solo logo.
+   · En <=1023.98px aparece el nombre para llenar el espacio
+     entre el logo y el botón hamburguesa.
+   · Usa los colores exactos del logo: #0D378C y #078C5B.
+   ============================================================ */
+
+.site-header__brand {
+    gap: .625rem;
+    min-width: 0;
+}
+
+.site-header__logo {
+    flex-shrink: 0;
+}
+
+.site-header__brand-text {
+    display: none;
+}
+
+@media (max-width: 1023.98px) {
+    .site-header__brand {
+        flex-shrink: 1;
+        gap: .5rem;
+        min-width: 0;
+    }
+
+    .site-header__brand-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1px;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+        line-height: 1.08;
+        letter-spacing: -.01em;
+    }
+
+    .site-header__brand-name {
+        display: block;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: clamp(.5625rem, 2.4vw, .75rem);
+        font-weight: 800;
+        color: var(--color-logo-blue, #0D378C);
+        text-transform: uppercase;
+    }
+
+    .site-header__brand-name--accent {
+        color: var(--color-logo-green, #078C5B);
+        font-weight: 700;
+        text-transform: none;
+        letter-spacing: 0;
+    }
+}
+
+/* ============================================================
    4. DROPDOWN SIMPLE
    ============================================================ */
 .nav__panel {
