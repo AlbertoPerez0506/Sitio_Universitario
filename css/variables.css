@@ -1,9 +1,10 @@
 /* ============================================================
    variables.css — Design tokens UTU
    ------------------------------------------------------------
-   Punto único de verdad para color, tipografía, espacio,
-   radios, sombras, z-index y layout. Nada de colores
-   hardcodeados en el resto de archivos.
+   · Hero: usa svh (small viewport height) para garantizar que
+     el contenido siempre quepa en el área visible del navegador
+     móvil (las barras del navegador ya no recortan el fondo).
+   · Fallback a vh para navegadores antiguos.
    ============================================================ */
 
 :root {
@@ -88,13 +89,22 @@
 
     /* ---------- Alturas útiles ---------- */
     --header-h: 68px;
-    --hero-h:   clamp(440px, 72vh, 640px);
+
+    /* Hero: altura exacta = viewport visible − header.
+       · svh (small viewport height) → reserva el espacio de las
+         barras del navegador móvil. Es lo más estable.
+       · Fallback a vh para navegadores antiguos.
+       · max(520px, …) garantiza legibilidad en pantallas bajas
+         (landscape móvil); si se supera, hace scroll. */
+    --hero-h: max(520px, calc(100vh  - var(--header-h)));
+    --hero-h: max(520px, calc(100svh - var(--header-h)));
 }
 
 @media (min-width: 1024px) {
     :root {
         --header-h: 84px;
-        --hero-h:   clamp(620px, 92vh, 900px);
+        --hero-h: max(560px, calc(100vh  - var(--header-h)));
+        --hero-h: max(560px, calc(100svh - var(--header-h)));
     }
 }
 
