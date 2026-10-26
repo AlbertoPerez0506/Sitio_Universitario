@@ -23,7 +23,7 @@ body {
 .section { padding-block: var(--space-3xl); position: relative; }
 .section--alt { background-color: var(--color-background); }
 
-.section__head { max-width: 760px; margin-bottom: var(--space-2xl); }
+.section__head { max-width: 780px; margin-bottom: var(--space-2xl); }
 .section__head--center { margin-inline: auto; text-align: center; }
 .section__head--row {
     display: flex;
@@ -40,37 +40,78 @@ body {
     }
 }
 
+/* ---------- TÍTULOS DE SECCIÓN — Jerarquía reforzada ---------- */
 .section__title {
-    font-size: var(--fs-3xl);
-    letter-spacing: -.02em;
+    /* Más grande y con más "presencia" que antes */
+    font-size: clamp(2rem, 1.4rem + 2.8vw, 3.5rem);
+    letter-spacing: -.028em;
     color: var(--color-ink);
-    font-weight: 700;
-    line-height: 1.15;
+    font-weight: 800;
+    line-height: 1.06;
 }
 
+/* Lead: claramente subordinado al título, claramente superior al body */
 .section__lead {
-    margin-top: var(--space-md);
-    font-size: var(--fs-lg);
+    margin-top: var(--space-lg);
+    font-size: clamp(1.0625rem, 1rem + 0.55vw, 1.3125rem);
     color: var(--color-muted);
     max-width: 62ch;
     line-height: 1.6;
+    font-weight: 400;
 }
 .section__lead--center { margin-inline: auto; }
 
-/* ---------- Tipografía auxiliar ---------- */
+/* ---------- Eyebrow — kicker con presencia ---------- */
 .eyebrow {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .4375rem .9375rem .4375rem .75rem;
+    background: linear-gradient(135deg,
+        rgba(48,52,140,.07) 0%,
+        rgba(48,191,151,.08) 100%);
+    border: 1px solid rgba(48,52,140,.14);
+    border-radius: var(--radius-pill);
     font-size: var(--fs-xs);
-    font-weight: 600;
-    letter-spacing: .14em;
+    font-weight: 700;
+    letter-spacing: .16em;
     text-transform: uppercase;
     color: var(--color-primary);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    line-height: 1;
 }
-.eyebrow--on-dark { color: var(--color-secondary); }
+.eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    box-shadow: 0 0 10px rgba(48,191,151,.65);
+    flex-shrink: 0;
+    animation: eyebrowPulse 2.4s ease-in-out infinite;
+}
+@keyframes eyebrowPulse {
+    0%, 100% { transform: scale(1);   opacity: 1;   }
+    50%      { transform: scale(.75); opacity: .65; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .eyebrow::before { animation: none; }
+}
 
+/* Variante sobre fondo oscuro */
+.eyebrow--on-dark {
+    background: rgba(48,191,151,.12);
+    border-color: rgba(48,191,151,.30);
+    color: #7EE0C2;
+}
+.eyebrow--on-dark::before {
+    background: linear-gradient(135deg, #7EE0C2, #30BF97);
+    box-shadow: 0 0 12px rgba(126,224,194,.85);
+}
+
+/* ---------- Tipografía auxiliar ---------- */
 .lead {
-    font-size: var(--fs-lg);
+    font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
     color: var(--color-text);
     max-width: 62ch;
     line-height: 1.6;
@@ -81,6 +122,7 @@ body {
     max-width: 65ch;
     margin-top: var(--space-md);
     line-height: 1.7;
+    font-size: var(--fs-base);
 }
 
 /* ---------- Enlace con flecha ---------- */
@@ -156,10 +198,3 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     outline: 2px solid var(--color-secondary);
     outline-offset: 3px;
 }
-
-/* ---------- Fallback de imágenes ---------- */
-/* img[data-img-fallback] {
-    background-color: var(--color-background);
-    background-image: linear-gradient(135deg, rgba(48,52,140,.06), rgba(48,191,151,.06));
-}
-img.img--missing { color: transparent; } */

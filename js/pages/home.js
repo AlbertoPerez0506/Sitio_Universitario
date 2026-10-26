@@ -1,15 +1,39 @@
 /* ============================================================
    pages/home.js — Lógica específica de la portada
-   ------------------------------------------------------------
-   · Noticias: grid 1 featured + N, paginación, estado vacío
-   · Eventos: carrusel horizontal con controles
+   · Noticias con paginación
+   · Eventos en carrusel horizontal
+   · Celebración de la card destacada (confeti)
    ============================================================ */
 
 import { CONFIG } from '../core/config.js';
-import { escapeHTML, formatDateParts, isRecent } from '../core/utils.js';
+import { escapeHTML, formatDateParts, isRecent, prefersReducedMotion } from '../core/utils.js';
 import { getNews, getEvents } from '../services/api.js';
 
-/* ---------- Noticias ---------- */
+/* ---------- Confeti ligero ---------- */
+function launchConfetti(originEl) {
+    if (prefersReducedMotion() || !originEl) return;
+    const rect = originEl.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const colors = ['#30BF97', '#7EE0C2', '#30348C', '#FFB800', '#FF8F00', '#FFFFFF'];
+    const count = 34;
+
+    for (let i = 0; i < count; i++) {
+        const bit = document.createElement('span');
+        bit.className = 'confetti-bit';
+        bit.style.left = `${cx}px`;
+        bit.style.top  = `${cy}px`;
+        bit.style.background = colors[Math.floor(Math.random() * colors.length)];
+        bit.style.setProperty('--x', `${(Math.random() - 0.5) * 460}px`);
+        bit.style.setProperty('--y', `${-Math.random() * 280 - 80}px`);
+        bit.style.setProperty('--r', `${Math.random() * 900 - 450}deg`);
+        bit.style.setProperty('--d', `${0.95 + Math.random() * 0.7}s`);
+        document.body.appendChild(bit);
+        setTimeout(() => bit.remove(), 1800);
+    }
+}
+
+/* ---------- Noticias (sin cambios funcionales) ---------- */
 
 function buildNewsCard(item, isFeatured) {
     const date = formatDateParts(item.date);
@@ -197,9 +221,30 @@ async function initEvents() {
     next?.addEventListener('click', () => viewport.scrollBy({ left:  step(), behavior: 'smooth' }));
 }
 
-/* ---------- Init ---------- */
+/* ---------- Celebración de la card destacada ---------- */
+function initFeaturedCard() {
+    const card = document.querySelector('[data-featured-card]');
+    if (!card || !('IntersectionObserver' in window) || prefersReducedMotion()) return;
 
+    let fired = false;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!fired && entry.isIntersecting) {
+                fired = true;
+                setTimeout(() => {
+                    const badge = card.querySelector('.program-card__level-badge--new');
+                    launchConfetti(badge || card);
+                }, 350);
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.55 });
+    observer.observe(card);
+}
+
+/* ---------- Init ---------- */
 export function init() {
     initNews();
     initEvents();
+    initFeaturedCard();
 }

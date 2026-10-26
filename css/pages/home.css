@@ -1501,7 +1501,7 @@
 }
 
 /* =========================================================
-   6. OFERTA EDUCATIVA
+   6. OFERTA EDUCATIVA — Rediseño premium
    ========================================================= */
 .section--programs {
     position: relative;
@@ -1540,43 +1540,39 @@
     gap: var(--space-lg);
 }
 
-@media (max-width: 767px) {
-    .programs__grid { gap: var(--space-md); }
-    .program-card__media { aspect-ratio: 16 / 9; }
-    .program-card__body {
-        padding: var(--space-md) var(--space-md) var(--space-lg);
-        gap: var(--space-sm);
-    }
-    .program-card__level-badge,
-    .program-card__area-badge {
-        padding: 0.3125rem 0.625rem;
-        font-size: 0.625rem;
-        letter-spacing: 0.08em;
-    }
-    .program-card__area-badge {
-        max-width: calc(100% - var(--space-md) * 2);
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    .program-card__title {
-        font-size: var(--fs-lg);
-        line-height: 1.25;
-        letter-spacing: -0.015em;
-    }
-    .program-card__tagline {
-        font-size: var(--fs-sm);
-        line-height: 1.5;
-    }
-}
-
 @media (min-width: 640px) {
     .programs__grid { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (min-width: 1024px) {
     .programs__grid { grid-template-columns: repeat(3, 1fr); }
 }
+@media (min-width: 1200px) {
+    .programs__grid { grid-template-columns: repeat(4, 1fr); }
+}
 
+/* Aviso inferior */
+.programs__note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: var(--space-xl);
+    padding: 0.875rem 1rem;
+    background: rgba(48, 52, 140, 0.04);
+    border: 1px solid rgba(48, 52, 140, 0.10);
+    border-radius: var(--radius-md);
+    color: var(--color-muted);
+    font-size: var(--fs-sm);
+    line-height: 1.55;
+}
+.programs__note svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+    margin-top: 1px;
+}
+
+/* =========================================================
+   TARJETA DE PROGRAMA — Rediseño
+   ========================================================= */
 .program-card {
     position: relative;
     display: flex;
@@ -1586,10 +1582,11 @@
     border-radius: var(--radius-lg);
     overflow: hidden;
     transition:
-        transform var(--t-base),
-        box-shadow var(--t-base),
-        border-color var(--t-base);
+        transform 0.4s var(--ease-out),
+        box-shadow 0.4s var(--ease-out),
+        border-color 0.4s var(--ease-out);
     height: 100%;
+    isolation: isolate;
 }
 
 .program-card::before {
@@ -1608,12 +1605,15 @@
 
 .program-card:hover {
     transform: translateY(-6px);
-    box-shadow: var(--shadow-lg);
+    box-shadow:
+        0 24px 48px rgba(15, 18, 38, 0.10),
+        0 8px 20px rgba(15, 18, 38, 0.06);
     border-color: rgba(48, 52, 140, 0.18);
 }
 
 .program-card:hover::before { transform: scaleX(1); }
 
+/* ---------- Media ---------- */
 .program-card__media {
     position: relative;
     aspect-ratio: 16 / 10;
@@ -1630,7 +1630,7 @@
     background: linear-gradient(180deg,
             transparent 40%,
             rgba(15, 18, 38, 0.15) 65%,
-            rgba(15, 18, 38, 0.72) 100%);
+            rgba(15, 18, 38, 0.68) 100%);
     pointer-events: none;
     z-index: 1;
 }
@@ -1644,11 +1644,47 @@
 
 .program-card:hover .program-card__media img { transform: scale(1.06); }
 
+/* Número de programa */
+.program-card__num {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 30px;
+    padding: 0 0.5rem;
+    background-color: rgba(15, 18, 38, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: var(--radius-sm);
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    transition: transform 0.4s var(--ease-out), background-color 0.3s;
+}
+
+.program-card:hover .program-card__num {
+    transform: scale(1.08);
+    background-color: var(--color-secondary);
+    border-color: transparent;
+}
+
+/* Badge de nivel (Ing/Lic) */
 .program-card__level-badge {
     position: absolute;
     top: var(--space-md);
     right: var(--space-md);
     z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
     padding: 0.4375rem 0.875rem;
     background: var(--gradient-accent);
     color: #FFFFFF;
@@ -1664,6 +1700,55 @@
     white-space: nowrap;
 }
 
+/* Badge "Nueva opción 2026" */
+.program-card__level-badge--new {
+    background: linear-gradient(135deg, #FFB800 0%, #FF8F00 100%);
+    box-shadow:
+        0 8px 24px rgba(255, 160, 0, 0.40),
+        inset 0 1px 0 rgba(255, 255, 255, 0.40);
+    color: #FFFFFF;
+    overflow: hidden;
+    position: absolute;
+    padding-left: 0.75rem;
+}
+
+.program-card__level-badge--new::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+        transparent 25%,
+        rgba(255, 255, 255, 0.45) 50%,
+        transparent 75%);
+    background-size: 200% 100%;
+    animation: newBadgeSweep 3.4s linear infinite;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+@keyframes newBadgeSweep {
+    0%   { background-position: 220% 0; }
+    100% { background-position: -120% 0; }
+}
+
+.program-card__sparkle {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    animation: sparkleTwinkle 2.2s ease-in-out infinite;
+}
+
+@keyframes sparkleTwinkle {
+    0%, 100% { transform: scale(1)   rotate(0deg);   opacity: 1;   }
+    50%      { transform: scale(1.2) rotate(15deg); opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .program-card__level-badge--new::before,
+    .program-card__sparkle { animation: none; }
+}
+
+/* Badge de área */
 .program-card__area-badge {
     position: absolute;
     bottom: var(--space-md);
@@ -1690,20 +1775,20 @@
     text-overflow: ellipsis;
 }
 
-.program-card__area-badge::before {
-    content: "";
-    flex-shrink: 0;
+.program-card__area-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background-color: var(--color-secondary);
     box-shadow: 0 0 10px rgba(48, 191, 151, 0.9);
+    flex-shrink: 0;
 }
 
+/* ---------- Body ---------- */
 .program-card__body {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--space-sm);
     padding: var(--space-lg);
     flex: 1;
 }
@@ -1733,30 +1818,59 @@
     font-weight: 700;
     color: var(--color-ink);
     letter-spacing: -0.02em;
-    line-height: 1.2;
+    line-height: 1.22;
 }
 
 .program-card__tagline {
     position: relative;
-    padding-left: 1.25rem;
+    padding-left: 1.1rem;
     font-size: var(--fs-sm);
     color: var(--color-text);
     font-weight: 500;
     line-height: 1.55;
-    letter-spacing: 0.005em;
 }
 
 .program-card__tagline::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 0.3em;
-    bottom: 0.3em;
+    top: 0.35em;
+    bottom: 0.35em;
     width: 3px;
-    background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+    background: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
     border-radius: 3px;
 }
 
+/* Facts (duración, credenciales) */
+.program-card__facts {
+    list-style: none;
+    margin: 0;
+    padding: var(--space-sm) 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.program-card__facts li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--fs-xs);
+    color: var(--color-muted);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.program-card__facts svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--color-primary);
+    opacity: 0.75;
+}
+
+/* CTA */
 .program-card__cta {
     position: relative;
     display: inline-flex;
@@ -1765,7 +1879,7 @@
     gap: 0.625rem;
     width: 100%;
     margin-top: auto;
-    padding: 0.875rem 0.1rem;
+    padding: 0.8125rem 0.1rem;
     background: var(--gradient-primary);
     color: #FFFFFF;
     font-weight: 600;
@@ -1807,124 +1921,111 @@
 .program-card__cta-icon {
     width: 16px;
     height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.3s var(--ease-out);
 }
 
-.program-card__cta:hover .program-card__cta-icon {
-    transform: translateX(3px);
+.program-card__cta-icon svg { width: 100%; height: 100%; }
+
+.program-card__cta:hover .program-card__cta-icon { transform: translateX(3px); }
+
+/* =========================================================
+   CARD DESTACADA — Modalidad Mixta
+   ========================================================= */
+.program-card--featured {
+    border: 1.5px solid transparent;
+    background:
+        linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+        linear-gradient(135deg, #FFB800 0%, #30BF97 50%, #30348C 100%) border-box;
+    box-shadow:
+        0 8px 24px rgba(255, 184, 0, 0.10),
+        0 2px 8px rgba(48, 191, 151, 0.08);
 }
 
-.programs__note {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    margin-top: var(--space-2xl);
-    padding: var(--space-2xl) var(--space-xl);
-    background: var(--gradient-primary);
-    color: #FFFFFF;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-glow);
-    overflow: hidden;
-    isolation: isolate;
+.program-card--featured::before {
+    background: linear-gradient(90deg, #FFB800 0%, #30BF97 100%);
+    transform: scaleX(1);
 }
 
-@media (min-width: 768px) {
-    .programs__note {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-2xl);
-        padding: var(--space-2xl) var(--space-2xl);
+.program-card--featured:hover {
+    box-shadow:
+        0 28px 56px rgba(255, 160, 0, 0.18),
+        0 12px 28px rgba(48, 191, 151, 0.12);
+    transform: translateY(-8px);
+}
+
+.program-card--featured .program-card__cta {
+    background: linear-gradient(135deg, #FF8F00 0%, #FFB800 100%);
+    box-shadow: 0 8px 20px rgba(255, 160, 0, 0.30);
+}
+
+.program-card--featured .program-card__cta::before {
+    background: linear-gradient(135deg, #FFB800 0%, #FF8F00 100%);
+}
+
+/* =========================================================
+   CONFETI — celebración de la card destacada
+   ========================================================= */
+.confetti-bit {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confettiFly var(--d, 1.2s) cubic-bezier(.15, .7, .4, 1) forwards;
+}
+
+@keyframes confettiFly {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform:
+            translate(var(--x, 0), var(--y, 0))
+            rotate(var(--r, 360deg))
+            scale(0.6);
+        opacity: 0;
     }
 }
 
-.programs__note::before {
-    content: "";
-    position: absolute;
-    top: -40%;
-    right: -10%;
-    width: 55%;
-    height: 160%;
-    background: radial-gradient(circle, rgba(48, 191, 151, 0.32) 0%, transparent 65%);
-    filter: blur(60px);
-    pointer-events: none;
-    z-index: -1;
-}
-
-.programs__note-content {
-    position: relative;
-    z-index: 1;
-    max-width: 62ch;
-}
-
-.programs__note-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: var(--space-md);
-    padding: 0.375rem 0.75rem;
-    background-color: rgba(48, 191, 151, 0.18);
-    border: 1px solid rgba(48, 191, 151, 0.36);
-    border-radius: var(--radius-pill);
-    color: #7EE0C2;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    line-height: 1;
-}
-
-.programs__note-badge-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--color-secondary);
-    box-shadow: 0 0 10px rgba(48, 191, 151, 0.9);
-    animation: mixtaPulse 2s ease-in-out infinite;
-}
-
-@keyframes mixtaPulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%      { opacity: 0.55; transform: scale(0.85); }
-}
-
-.programs__note-title {
-    font-size: var(--fs-xl);
-    font-weight: 700;
-    margin-bottom: var(--space-sm);
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    color: #FFFFFF;
-}
-
-.programs__note-text {
-    color: rgba(255, 255, 255, 0.88);
-    line-height: 1.7;
-    margin-bottom: var(--space-sm);
-}
-
-.programs__note-warning {
-    font-size: var(--fs-sm);
-    color: rgba(255, 255, 255, 0.68);
-    line-height: 1.6;
-    padding-left: var(--space-md);
-    border-left: 2px solid rgba(48, 191, 151, 0.5);
-}
-
-.programs__note-cta {
-    position: relative;
-    z-index: 1;
-    flex-shrink: 0;
-    align-self: flex-start;
-}
-
-@media (min-width: 768px) {
-    .programs__note-cta { align-self: center; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-    .programs__note-badge-dot { animation: none; }
+    .confetti-bit { display: none; }
+}
+
+/* =========================================================
+   Ajustes móviles
+   ========================================================= */
+@media (max-width: 767px) {
+    .programs__grid { gap: var(--space-md); }
+    .program-card__media { aspect-ratio: 16 / 9; }
+    .program-card__body {
+        padding: var(--space-md) var(--space-md) var(--space-lg);
+        gap: 0.625rem;
+    }
+    .program-card__level-badge {
+        padding: 0.375rem 0.625rem;
+        font-size: 0.625rem;
+        letter-spacing: 0.08em;
+    }
+    .program-card__area-badge {
+        padding: 0.3125rem 0.625rem;
+        font-size: 0.625rem;
+    }
+    .program-card__title {
+        font-size: var(--fs-lg);
+        line-height: 1.25;
+    }
+    .program-card__num {
+        min-width: 32px;
+        height: 26px;
+        font-size: 0.6875rem;
+    }
 }
 
 /* =========================================================
@@ -3294,4 +3395,41 @@
     .lightbox__nav--prev { left: 12px; }
     .lightbox__nav--next { right: 12px; }
     .lightbox__close { top: -50px; }
+}
+
+/* =========================================================
+   ANIMACIONES DE AMBIENTE — sutiles, no botones
+   ========================================================= */
+
+/* Los blobs decorativos del intro respiran */
+.intro__decor-blob {
+    animation: blobFloat 9s ease-in-out infinite;
+}
+@keyframes blobFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%      { transform: translate(-8px, -12px) scale(1.04); }
+}
+
+/* El badge flotante del intro "respira" muy sutil */
+.intro__badge-icon {
+    animation: badgeFloat 4s ease-in-out infinite;
+}
+@keyframes badgeFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-3px); }
+}
+
+/* Puntos decorativos que orbitan suavemente */
+.intro__decor-dots {
+    animation: dotsDrift 12s ease-in-out infinite;
+}
+@keyframes dotsDrift {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(6px, -8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .intro__decor-blob,
+    .intro__decor-dots,
+    .intro__badge-icon { animation: none; }
 }

@@ -1,9 +1,5 @@
 <!-- ============================================================
      index.html — Página principal UTU
-     ------------------------------------------------------------
-     · Todo el JS se carga como módulo desde /js/app.js
-     · Las imágenes de referencia vienen del HTML (Unsplash)
-     · data-page="home" activa js/pages/home.js
      ============================================================ -->
 <!DOCTYPE html>
 <html lang="es">
@@ -13,14 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#30348C">
 
-    <!-- SEO -->
     <title>Universidad Tecnológica del Usumacinta (UTU) | Formación que se vive</title>
     <meta name="description" content="La Universidad Tecnológica del Usumacinta (UTU) forma profesionales con 60% práctica y 40% teoría, dos estadías profesionales y una ruta de TSU a Ingeniería o Licenciatura. Emiliano Zapata, Tabasco.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Universidad Tecnológica del Usumacinta">
     <link rel="canonical" href="https://www.utu.edu.mx/">
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_MX">
     <meta property="og:site_name" content="Universidad Tecnológica del Usumacinta">
@@ -29,17 +23,14 @@
     <meta property="og:url" content="https://www.utu.edu.mx/">
     <meta property="og:image" content="https://www.utu.edu.mx/assets/images/branding/logo-utu.png">
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" href="/assets/icons/icon.png" type="image/png">
 
-    <!-- Tipografía -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Estilos -->
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/main.css">
@@ -50,7 +41,6 @@
     <link rel="stylesheet" href="/css/components/lightbox.css">
     <link rel="stylesheet" href="/css/pages/home.css">
 
-    <!-- Marca de JS activo (evita parpadeo en .reveal) -->
     <script>document.documentElement.classList.add('js');</script>
 </head>
 
@@ -58,21 +48,16 @@
 
     <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
-    <!-- HEADER (inyectado por js/components/header.js) -->
     <div data-component="header"></div>
 
     <main id="contenido">
 
-        <!-- =====================================================
-             1. HERO / CARRUSEL
-             ===================================================== -->
+        <!-- HERO (sin cambios) -->
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero__carousel" data-carousel data-autoplay="6500"
                  role="region" aria-roledescription="carrusel"
                  aria-label="Imágenes destacadas de la UTU">
-
                 <div class="hero__track" data-carousel-track>
-
                     <article class="hero__slide is-active" data-carousel-slide role="group"
                              aria-roledescription="diapositiva" aria-label="1 de 4">
                         <div class="hero__media">
@@ -95,9 +80,7 @@
                             </div>
                         </div>
                     </article>
-
-                    <article class="hero__slide" data-carousel-slide role="group"
-                             aria-roledescription="diapositiva" aria-label="2 de 4" aria-hidden="true">
+                    <article class="hero__slide" data-carousel-slide role="group" aria-roledescription="diapositiva" aria-label="2 de 4" aria-hidden="true">
                         <div class="hero__media">
                             <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1920&h=1080&q=80&auto=format&fit=crop"
                                  alt="Estudiantes en laboratorio" width="1920" height="1080"
@@ -106,10 +89,7 @@
                         <div class="hero__overlay">
                             <div class="container hero__content">
                                 <p class="eyebrow eyebrow--on-dark">Modelo académico 60 / 40</p>
-                                <h2 class="hero__title">
-                                    60% práctica.
-                                    <span class="hero__title-accent">40% teoría.</span>
-                                </h2>
+                                <h2 class="hero__title">60% práctica. <span class="hero__title-accent">40% teoría.</span></h2>
                                 <p class="hero__lead">
                                     Un esquema que favorece que los conocimientos se utilicen y comprueben
                                     mediante ejercicios, prácticas, proyectos y actividades del área profesional.
@@ -117,9 +97,7 @@
                             </div>
                         </div>
                     </article>
-
-                    <article class="hero__slide" data-carousel-slide role="group"
-                             aria-roledescription="diapositiva" aria-label="3 de 4" aria-hidden="true">
+                    <article class="hero__slide" data-carousel-slide role="group" aria-roledescription="diapositiva" aria-label="3 de 4" aria-hidden="true">
                         <div class="hero__media">
                             <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1080&q=80&auto=format&fit=crop"
                                  alt="Vida universitaria UTU" width="1920" height="1080"
@@ -128,20 +106,12 @@
                         <div class="hero__overlay">
                             <div class="container hero__content">
                                 <p class="eyebrow eyebrow--on-dark">Vida universitaria</p>
-                                <h2 class="hero__title">
-                                    La experiencia
-                                    <span class="hero__title-accent">también se vive fuera del aula.</span>
-                                </h2>
-                                <p class="hero__lead">
-                                    Actividades culturales, deportivas y paraescolares que complementan
-                                    tu formación profesional.
-                                </p>
+                                <h2 class="hero__title">La experiencia <span class="hero__title-accent">también se vive fuera del aula.</span></h2>
+                                <p class="hero__lead">Actividades culturales, deportivas y paraescolares que complementan tu formación profesional.</p>
                             </div>
                         </div>
                     </article>
-
-                    <article class="hero__slide" data-carousel-slide role="group"
-                             aria-roledescription="diapositiva" aria-label="4 de 4" aria-hidden="true">
+                    <article class="hero__slide" data-carousel-slide role="group" aria-roledescription="diapositiva" aria-label="4 de 4" aria-hidden="true">
                         <div class="hero__media">
                             <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1920&h=1080&q=80&auto=format&fit=crop"
                                  alt="Egresados UTU" width="1920" height="1080"
@@ -150,18 +120,11 @@
                         <div class="hero__overlay">
                             <div class="container hero__content">
                                 <p class="eyebrow eyebrow--on-dark">Ruta académica</p>
-                                <h2 class="hero__title">
-                                    De TSU a
-                                    <span class="hero__title-accent">Ingeniería o Licenciatura.</span>
-                                </h2>
-                                <p class="hero__lead">
-                                    Dos estadías profesionales y la posibilidad de obtener
-                                    2 títulos y 2 cédulas profesionales.
-                                </p>
+                                <h2 class="hero__title">De TSU a <span class="hero__title-accent">Ingeniería o Licenciatura.</span></h2>
+                                <p class="hero__lead">Dos estadías profesionales y la posibilidad de obtener 2 títulos y 2 cédulas profesionales.</p>
                             </div>
                         </div>
                     </article>
-
                 </div>
 
                 <button type="button" class="hero__nav hero__nav--prev" data-carousel-prev aria-label="Diapositiva anterior">
@@ -185,7 +148,6 @@
                         </button>
                     </div>
                 </div>
-
                 <div class="hero__progress" data-carousel-progress aria-hidden="true">
                     <span class="hero__progress-bar"></span>
                 </div>
@@ -199,9 +161,7 @@
             </ul>
         </section>
 
-        <!-- =====================================================
-             2. PRESENTACIÓN INSTITUCIONAL
-             ===================================================== -->
+        <!-- PRESENTACIÓN INSTITUCIONAL — JERARQUÍA CORREGIDA -->
         <section class="section section--intro" aria-labelledby="intro-title">
             <div class="container">
                 <div class="intro__grid">
@@ -211,7 +171,7 @@
                             Una universidad donde el conocimiento
                             <span class="intro__title-accent">se convierte en experiencia</span>
                         </h2>
-                        <p class="lead">
+                        <p class="section__lead">
                             La Universidad Tecnológica del Usumacinta es una institución de educación
                             superior ubicada en el municipio de Emiliano Zapata, Tabasco, cuya propuesta
                             educativa se caracteriza por una formación orientada principalmente a la
@@ -309,9 +269,7 @@
             </div>
         </section>
 
-        <!-- =====================================================
-             4. RUTA ACADÉMICA
-             ===================================================== -->
+        <!-- RUTA ACADÉMICA -->
         <section class="section section--route" id="ruta" aria-labelledby="route-title">
             <div class="container">
                 <header class="section__head section__head--center">
@@ -369,14 +327,15 @@
         </section>
 
         <!-- =====================================================
-             5. OFERTA EDUCATIVA (atajos a las carreras)
+             OFERTA EDUCATIVA — REDISEÑO COMPLETO
+             8 tarjetas: 7 carreras + Modalidad Mixta (destacada)
              ===================================================== -->
         <section class="section section--programs" id="oferta" aria-labelledby="programs-title">
             <div class="container">
                 <header class="section__head section__head--center">
-                    <p class="eyebrow">Oferta educativa</p>
+                    <p class="eyebrow">Oferta educativa · 8 opciones</p>
                     <h2 class="section__title" id="programs-title">
-                        7 programas, <span class="programs__title-accent">una misma ruta</span>
+                        8 programas, <span class="programs__title-accent">una misma ruta</span>
                     </h2>
                     <p class="section__lead section__lead--center">
                         TSU con continuidad a Ingeniería o Licenciatura.
@@ -392,8 +351,12 @@
                             <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=600&q=80&auto=format&fit=crop"
                                  alt="Entornos virtuales y negocios digitales" width="900" height="600"
                                  loading="lazy" decoding="async">
+                            <span class="program-card__num" aria-hidden="true">01</span>
                             <span class="program-card__level-badge">Ingeniería</span>
-                            <span class="program-card__area-badge">Tecnología</span>
+                            <span class="program-card__area-badge">
+                                <span class="program-card__area-dot" aria-hidden="true"></span>
+                                Tecnología
+                            </span>
                         </figure>
                         <div class="program-card__body">
                             <p class="program-card__eyebrow">
@@ -402,9 +365,21 @@
                             </p>
                             <h3 class="program-card__title">Entornos Virtuales y Negocios Digitales</h3>
                             <p class="program-card__tagline">Diseña soluciones digitales, plataformas y experiencias conectadas.</p>
+                            <ul class="program-card__facts" aria-label="Datos del programa">
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    <span>2 años + 1 año 4 meses</span>
+                                </li>
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                                    <span>2 títulos + 2 cédulas</span>
+                                </li>
+                            </ul>
                             <a class="program-card__cta" href="/pages/oferta-educativa/carrera-01.html">
                                 <span class="program-card__cta-text">Ver programa</span>
-                                <svg class="program-card__cta-icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                                <span class="program-card__cta-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                                </span>
                             </a>
                         </div>
                     </article>
@@ -415,8 +390,12 @@
                             <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900&h=600&q=80&auto=format&fit=crop"
                                  alt="Biotecnología UTU" width="900" height="600"
                                  loading="lazy" decoding="async">
+                            <span class="program-card__num" aria-hidden="true">02</span>
                             <span class="program-card__level-badge">Ingeniería</span>
-                            <span class="program-card__area-badge">Ciencias de la vida</span>
+                            <span class="program-card__area-badge">
+                                <span class="program-card__area-dot" aria-hidden="true"></span>
+                                Ciencias de la vida
+                            </span>
                         </figure>
                         <div class="program-card__body">
                             <p class="program-card__eyebrow">
@@ -425,9 +404,21 @@
                             </p>
                             <h3 class="program-card__title">Biotecnología</h3>
                             <p class="program-card__tagline">Investiga y aplica procesos biológicos en laboratorio y campo.</p>
+                            <ul class="program-card__facts" aria-label="Datos del programa">
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    <span>2 años + 1 año 4 meses</span>
+                                </li>
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                                    <span>2 títulos + 2 cédulas</span>
+                                </li>
+                            </ul>
                             <a class="program-card__cta" href="/pages/oferta-educativa/carrera-02.html">
                                 <span class="program-card__cta-text">Ver programa</span>
-                                <svg class="program-card__cta-icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                                <span class="program-card__cta-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                                </span>
                             </a>
                         </div>
                     </article>
@@ -438,8 +429,12 @@
                             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&h=600&q=80&auto=format&fit=crop"
                                  alt="Negocios y Mercadotecnia UTU" width="900" height="600"
                                  loading="lazy" decoding="async">
+                            <span class="program-card__num" aria-hidden="true">03</span>
                             <span class="program-card__level-badge">Licenciatura</span>
-                            <span class="program-card__area-badge">Negocios</span>
+                            <span class="program-card__area-badge">
+                                <span class="program-card__area-dot" aria-hidden="true"></span>
+                                Negocios
+                            </span>
                         </figure>
                         <div class="program-card__body">
                             <p class="program-card__eyebrow">
@@ -448,9 +443,21 @@
                             </p>
                             <h3 class="program-card__title">Negocios y Mercadotecnia</h3>
                             <p class="program-card__tagline">Construye marcas, estrategias comerciales y experiencias de cliente.</p>
+                            <ul class="program-card__facts" aria-label="Datos del programa">
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    <span>2 años + 1 año 4 meses</span>
+                                </li>
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                                    <span>2 títulos + 2 cédulas</span>
+                                </li>
+                            </ul>
                             <a class="program-card__cta" href="/pages/oferta-educativa/carrera-03.html">
                                 <span class="program-card__cta-text">Ver programa</span>
-                                <svg class="program-card__cta-icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                                <span class="program-card__cta-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                                </span>
                             </a>
                         </div>
                     </article>
@@ -461,8 +468,12 @@
                             <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=900&h=600&q=80&auto=format&fit=crop"
                                  alt="Gastronomía UTU" width="900" height="600"
                                  loading="lazy" decoding="async">
+                            <span class="program-card__num" aria-hidden="true">04</span>
                             <span class="program-card__level-badge">Licenciatura</span>
-                            <span class="program-card__area-badge">Gastronomía</span>
+                            <span class="program-card__area-badge">
+                                <span class="program-card__area-dot" aria-hidden="true"></span>
+                                Gastronomía
+                            </span>
                         </figure>
                         <div class="program-card__body">
                             <p class="program-card__eyebrow">
@@ -471,9 +482,21 @@
                             </p>
                             <h3 class="program-card__title">Gastronomía</h3>
                             <p class="program-card__tagline">Domina técnicas culinarias y gestión de servicios gastronómicos.</p>
+                            <ul class="program-card__facts" aria-label="Datos del programa">
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    <span>2 años + 1 año 4 meses</span>
+                                </li>
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                                    <span>2 títulos + 2 cédulas</span>
+                                </li>
+                            </ul>
                             <a class="program-card__cta" href="/pages/oferta-educativa/carrera-04.html">
                                 <span class="program-card__cta-text">Ver programa</span>
-                                <svg class="program-card__cta-icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                                <span class="program-card__cta-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                                </span>
                             </a>
                         </div>
                     </article>
@@ -484,8 +507,12 @@
                             <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&h=600&q=80&auto=format&fit=crop"
                                  alt="Gestión y desarrollo turístico" width="900" height="600"
                                  loading="lazy" decoding="async">
+                            <span class="program-card__num" aria-hidden="true">05</span>
                             <span class="program-card__level-badge">Licenciatura</span>
-                            <span class="program-card__area-badge">Turismo</span>
+                            <span class="program-card__area-badge">
+                                <span class="program-card__area-dot" aria-hidden="true"></span>
+                                Turismo
+                            </span>
                         </figure>
                         <div class="program-card__body">
                             <p class="program-card__eyebrow">
@@ -494,9 +521,21 @@
                             </p>
                             <h3 class="program-card__title">Gestión y Desarrollo Turístico</h3>
                             <p class="program-card__tagline">Diseña destinos, experiencias y proyectos turísticos sostenibles.</p>
+                            <ul class="program-card__facts" aria-label="Datos del programa">
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    <span>2 años + 1 año 4 meses</span>
+                                </li>
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                                    <span>2 títulos + 2 cédulas</span>
+                                </li>
+                            </ul>
                             <a class="program-card__cta" href="/pages/oferta-educativa/carrera-05.html">
                                 <span class="program-card__cta-text">Ver programa</span>
-                                <svg class="program-card__cta-icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                                <span class="program-card__cta-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                                </span>
                             </a>
                         </div>
                     </article>
@@ -507,8 +546,12 @@
                             <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=900&h=600&q=80&auto=format&fit=crop"
                                  alt="Paramédico y protección civil" width="900" height="600"
                                  loading="lazy" decoding="async">
+                            <span class="program-card__num" aria-hidden="true">06</span>
                             <span class="program-card__level-badge">Licenciatura</span>
-                            <span class="program-card__area-badge">Salud</span>
+                            <span class="program-card__area-badge">
+                                <span class="program-card__area-dot" aria-hidden="true"></span>
+                                Salud
+                            </span>
                         </figure>
                         <div class="program-card__body">
                             <p class="program-card__eyebrow">
@@ -517,9 +560,21 @@
                             </p>
                             <h3 class="program-card__title">Protección Civil</h3>
                             <p class="program-card__tagline">Formación en atención prehospitalaria y gestión de riesgos.</p>
+                            <ul class="program-card__facts" aria-label="Datos del programa">
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    <span>2 años + 1 año 4 meses</span>
+                                </li>
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                                    <span>2 títulos + 2 cédulas</span>
+                                </li>
+                            </ul>
                             <a class="program-card__cta" href="/pages/oferta-educativa/carrera-06.html">
                                 <span class="program-card__cta-text">Ver programa</span>
-                                <svg class="program-card__cta-icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                                <span class="program-card__cta-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                                </span>
                             </a>
                         </div>
                     </article>
@@ -530,8 +585,12 @@
                             <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&h=600&q=80&auto=format&fit=crop"
                                  alt="Contaduría UTU" width="900" height="600"
                                  loading="lazy" decoding="async">
+                            <span class="program-card__num" aria-hidden="true">07</span>
                             <span class="program-card__level-badge">Licenciatura</span>
-                            <span class="program-card__area-badge">Finanzas</span>
+                            <span class="program-card__area-badge">
+                                <span class="program-card__area-dot" aria-hidden="true"></span>
+                                Finanzas
+                            </span>
                         </figure>
                         <div class="program-card__body">
                             <p class="program-card__eyebrow">
@@ -540,57 +599,92 @@
                             </p>
                             <h3 class="program-card__title">Contaduría</h3>
                             <p class="program-card__tagline">Domina la información financiera, fiscal y de auditoría.</p>
+                            <ul class="program-card__facts" aria-label="Datos del programa">
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    <span>2 años + 1 año 4 meses</span>
+                                </li>
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                                    <span>2 títulos + 2 cédulas</span>
+                                </li>
+                            </ul>
                             <a class="program-card__cta" href="/pages/oferta-educativa/carrera-07.html">
                                 <span class="program-card__cta-text">Ver programa</span>
-                                <svg class="program-card__cta-icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                                <span class="program-card__cta-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                                </span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 08 · MODALIDAD MIXTA — DESTACADA COMO CARD -->
+                    <article class="program-card program-card--featured reveal" data-reveal-delay="420"
+                             data-featured-card>
+                        <figure class="program-card__media">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&h=600&q=80&auto=format&fit=crop"
+                                 alt="Modalidad Mixta UTU — Estudia y trabaja" width="900" height="600"
+                                 loading="lazy" decoding="async">
+                            <span class="program-card__num" aria-hidden="true">08</span>
+                            <span class="program-card__level-badge program-card__level-badge--new">
+                                <svg class="program-card__sparkle" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.5l1.6 4.5 4.4 1.6-4.4 1.6L12 14.7l-1.6-4.5L6 8.6l4.4-1.6L12 2.5z"/>
+                                    <path d="M19 13.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2z"/>
+                                    <path d="M5 14.5l.6 1.6 1.6.6-1.6.6L5 18.9l-.6-1.6L2.8 16.7l1.6-.6L5 14.5z"/>
+                                </svg>
+                                Nueva opción 2026
+                            </span>
+                            <span class="program-card__area-badge">
+                                <span class="program-card__area-dot" aria-hidden="true"></span>
+                                Modalidad Mixta
+                            </span>
+                        </figure>
+                        <div class="program-card__body">
+                            <p class="program-card__eyebrow">
+                                <span class="program-card__eyebrow-dot" aria-hidden="true"></span>
+                                TSU + Continuidad · Estudia y trabaja
+                            </p>
+                            <h3 class="program-card__title">Modalidad Mixta</h3>
+                            <p class="program-card__tagline">Combina sesiones sabatinas y trabajo autónomo. Diseñada para quienes estudian y trabajan.</p>
+                            <ul class="program-card__facts" aria-label="Datos de la modalidad">
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    <span>Horario sabatino</span>
+                                </li>
+                                <li>
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                                    <span>Cupo limitado</span>
+                                </li>
+                            </ul>
+                            <a class="program-card__cta" href="/pages/oferta-educativa/index.html">
+                                <span class="program-card__cta-text">Consultar programas</span>
+                                <span class="program-card__cta-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                                </span>
                             </a>
                         </div>
                     </article>
 
                 </div>
 
-                <!-- Nota / aviso de la Mixta -->
-                <div class="programs__note reveal">
-                    <div class="programs__note-content">
-                        <span class="programs__note-badge">
-                            <span class="programs__note-badge-dot" aria-hidden="true"></span>
-                            Nueva opción 2026
-                        </span>
-                        <h3 class="programs__note-title">Modalidad Mixta · TSU + Continuidad</h3>
-                        <p class="programs__note-text">
-                            Combina sesiones presenciales y trabajo autónomo. Pensada para quienes
-                            estudian y trabajan: no todos los programas están disponibles en esta
-                            modalidad; consulta con Control Escolar antes de inscribirte.
-                        </p>
-                        <p class="programs__note-warning">
-                            La apertura depende del cupo mínimo por grupo y de la disponibilidad
-                            docente por cuatrimestre.
-                        </p>
-                    </div>
-                    <div class="programs__note-cta">
-                        <a class="btn btn--light" href="/pages/oferta-educativa/index.html">
-                            Ver toda la oferta
-                            <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
-                        </a>
-                    </div>
-                </div>
+                <p class="programs__note">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    La apertura de grupos está sujeta al cupo mínimo por cuatrimestre y a la disponibilidad docente. Consulta con Control Escolar antes de inscribirte.
+                </p>
             </div>
         </section>
 
-        <!-- =====================================================
-             5.B VIDA UNIVERSITARIA — Paraescolares (vintage)
-             ===================================================== -->
+        <!-- VIDA UNIVERSITARIA (sin cambios estructurales, solo jerarquía) -->
         <section class="section section--life" id="paraescolares" aria-labelledby="life-title">
             <div class="container">
                 <div class="life__grid">
-
                     <div class="life__content reveal">
                         <p class="eyebrow">Vida universitaria</p>
                         <h2 class="section__title" id="life-title">
                             Paraescolares: la experiencia
                             <span class="life__title-accent">también se vive fuera del aula</span>
                         </h2>
-                        <p class="lead">
+                        <p class="section__lead">
                             La experiencia universitaria va más allá de las clases. Los paraescolares
                             de la UTU son espacios para desarrollar disciplina, creatividad, trabajo
                             en equipo y convivencia.
@@ -600,28 +694,16 @@
                             la vida universitaria. Al cierre de cada periodo se realizan
                             demostraciones abiertas a toda la comunidad.
                         </p>
-
                         <ul class="life__stats" aria-label="Datos de paraescolares">
-                            <li class="life__stat">
-                                <strong data-count="9">0</strong>
-                                <span>Paraescolares</span>
-                            </li>
-                            <li class="life__stat">
-                                <strong data-count="3">0</strong>
-                                <span>Categorías</span>
-                            </li>
-                            <li class="life__stat">
-                                <strong data-count="12">0</strong>
-                                <span>Eventos al año</span>
-                            </li>
+                            <li class="life__stat"><strong data-count="9">0</strong><span>Paraescolares</span></li>
+                            <li class="life__stat"><strong data-count="3">0</strong><span>Categorías</span></li>
+                            <li class="life__stat"><strong data-count="12">0</strong><span>Eventos al año</span></li>
                         </ul>
-
                         <div class="life__cats" aria-label="Categorías de paraescolares">
                             <span class="life__cat life__cat--sport">Deporte</span>
                             <span class="life__cat life__cat--culture">Cultura</span>
                             <span class="life__cat life__cat--art">Arte</span>
                         </div>
-
                         <a class="link-arrow" href="/pages/comunidad/paraescolares.html">
                             Conoce los paraescolares
                             <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
@@ -629,24 +711,17 @@
                     </div>
 
                     <div class="vintage reveal" data-reveal-delay="120"
-                         data-vintage-gallery
-                         data-vintage-autoplay="5500"
-                         role="region"
-                         aria-roledescription="galería de fotos"
+                         data-vintage-gallery data-vintage-autoplay="5500"
+                         role="region" aria-roledescription="galería de fotos"
                          aria-label="Galería de paraescolares de la UTU">
-
                         <div class="vintage__stage">
-
                             <figure class="vintage__slide is-active" data-vintage-slide>
                                 <div class="vintage__frame">
                                     <div class="vintage__photo">
                                         <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=900&h=700&q=80&auto=format&fit=crop"
                                              alt="Tamborileros de la UTU en presentación"
                                              width="900" height="700" loading="lazy" decoding="async">
-                                        <span class="vintage__cat vintage__cat--culture">
-                                            <span class="vintage__cat-dot" aria-hidden="true"></span>
-                                            Cultura
-                                        </span>
+                                        <span class="vintage__cat vintage__cat--culture"><span class="vintage__cat-dot" aria-hidden="true"></span>Cultura</span>
                                     </div>
                                     <figcaption class="vintage__caption">
                                         <span class="vintage__caption-num">01</span>
@@ -654,17 +729,12 @@
                                     </figcaption>
                                 </div>
                             </figure>
-
                             <figure class="vintage__slide" data-vintage-slide>
                                 <div class="vintage__frame">
                                     <div class="vintage__photo">
                                         <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=900&h=700&q=80&auto=format&fit=crop"
-                                             alt="Banda de Guerra de la UTU"
-                                             width="900" height="700" loading="lazy" decoding="async">
-                                        <span class="vintage__cat vintage__cat--culture">
-                                            <span class="vintage__cat-dot" aria-hidden="true"></span>
-                                            Cultura
-                                        </span>
+                                             alt="Banda de Guerra de la UTU" width="900" height="700" loading="lazy" decoding="async">
+                                        <span class="vintage__cat vintage__cat--culture"><span class="vintage__cat-dot" aria-hidden="true"></span>Cultura</span>
                                     </div>
                                     <figcaption class="vintage__caption">
                                         <span class="vintage__caption-num">02</span>
@@ -672,17 +742,12 @@
                                     </figcaption>
                                 </div>
                             </figure>
-
                             <figure class="vintage__slide" data-vintage-slide>
                                 <div class="vintage__frame">
                                     <div class="vintage__photo">
                                         <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&h=700&q=80&auto=format&fit=crop"
-                                             alt="Práctica de Taekwondo en la UTU"
-                                             width="900" height="700" loading="lazy" decoding="async">
-                                        <span class="vintage__cat vintage__cat--sport">
-                                            <span class="vintage__cat-dot" aria-hidden="true"></span>
-                                            Deporte
-                                        </span>
+                                             alt="Práctica de Taekwondo en la UTU" width="900" height="700" loading="lazy" decoding="async">
+                                        <span class="vintage__cat vintage__cat--sport"><span class="vintage__cat-dot" aria-hidden="true"></span>Deporte</span>
                                     </div>
                                     <figcaption class="vintage__caption">
                                         <span class="vintage__caption-num">03</span>
@@ -690,17 +755,12 @@
                                     </figcaption>
                                 </div>
                             </figure>
-
                             <figure class="vintage__slide" data-vintage-slide>
                                 <div class="vintage__frame">
                                     <div class="vintage__photo">
                                         <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=900&h=700&q=80&auto=format&fit=crop"
-                                             alt="Equipo de fútbol de la UTU"
-                                             width="900" height="700" loading="lazy" decoding="async">
-                                        <span class="vintage__cat vintage__cat--sport">
-                                            <span class="vintage__cat-dot" aria-hidden="true"></span>
-                                            Deporte
-                                        </span>
+                                             alt="Equipo de fútbol de la UTU" width="900" height="700" loading="lazy" decoding="async">
+                                        <span class="vintage__cat vintage__cat--sport"><span class="vintage__cat-dot" aria-hidden="true"></span>Deporte</span>
                                     </div>
                                     <figcaption class="vintage__caption">
                                         <span class="vintage__caption-num">04</span>
@@ -708,17 +768,12 @@
                                     </figcaption>
                                 </div>
                             </figure>
-
                             <figure class="vintage__slide" data-vintage-slide>
                                 <div class="vintage__frame">
                                     <div class="vintage__photo">
                                         <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&h=700&q=80&auto=format&fit=crop"
-                                             alt="Taller de Pintura en la UTU"
-                                             width="900" height="700" loading="lazy" decoding="async">
-                                        <span class="vintage__cat vintage__cat--art">
-                                            <span class="vintage__cat-dot" aria-hidden="true"></span>
-                                            Arte
-                                        </span>
+                                             alt="Taller de Pintura en la UTU" width="900" height="700" loading="lazy" decoding="async">
+                                        <span class="vintage__cat vintage__cat--art"><span class="vintage__cat-dot" aria-hidden="true"></span>Arte</span>
                                     </div>
                                     <figcaption class="vintage__caption">
                                         <span class="vintage__caption-num">05</span>
@@ -726,17 +781,12 @@
                                     </figcaption>
                                 </div>
                             </figure>
-
                             <figure class="vintage__slide" data-vintage-slide>
                                 <div class="vintage__frame">
                                     <div class="vintage__photo">
                                         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=700&q=80&auto=format&fit=crop"
-                                             alt="Taller de Serigrafía en la UTU"
-                                             width="900" height="700" loading="lazy" decoding="async">
-                                        <span class="vintage__cat vintage__cat--art">
-                                            <span class="vintage__cat-dot" aria-hidden="true"></span>
-                                            Arte
-                                        </span>
+                                             alt="Taller de Serigrafía en la UTU" width="900" height="700" loading="lazy" decoding="async">
+                                        <span class="vintage__cat vintage__cat--art"><span class="vintage__cat-dot" aria-hidden="true"></span>Arte</span>
                                     </div>
                                     <figcaption class="vintage__caption">
                                         <span class="vintage__caption-num">06</span>
@@ -744,45 +794,27 @@
                                     </figcaption>
                                 </div>
                             </figure>
-
                             <span class="vintage__stamp" aria-hidden="true">
                                 <span data-vintage-current>01</span>
                                 <span class="vintage__stamp-sep">/</span>
                                 <span data-vintage-total>06</span>
                             </span>
                         </div>
-
                         <div class="vintage__controls">
-                            <button class="vintage__nav vintage__nav--prev" type="button"
-                                    data-vintage-prev aria-label="Foto anterior">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                     stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
-                                     aria-hidden="true">
-                                    <path d="M19 12H5"/><path d="m11 18-6-6 6-6"/>
-                                </svg>
+                            <button class="vintage__nav vintage__nav--prev" type="button" data-vintage-prev aria-label="Foto anterior">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>
                             </button>
-
-                            <div class="vintage__dots" data-vintage-dots
-                                 role="group" aria-label="Seleccionar foto"></div>
-
-                            <button class="vintage__nav vintage__nav--next" type="button"
-                                    data-vintage-next aria-label="Foto siguiente">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                     stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
-                                     aria-hidden="true">
-                                    <path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>
-                                </svg>
+                            <div class="vintage__dots" data-vintage-dots role="group" aria-label="Seleccionar foto"></div>
+                            <button class="vintage__nav vintage__nav--next" type="button" data-vintage-next aria-label="Foto siguiente">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
                             </button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- =====================================================
-             9. NOTICIAS
-             ===================================================== -->
+        <!-- NOTICIAS -->
         <section class="section section--news" aria-labelledby="news-title">
             <div class="container">
                 <header class="section__head section__head--row">
@@ -796,9 +828,7 @@
                         <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
                     </a>
                 </header>
-
                 <p class="news__note" data-news-note>Contenido demostrativo. Pendiente de sustituirse por publicaciones oficiales.</p>
-
                 <div class="news__stage">
                     <div class="news__grid" data-news-grid></div>
                     <div class="news__empty" data-news-empty hidden>
@@ -806,7 +836,6 @@
                         <p class="news__empty-text">Las noticias aparecerán aquí conforme se publiquen.</p>
                     </div>
                 </div>
-
                 <nav class="news__pagination" data-news-pagination aria-label="Paginación de noticias" hidden>
                     <button class="news__page-nav" type="button" data-news-prev aria-label="Página anterior">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>
@@ -820,9 +849,7 @@
             </div>
         </section>
 
-        <!-- =====================================================
-             10. EVENTOS
-             ===================================================== -->
+        <!-- EVENTOS -->
         <section class="section section--events" aria-labelledby="events-title">
             <div class="container">
                 <header class="section__head section__head--row">
@@ -842,17 +869,13 @@
             </div>
         </section>
 
-        <!-- =====================================================
-             11. COLLAGE
-             ===================================================== -->
+        <!-- COLLAGE -->
         <section class="section section--community" aria-labelledby="community-title">
             <div class="container">
                 <header class="section__head section__head--center">
                     <p class="eyebrow">Somos</p>
                     <h2 class="section__title" id="community-title">#UTUSumacinta</h2>
-                    <p class="section__lead section__lead--center">
-                        Comunidad, cultura, deporte, laboratorios, proyectos y vida universitaria.
-                    </p>
+                    <p class="section__lead section__lead--center">Comunidad, cultura, deporte, laboratorios, proyectos y vida universitaria.</p>
                 </header>
                 <div class="collage" data-collage>
                     <button class="collage__cell collage__cell--a" data-lightbox-index="0" aria-label="Ampliar imagen 1">
@@ -877,9 +900,7 @@
             </div>
         </section>
 
-        <!-- =====================================================
-             12. CTA
-             ===================================================== -->
+        <!-- CTA -->
         <section class="section section--cta" aria-labelledby="cta-title">
             <div class="container">
                 <div class="cta reveal">
@@ -902,13 +923,11 @@
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- FOOTER (inyectado por js/components/footer.js) -->
     <div data-component="footer"></div>
 
-    <!-- LIGHTBOX (compartido) -->
+    <!-- LIGHTBOX -->
     <div class="lightbox" data-lightbox hidden>
         <div class="lightbox__backdrop" data-lightbox-close></div>
         <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
@@ -928,7 +947,6 @@
         </div>
     </div>
 
-    <!-- ÚNICO SCRIPT NECESARIO -->
     <script type="module" src="/js/app.js"></script>
 </body>
 </html>
