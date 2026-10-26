@@ -719,3 +719,15 @@
         transition: none;
     }
 }
+
+/* ============================================================
+   6. FIX — Botón "volver arriba" en desktop
+   ------------------------------------------------------------
+   Evita que el botón se solape con la barra inferior
+   ("Hecho en Tabasco") a partir del breakpoint 900px.
+   ============================================================ */
+@media (min-width: 900px) {
+    .site-footer__to-top {
+        bottom: 6rem; /* por encima del bottom bar, con aire */
+    }
+}
