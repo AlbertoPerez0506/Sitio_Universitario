@@ -129,11 +129,6 @@ function renderNavItem(item) {
         </li>`;
 }
 
-/**
- * Devuelve items normalizados a { label, sub, href }.
- * Permite que el mismo template móvil sirva tanto para
- * submenús simples como para la oferta educativa.
- */
 function flattenChildren(item) {
     if (item.children) {
         return item.children.map(c => ({ label: c.label, sub: null, href: c.href }));

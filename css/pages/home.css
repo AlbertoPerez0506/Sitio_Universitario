@@ -363,6 +363,35 @@
     }
 }
 
+/* =========================================================
+   FIX: el reset.css (ul[class] { margin: 0 }) tiene mayor
+   especificidad que .container y .hero__facts, por lo que
+   reseteaba los márgenes del bloque de datos a 0:
+     · Impedía el centrado en pantallas > 1400px
+     · Anulaba los márgenes verticales declarados en .hero__facts
+     · Anulaba el margin-inline del bloque en móvil
+
+   Este override restaura el comportamiento correcto y
+   amplía el ancho máximo en pantallas grandes (>1680px),
+   donde el límite de 1400px dejaba demasiado aire.
+   ========================================================= */
+ul.hero__facts.container {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+    margin-inline: auto;
+    max-width: min(1680px, 100%);
+}
+
+/* En móvil (<768px) preservamos el look actual (borde-a-borde)
+   pero con los márgenes laterales que el autor quiso. */
+@media (max-width: 767px) {
+    ul.hero__facts.container {
+        width: auto;
+        max-width: none;
+        margin-inline: var(--container-pad);
+    }
+}
+
 .hero__fact,
 .hero__fact:first-child {
     display: flex;
@@ -3432,4 +3461,49 @@
     .intro__decor-blob,
     .intro__decor-dots,
     .intro__badge-icon { animation: none; }
+}
+
+/* =========================================================
+   15. BRAND TEXT ESCRITORIO (Nombre de la UTU junto al logo)
+   ---------------------------------------------------------
+   Este bloque se encarga de mostrar el nombre de la
+   universidad en pantallas grandes (Desktop), manteniendo
+   los colores oficiales y una jerarquía elegante.
+   ========================================================= */
+@media (min-width: 1024px) {
+    .site-header__brand {
+        gap: 0.875rem; /* Un poco más de aire entre el logo y el texto en desktop */
+    }
+
+    .site-header__brand-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2px;
+        line-height: 1.1;
+        /* La transición suaviza cualquier cambio de opacidad */
+        transition: opacity var(--t-fast);
+    }
+
+    .site-header__brand-name {
+        font-family: var(--font-sans);
+        font-size: clamp(0.75rem, 0.85vw, 0.875rem); /* Tamaño fluido y sutil */
+        font-weight: 800; /* Extra bold para el azul institucional */
+        color: var(--color-logo-blue, #0D378C);
+        letter-spacing: -0.015em;
+        text-transform: uppercase;
+    }
+
+    .site-header__brand-name--accent {
+        font-size: clamp(0.65rem, 0.75vw, 0.75rem);
+        font-weight: 700;
+        color: var(--color-logo-green, #078C5B); /* Verde oficial del logo */
+        letter-spacing: 0.01em;
+        text-transform: none; /* "del Usumacinta" se ve mejor en minúsculas mixtas */
+    }
+
+    /* Efecto hover sutil al pasar el mouse por el logo */
+    .site-header__brand:hover .site-header__brand-text {
+        opacity: 0.85;
+    }
 }

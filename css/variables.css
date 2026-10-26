@@ -16,8 +16,8 @@
     --color-secondary-dark: #2DA683;
 
     /* ---------- Colores exactos del logo (para texto de marca) ---------- */
---color-logo-blue:  #0D378C;
---color-logo-green: #078C5B;
+    --color-logo-blue:  #0D378C;
+    --color-logo-green: #078C5B;
 
     /* ---------- Neutros ---------- */
     --color-surface:        #FFFFFF;
@@ -59,7 +59,8 @@
     --space-4xl: clamp(4rem,   2.5rem + 7vw, 8rem);
 
     /* ---------- Layout ---------- */
-    --container-max:    1400px;
+    /* AQUÍ ESTÁ EL CAMBIO: de 1400px a 1680px para igualar el ancho del hero__facts */
+    --container-max:    1680px;
     --container-narrow: 960px;
     --container-pad:    clamp(1rem, 4vw, 4rem);
 
@@ -120,4 +121,3 @@
         --t-slow: 0.01ms;
     }
 }
-
