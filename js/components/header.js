@@ -4,6 +4,10 @@
    Exporta:
      html()  → string con header + mobile menu + progress bar
      init()  → activa menú, dropdowns, scroll y progress
+   ------------------------------------------------------------
+   Cambio: los submenús móviles de Oferta educativa separan
+   título (TSU) y descripción (Ing./Lic.) en líneas distintas
+   con jerarquía visual clara, en lugar de concatenar con "—".
    ============================================================ */
 
 import { CONFIG } from '../core/config.js';
@@ -38,18 +42,18 @@ const NAV = [
             {
                 title: 'Ingenierías', badge: 'Ing', variant: 'ing',
                 items: [
-                    { title: 'Entornos Virtuales y Negocios Digitales', sub: 'Ing. en Tecnologías de la Información e Innovación Digital', href: '/pages/oferta-educativa/carrera-01.html' },
-                    { title: 'Biotecnología', sub: 'Ing. en Biotecnología', href: '/pages/oferta-educativa/carrera-02.html' }
+                    { title: 'TSU en Entornos Virtuales y Negocios Digitales', sub: 'Continuidad: Ing. en Tecnologías de la Información e Innovación Digital', href: '/pages/oferta-educativa/carrera-01.html' },
+                    { title: 'TSU en Biotecnología', sub: 'Continuidad: Ing. en Biotecnología', href: '/pages/oferta-educativa/carrera-02.html' }
                 ]
             },
             {
                 title: 'Licenciaturas', badge: 'Lic', variant: 'lic',
                 items: [
-                    { title: 'Mercadotecnia', sub: 'Lic. en Negocios y Mercadotecnia', href: '/pages/oferta-educativa/carrera-03.html' },
-                    { title: 'Gastronomía',   sub: 'Lic. en Gastronomía',              href: '/pages/oferta-educativa/carrera-04.html' },
-                    { title: 'Turismo',       sub: 'Lic. en Gestión y Desarrollo Turístico', href: '/pages/oferta-educativa/carrera-05.html' },
-                    { title: 'Paramédico',    sub: 'Lic. en Protección Civil',         href: '/pages/oferta-educativa/carrera-06.html' },
-                    { title: 'Contaduría',    sub: 'Lic. en Contaduría',               href: '/pages/oferta-educativa/carrera-07.html' }
+                    { title: 'TSU en Mercadotecnia', sub: 'Continuidad: Lic. en Negocios y Mercadotecnia', href: '/pages/oferta-educativa/carrera-03.html' },
+                    { title: 'TSU en Gastronomía',    sub: 'Continuidad: Lic. en Gastronomía',              href: '/pages/oferta-educativa/carrera-04.html' },
+                    { title: 'TSU en Turismo',        sub: 'Continuidad: Lic. en Gestión y Desarrollo Turístico', href: '/pages/oferta-educativa/carrera-05.html' },
+                    { title: 'TSU en Paramédico',     sub: 'Continuidad: Lic. en Protección Civil',         href: '/pages/oferta-educativa/carrera-06.html' },
+                    { title: 'TSU en Contaduría',     sub: 'Continuidad: Lic. en Contaduría',               href: '/pages/oferta-educativa/carrera-07.html' }
                 ]
             }
         ]
@@ -125,9 +129,24 @@ function renderNavItem(item) {
         </li>`;
 }
 
+/**
+ * Devuelve items normalizados a { label, sub, href }.
+ * Permite que el mismo template móvil sirva tanto para
+ * submenús simples como para la oferta educativa.
+ */
 function flattenChildren(item) {
-    if (item.children) return item.children;
-    if (item.groups) return item.groups.flatMap(g => g.items.map(it => ({ label: `${it.title} — ${it.sub}`, href: it.href })));
+    if (item.children) {
+        return item.children.map(c => ({ label: c.label, sub: null, href: c.href }));
+    }
+    if (item.groups) {
+        return item.groups.flatMap(g =>
+            g.items.map(it => ({
+                label: it.title,
+                sub: it.sub,
+                href: it.href
+            }))
+        );
+    }
     return [];
 }
 
@@ -143,7 +162,14 @@ function renderMobileNavItem(item) {
                 ${CHEVRON.replace('nav__chevron', 'mobile-menu__chevron')}
             </button>
             <ul class="mobile-menu__sub" data-mobile-dropdown-panel hidden>
-                ${children.map(c => `<li><a class="mobile-menu__sub-link" href="${c.href}">${c.label}</a></li>`).join('')}
+                ${children.map(c => `
+                    <li>
+                        <a class="mobile-menu__sub-link" href="${c.href}">
+                            <span class="mobile-menu__sub-title">${c.label}</span>
+                            ${c.sub ? `<span class="mobile-menu__sub-desc">${c.sub}</span>` : ''}
+                        </a>
+                    </li>
+                `).join('')}
             </ul>
         </li>`;
 }
