@@ -1,0 +1,165 @@
+/* ============================================================
+   main.css — Base global y utilidades
+   ============================================================ */
+
+body {
+    font-family: var(--font-sans);
+    font-size: var(--fs-base);
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    overflow-x: hidden;
+}
+
+/* ---------- Contenedor ---------- */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-pad);
+}
+.container--narrow { max-width: var(--container-narrow); }
+
+/* ---------- Secciones ---------- */
+.section { padding-block: var(--space-3xl); position: relative; }
+.section--alt { background-color: var(--color-background); }
+
+.section__head { max-width: 760px; margin-bottom: var(--space-2xl); }
+.section__head--center { margin-inline: auto; text-align: center; }
+.section__head--row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    max-width: none;
+}
+@media (min-width: 768px) {
+    .section__head--row {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: var(--space-xl);
+    }
+}
+
+.section__title {
+    font-size: var(--fs-3xl);
+    letter-spacing: -.02em;
+    color: var(--color-ink);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.section__lead {
+    margin-top: var(--space-md);
+    font-size: var(--fs-lg);
+    color: var(--color-muted);
+    max-width: 62ch;
+    line-height: 1.6;
+}
+.section__lead--center { margin-inline: auto; }
+
+/* ---------- Tipografía auxiliar ---------- */
+.eyebrow {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+}
+.eyebrow--on-dark { color: var(--color-secondary); }
+
+.lead {
+    font-size: var(--fs-lg);
+    color: var(--color-text);
+    max-width: 62ch;
+    line-height: 1.6;
+}
+
+.text-muted {
+    color: var(--color-muted);
+    max-width: 65ch;
+    margin-top: var(--space-md);
+    line-height: 1.7;
+}
+
+/* ---------- Enlace con flecha ---------- */
+.link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-lg);
+    font-weight: 600;
+    color: var(--color-primary);
+    transition: gap var(--t-fast), color var(--t-fast);
+}
+.link-arrow:hover, .link-arrow:focus-visible {
+    gap: var(--space-sm);
+    color: var(--color-primary-dark);
+    outline: none;
+}
+.link-arrow svg { width: 18px; height: 18px; transition: transform var(--t-fast); }
+.link-arrow:hover svg { transform: translateX(2px); }
+
+/* ---------- Iconos SVG ---------- */
+.icon { width: 20px; height: 20px; flex-shrink: 0; }
+.icon--solid { fill: currentColor; }
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity .7s var(--ease-out),
+        transform .7s var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
+html:not(.js) .reveal { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Utilidades ---------- */
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    padding: .75rem 1.25rem;
+    background: var(--gradient-primary);
+    color: #FFFFFF;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 8px 24px rgba(48,52,140,.35);
+    text-decoration: none;
+    transition: top .28s var(--ease-out);
+}
+.skip-link:focus, .skip-link:focus-visible {
+    top: 1rem;
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 3px;
+}
+
+/* ---------- Fallback de imágenes ---------- */
+img[data-img-fallback] {
+    background-color: var(--color-background);
+    background-image: linear-gradient(135deg, rgba(48,52,140,.06), rgba(48,191,151,.06));
+}
+img.img--missing { color: transparent; }

@@ -1,0 +1,91 @@
+/* ============================================================
+   page-hero.css — Cabecera de páginas internas
+   ------------------------------------------------------------
+   Estructura:
+     .page-hero
+       .page-hero__bg          ← decorativo
+       .container
+         .page-hero__inner
+           .breadcrumbs
+           .eyebrow
+           .page-hero__title
+           .page-hero__lead
+   ============================================================ */
+
+.page-hero {
+    position: relative;
+    padding-top: calc(var(--header-h) + var(--space-3xl));
+    padding-bottom: var(--space-3xl);
+    background: var(--gradient-primary);
+    color: #FFFFFF;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,.10) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(ellipse at 30% 40%, #000 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at 30% 40%, #000 20%, transparent 75%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.page-hero__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+.page-hero__bg::before {
+    content: "";
+    position: absolute;
+    top: -30%; right: -10%;
+    width: 55%; height: 90%;
+    background: radial-gradient(circle, rgba(48,191,151,.35) 0%, transparent 70%);
+    filter: blur(80px);
+}
+.page-hero__bg::after {
+    content: "";
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 50%; height: 80%;
+    background: radial-gradient(circle, rgba(126,224,194,.18) 0%, transparent 70%);
+    filter: blur(80px);
+}
+
+.page-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+}
+
+.page-hero .breadcrumbs { padding-top: 0; }
+
+.page-hero__title {
+    font-size: var(--fs-hero);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -.025em;
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    color: #FFFFFF;
+}
+.page-hero__title-accent {
+    display: block;
+    background: linear-gradient(135deg, #30BF97 0%, #7EE0C2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.page-hero__lead {
+    font-size: var(--fs-lg);
+    line-height: 1.6;
+    color: rgba(255,255,255,.85);
+    max-width: 62ch;
+    margin-bottom: var(--space-xl);
+}

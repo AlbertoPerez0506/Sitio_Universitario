@@ -1,0 +1,92 @@
+/* ============================================================
+   buttons.css — Sistema de botones
+   ============================================================ */
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: .75rem 1.35rem;
+    border-radius: var(--radius-pill);
+    font-family: inherit;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    isolation: isolate;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        transform .3s var(--ease-out),
+        box-shadow .3s var(--ease-out),
+        background-color var(--t-fast),
+        color var(--t-fast),
+        border-color var(--t-fast);
+}
+.btn:focus-visible { outline: 2px solid var(--color-secondary); outline-offset: 3px; }
+
+.btn__icon {
+    width: 18px; height: 18px;
+    flex-shrink: 0;
+    transition: transform .3s var(--ease-out);
+}
+.btn:hover .btn__icon { transform: translateX(3px); }
+
+.btn--sm { padding: .55rem 1rem; font-size: var(--fs-xs); }
+
+.btn--primary {
+    background: var(--gradient-primary);
+    color: #FFFFFF;
+    box-shadow: 0 8px 20px rgba(48,52,140,.22);
+}
+.btn--primary:hover, .btn--primary:focus-visible {
+    transform: translateY(-2px);
+    background: var(--gradient-accent);
+    box-shadow: 0 12px 28px rgba(48,191,151,.32);
+    outline: none;
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-border-strong);
+}
+.btn--outline:hover, .btn--outline:focus-visible {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.btn--light {
+    background: #FFFFFF;
+    color: var(--color-primary);
+    box-shadow: 0 8px 20px rgba(15,18,38,.18);
+}
+.btn--light:hover, .btn--light:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(15,18,38,.24);
+    outline: none;
+}
+
+.btn--ghost-light {
+    background: rgba(255,255,255,.10);
+    color: #FFFFFF;
+    border-color: rgba(255,255,255,.22);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+.btn--ghost-light:hover, .btn--ghost-light:focus-visible {
+    background: rgba(255,255,255,.18);
+    border-color: rgba(255,255,255,.32);
+    transform: translateY(-2px);
+    outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn, .btn__icon { transition: none; }
+}

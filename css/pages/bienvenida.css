@@ -1,0 +1,173 @@
+/* ============================================================
+   pages/bienvenida.css — Estilos de la página del Rector
+   ------------------------------------------------------------
+   Solo lo que es único de esta página. Todo lo compartido
+   (hero, breadcrumbs, botones) está en /css/components/.
+   ============================================================ */
+
+.bienvenida__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+}
+@media (min-width: 1024px) {
+    .bienvenida__layout {
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: clamp(2.5rem, 5vw, 5rem);
+    }
+}
+
+/* ---------- Retrato ---------- */
+.bienvenida__portrait {
+    position: relative;
+    max-width: 440px;
+    margin-inline: auto;
+}
+.bienvenida__media {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: var(--gradient-primary);
+    padding: 4px;
+    box-shadow: 0 24px 60px rgba(15,18,38,.18), 0 8px 20px rgba(15,18,38,.08);
+}
+.bienvenida__media > img {
+    position: relative;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+    border-radius: calc(var(--radius-xl) - 4px);
+    transition: transform .9s var(--ease-out);
+}
+.bienvenida__portrait:hover .bienvenida__media > img { transform: scale(1.03); }
+
+.bienvenida__badge {
+    position: absolute;
+    left: 1.5rem; bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .75rem 1.1rem;
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,.7);
+    border-radius: var(--radius-md);
+    box-shadow: 0 18px 42px rgba(15,18,38,.22);
+    z-index: 3;
+}
+.bienvenida__badge-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--gradient-accent);
+    color: #FFFFFF;
+    box-shadow: 0 6px 16px rgba(48,191,151,.32);
+}
+.bienvenida__badge-icon svg { width: 20px; height: 20px; }
+.bienvenida__badge-text { display: flex; flex-direction: column; line-height: 1.2; }
+.bienvenida__badge-text strong { font-size: var(--fs-sm); color: var(--color-ink); }
+.bienvenida__badge-text span   { font-size: var(--fs-xs); color: var(--color-muted); }
+
+/* ---------- Contenido ---------- */
+.bienvenida__content { display: flex; flex-direction: column; max-width: 720px; }
+.bienvenida__title {
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -.02em;
+    color: var(--color-ink);
+    margin-bottom: var(--space-lg);
+}
+.bienvenida__title-accent {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.bienvenida__message {
+    position: relative;
+    margin: 0;
+    padding-left: clamp(1.25rem, 4vw, 2.25rem);
+    border-left: 3px solid transparent;
+    border-image: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%) 1;
+}
+.bienvenida__message::before {
+    content: "\201C";
+    position: absolute;
+    top: -3.5rem; left: -.5rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(5rem, 4rem + 4vw, 8rem);
+    line-height: 1;
+    font-weight: 700;
+    color: rgba(48,52,140,.08);
+    pointer-events: none;
+    user-select: none;
+    z-index: -1;
+}
+
+.bienvenida__paragraph {
+    font-size: var(--fs-base);
+    line-height: 1.75;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+}
+.bienvenida__paragraph--lead {
+    font-size: var(--fs-lg);
+    line-height: 1.6;
+    font-weight: 500;
+    color: var(--color-ink);
+}
+.bienvenida__highlight {
+    background: linear-gradient(180deg, transparent 62%, rgba(48,191,151,.24) 62%);
+    padding: 0 .1em;
+    color: var(--color-ink);
+    font-weight: 600;
+}
+
+.bienvenida__signature {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    position: relative;
+}
+.bienvenida__signature::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 64px; height: 3px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    border-radius: 3px;
+}
+.bienvenida__signature-name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: var(--fs-xl);
+    font-weight: 600;
+    color: var(--color-primary);
+}
+.bienvenida__signature-role {
+    font-size: var(--fs-sm);
+    color: var(--color-muted);
+    font-weight: 500;
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 1024px) {
+    .bienvenida__portrait {
+        position: sticky;
+        top: calc(var(--header-h) + var(--space-xl));
+        max-width: 100%;
+    }
+    .bienvenida__content { max-width: 640px; padding-top: var(--space-md); }
+    .bienvenida__title { font-size: var(--fs-4xl); }
+}

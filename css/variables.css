@@ -1,0 +1,108 @@
+/* ============================================================
+   variables.css — Design tokens UTU
+   ------------------------------------------------------------
+   Punto único de verdad para color, tipografía, espacio,
+   radios, sombras, z-index y layout. Nada de colores
+   hardcodeados en el resto de archivos.
+   ============================================================ */
+
+:root {
+    /* ---------- Marca ---------- */
+    --color-primary:        #30348C;
+    --color-primary-dark:   #303E8C;
+    --color-primary-deep:   #232766;
+    --color-secondary:      #30BF97;
+    --color-secondary-dark: #2DA683;
+
+    /* ---------- Neutros ---------- */
+    --color-surface:        #FFFFFF;
+    --color-surface-alt:    #F7F8FC;
+    --color-background:     #F2F2F2;
+    --color-ink:            #0F1226;
+    --color-text:           #1C1F33;
+    --color-muted:          #5B607A;
+    --color-subtle:         #8B90A8;
+    --color-border:         #E4E6EF;
+    --color-border-strong:  #CFD3E0;
+
+    /* ---------- Gradientes ---------- */
+    --gradient-primary: linear-gradient(135deg, #30348C 0%, #303E8C 55%, #232766 100%);
+    --gradient-accent:  linear-gradient(135deg, #30BF97 0%, #2DA683 100%);
+
+    /* ---------- Tipografía ---------- */
+    --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    --fs-xs:   clamp(0.75rem,  0.72rem + 0.15vw, 0.8125rem);
+    --fs-sm:   clamp(0.875rem, 0.85rem + 0.20vw, 0.9375rem);
+    --fs-base: clamp(0.9375rem,0.92rem + 0.25vw, 1.0625rem);
+    --fs-lg:   clamp(1.0625rem,1rem    + 0.40vw, 1.25rem);
+    --fs-xl:   clamp(1.25rem,  1.1rem  + 0.80vw, 1.625rem);
+    --fs-2xl:  clamp(1.5rem,   1.25rem + 1.40vw, 2.25rem);
+    --fs-3xl:  clamp(1.875rem, 1.4rem  + 2.40vw, 3rem);
+    --fs-4xl:  clamp(2.25rem,  1.6rem  + 3.20vw, 3.75rem);
+    --fs-hero: clamp(2.25rem,  1.4rem  + 4.20vw, 4.5rem);
+
+    /* ---------- Espaciado fluido ---------- */
+    --space-2xs: 0.25rem;
+    --space-xs:  0.5rem;
+    --space-sm:  0.75rem;
+    --space-md:  1rem;
+    --space-lg:  1.5rem;
+    --space-xl:  2rem;
+    --space-2xl: 3rem;
+    --space-3xl: clamp(3rem,   2rem   + 5vw, 6rem);
+    --space-4xl: clamp(4rem,   2.5rem + 7vw, 8rem);
+
+    /* ---------- Layout ---------- */
+    --container-max:    1400px;
+    --container-narrow: 960px;
+    --container-pad:    clamp(1rem, 4vw, 4rem);
+
+    /* ---------- Radios ---------- */
+    --radius-xs:   6px;
+    --radius-sm:  10px;
+    --radius-md:  14px;
+    --radius-lg:  20px;
+    --radius-xl:  28px;
+    --radius-pill: 999px;
+
+    /* ---------- Sombras ---------- */
+    --shadow-xs:   0 1px 2px   rgba(15,18,38,.05);
+    --shadow-sm:   0 2px 8px   rgba(15,18,38,.06);
+    --shadow-md:   0 8px 24px  rgba(15,18,38,.08);
+    --shadow-lg:   0 18px 48px rgba(15,18,38,.10);
+    --shadow-glow: 0 12px 40px rgba(48,52,140,.18);
+
+    /* ---------- Transiciones ---------- */
+    --ease-out:    cubic-bezier(.22,1,.36,1);
+    --ease-in-out: cubic-bezier(.65,0,.35,1);
+    --t-fast: .2s var(--ease-out);
+    --t-base: .35s var(--ease-out);
+    --t-slow: .6s var(--ease-out);
+
+    /* ---------- Z-index ---------- */
+    --z-header:   100;
+    --z-drawer:   300;
+    --z-toast:    400;
+    --z-lightbox: 500;
+
+    /* ---------- Alturas útiles ---------- */
+    --header-h: 68px;
+    --hero-h:   clamp(440px, 72vh, 640px);
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --header-h: 84px;
+        --hero-h:   clamp(620px, 92vh, 900px);
+    }
+}
+
+/* Respeta la preferencia de movimiento reducido del sistema */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --t-fast: 0.01ms;
+        --t-base: 0.01ms;
+        --t-slow: 0.01ms;
+    }
+}

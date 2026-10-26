@@ -1,0 +1,48 @@
+/* ============================================================
+   breadcrumbs.css — Migas de pan
+   ============================================================ */
+
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .375rem;
+    font-size: var(--fs-xs);
+    color: var(--color-muted);
+    padding-block: var(--space-md);
+}
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .375rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.breadcrumbs li { display: inline-flex; align-items: center; gap: .375rem; }
+.breadcrumbs li:not(:last-child)::after {
+    content: "/";
+    color: var(--color-border-strong);
+    font-weight: 400;
+}
+.breadcrumbs a {
+    color: var(--color-muted);
+    text-decoration: none;
+    transition: color var(--t-fast);
+}
+.breadcrumbs a:hover, .breadcrumbs a:focus-visible {
+    color: var(--color-primary);
+    outline: none;
+}
+.breadcrumbs [aria-current="page"] {
+    color: var(--color-ink);
+    font-weight: 600;
+}
+
+/* Variante clara (encima de hero oscuro) */
+.breadcrumbs--on-dark { color: rgba(255,255,255,.7); }
+.breadcrumbs--on-dark a { color: rgba(255,255,255,.7); }
+.breadcrumbs--on-dark a:hover { color: #FFFFFF; }
+.breadcrumbs--on-dark [aria-current="page"] { color: #FFFFFF; }
+.breadcrumbs--on-dark li:not(:last-child)::after { color: rgba(255,255,255,.3); }

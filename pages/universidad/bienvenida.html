@@ -1,0 +1,137 @@
+<!-- ============================================================
+     pages/universidad/bienvenida.html — Ejemplo de página interna
+     ------------------------------------------------------------
+     Patrón a replicar para:
+       historia.html, mision-vision.html, autoridades.html,
+       instalaciones.html, oferta-educativa/*, admisiones,
+       becas, comunidad/*, noticias/*, etc.
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#30348C">
+
+    <title>Bienvenida del Rector | UTU</title>
+    <meta name="description" content="Mensaje de bienvenida del Rector de la Universidad Tecnológica del Usumacinta.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.utu.edu.mx/pages/universidad/bienvenida.html">
+
+    <link rel="icon" href="/assets/icons/icon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Estilos base + componentes comunes -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/components/cards.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/components/breadcrumbs.css">
+    <link rel="stylesheet" href="/css/components/page-hero.css">
+    <!-- Estilos específicos de esta página -->
+    <link rel="stylesheet" href="/css/pages/bienvenida.css">
+
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body data-page="bienvenida">
+
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+    <div data-component="header"></div>
+
+    <main id="contenido">
+
+        <!-- HERO interno (comparte estilos con todas las páginas internas) -->
+        <section class="page-hero" aria-labelledby="bienvenida-title">
+            <div class="page-hero__bg" aria-hidden="true"></div>
+            <div class="container page-hero__inner">
+                <nav class="breadcrumbs breadcrumbs--on-dark" aria-label="Ruta de navegación">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/pages/universidad/bienvenida.html">Universidad</a></li>
+                        <li><span aria-current="page">Bienvenida</span></li>
+                    </ol>
+                </nav>
+                <p class="eyebrow eyebrow--on-dark">Bienvenida institucional</p>
+                <h1 class="page-hero__title" id="bienvenida-title">
+                    Un mensaje de nuestro
+                    <span class="page-hero__title-accent">Rector</span>
+                </h1>
+                <p class="page-hero__lead">
+                    Conoce el mensaje de bienvenida del Mtro. Darvin Daniel González Baños,
+                    Rector de la Universidad Tecnológica del Usumacinta.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTENIDO EDITORIAL -->
+        <section class="section bienvenida" aria-labelledby="rector-title">
+            <div class="container">
+                <div class="bienvenida__layout">
+
+                    <div class="bienvenida__portrait reveal">
+                        <figure class="bienvenida__media">
+                            <img src="/assets/images/rector/Rector.webp"
+                                 alt="Mtro. Darvin Daniel González Baños, Rector de la UTU"
+                                 width="800" height="1000"
+                                 loading="eager" decoding="async" fetchpriority="high"
+                                 data-img-fallback="Retrato oficial del Rector">
+                        </figure>
+                        <div class="bienvenida__badge">
+                            <span class="bienvenida__badge-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="m8.21 13.89-1.21 7.11L12 18l5 3-1.21-7.12"/></svg>
+                            </span>
+                            <span class="bienvenida__badge-text">
+                                <strong>Rector</strong>
+                                <span>UT Usumacinta</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bienvenida__content reveal" data-reveal-delay="140">
+                        <h2 class="bienvenida__title" id="rector-title">
+                            Un mensaje de nuestro <span class="bienvenida__title-accent">Rector</span>
+                        </h2>
+                        <blockquote class="bienvenida__message">
+                            <p class="bienvenida__paragraph bienvenida__paragraph--lead">
+                                Es un honor darles la más cordial bienvenida a nuestra
+                                comunidad universitaria. En la UT del Usumacinta nos dedicamos
+                                a formar profesionales de <span class="bienvenida__highlight">excelencia con valores humanos</span>,
+                                comprometidos con el desarrollo sostenible de nuestra región.
+                            </p>
+                            <p class="bienvenida__paragraph">
+                                Nuestro compromiso es brindar una educación de calidad que
+                                combine la teoría con la práctica, preparando a nuestros
+                                estudiantes para los desafíos del mundo actual.
+                            </p>
+                            <p class="bienvenida__paragraph">
+                                Los invito a ser parte activa de esta gran familia
+                                universitaria, donde juntos construiremos un futuro mejor
+                                para Tabasco y para México.
+                            </p>
+                        </blockquote>
+                        <footer class="bienvenida__signature">
+                            <span class="bienvenida__signature-name">Mtro. Darvin Daniel González Baños</span>
+                            <span class="bienvenida__signature-role">Rector de la Universidad Tecnológica del Usumacinta</span>
+                        </footer>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div data-component="footer"></div>
+
+    <script type="module" src="/js/app.js"></script>
+</body>
+</html>

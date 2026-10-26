@@ -1,0 +1,71 @@
+/* ============================================================
+   reset.css — Reset moderno
+   ------------------------------------------------------------
+   Basado en Josh Comeau + Andy Bell adaptado a UTU.
+   Solo normaliza comportamientos, NO define identidad.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+html { overflow-x: hidden; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+img, video { height: auto; }
+
+input, button, textarea, select { font: inherit; color: inherit; }
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+textarea { resize: vertical; }
+
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+
+ul[class], ol[class],
+nav ul, nav ol,
+footer ul, footer ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--color-secondary, #30BF97); outline-offset: 2px; }
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--color-secondary, #30BF97);
+    outline-offset: 2px;
+}
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+[hidden] { display: none !important; }
+
+::selection {
+    background-color: rgba(48,191,151,.28);
+    color: var(--color-ink, #0F1226);
+}

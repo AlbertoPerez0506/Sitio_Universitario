@@ -1,0 +1,98 @@
+/* ============================================================
+   forms.css — Formularios accesibles
+   ============================================================ */
+
+.form { display: flex; flex-direction: column; gap: var(--space-md); }
+
+.form__group { display: flex; flex-direction: column; gap: .375rem; }
+
+.form__label {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--color-ink);
+    letter-spacing: -.005em;
+}
+.form__label span { color: #D14343; }
+
+.form__hint {
+    font-size: var(--fs-xs);
+    color: var(--color-muted);
+}
+
+.form__input,
+.form__select,
+.form__textarea {
+    width: 100%;
+    padding: .75rem 1rem;
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    transition:
+        border-color var(--t-fast),
+        box-shadow var(--t-fast),
+        background-color var(--t-fast);
+}
+.form__input:hover,
+.form__select:hover,
+.form__textarea:hover { border-color: var(--color-primary); }
+
+.form__input:focus,
+.form__select:focus,
+.form__textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(48,52,140,.14);
+}
+
+.form__input[aria-invalid="true"],
+.form__select[aria-invalid="true"],
+.form__textarea[aria-invalid="true"] {
+    border-color: #D14343;
+    box-shadow: 0 0 0 3px rgba(209,67,67,.14);
+}
+
+.form__textarea { min-height: 140px; resize: vertical; }
+
+.form__error {
+    font-size: var(--fs-xs);
+    color: #D14343;
+    font-weight: 500;
+    min-height: 1.1em;
+}
+
+.form__checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+    cursor: pointer;
+}
+.form__checkbox input { margin-top: .25rem; flex-shrink: 0; }
+
+.form__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+
+/* Feedback global del formulario */
+.form__feedback {
+    padding: .875rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    border: 1px solid transparent;
+}
+.form__feedback--success {
+    background-color: rgba(48,191,151,.08);
+    border-color: rgba(48,191,151,.24);
+    color: var(--color-secondary-dark);
+}
+.form__feedback--error {
+    background-color: rgba(209,67,67,.06);
+    border-color: rgba(209,67,67,.24);
+    color: #A02F2F;
+}

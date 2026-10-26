@@ -1,0 +1,509 @@
+<!-- ============================================================
+     index.html — Página principal UTU
+     ------------------------------------------------------------
+     · Todo el JS se carga como módulo desde /js/app.js
+     · Las imágenes de referencia vienen del HTML (Unsplash)
+     · data-page="home" activa js/pages/home.js
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#30348C">
+
+    <!-- SEO -->
+    <title>Universidad Tecnológica del Usumacinta (UTU) | Formación que se vive</title>
+    <meta name="description" content="La Universidad Tecnológica del Usumacinta (UTU) forma profesionales con 60% práctica y 40% teoría, dos estadías profesionales y una ruta de TSU a Ingeniería o Licenciatura. Emiliano Zapata, Tabasco.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Universidad Tecnológica del Usumacinta">
+    <link rel="canonical" href="https://www.utu.edu.mx/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="Universidad Tecnológica del Usumacinta">
+    <meta property="og:title" content="Universidad Tecnológica del Usumacinta (UTU)">
+    <meta property="og:description" content="Formación que se vive. Conocimiento que se aplica.">
+    <meta property="og:url" content="https://www.utu.edu.mx/">
+    <meta property="og:image" content="https://www.utu.edu.mx/assets/images/branding/logo-utu.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="/assets/icons/icon.png" type="image/png">
+
+    <!-- Tipografía -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Estilos (orden: reset → tokens → base → componentes → página) -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/components/cards.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/components/lightbox.css">
+    <link rel="stylesheet" href="/css/pages/home.css">
+
+    <!-- Marca de JS activo (evita parpadeo en .reveal) -->
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body data-page="home">
+
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+    <!-- HEADER (inyectado por js/components/header.js) -->
+    <div data-component="header"></div>
+
+    <main id="contenido">
+
+        <!-- =====================================================
+             1. HERO / CARRUSEL
+             ===================================================== -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__carousel" data-carousel data-autoplay="6500"
+                 role="region" aria-roledescription="carrusel"
+                 aria-label="Imágenes destacadas de la UTU">
+
+                <div class="hero__track" data-carousel-track>
+
+                    <article class="hero__slide is-active" data-carousel-slide role="group"
+                             aria-roledescription="diapositiva" aria-label="1 de 4">
+                        <div class="hero__media">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&q=80&auto=format&fit=crop"
+                                 alt="Campus de la UTU" width="1920" height="1080"
+                                 fetchpriority="high" decoding="async" data-img-fallback="Campus UTU">
+                        </div>
+                        <div class="hero__overlay">
+                            <div class="container hero__content">
+                                <p class="eyebrow eyebrow--on-dark">Universidad Tecnológica del Usumacinta</p>
+                                <h1 class="hero__title" id="hero-title">
+                                    Formación que se vive.
+                                    <span class="hero__title-accent">Conocimiento que se aplica.</span>
+                                </h1>
+                                <p class="hero__lead">
+                                    En la UTU la formación profesional combina el conocimiento académico
+                                    con la práctica, los proyectos y las experiencias que te preparan
+                                    para tu futuro profesional.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hero__slide" data-carousel-slide role="group"
+                             aria-roledescription="diapositiva" aria-label="2 de 4" aria-hidden="true">
+                        <div class="hero__media">
+                            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1920&h=1080&q=80&auto=format&fit=crop"
+                                 alt="Estudiantes en laboratorio" width="1920" height="1080"
+                                 loading="lazy" decoding="async" data-img-fallback="Laboratorio UTU">
+                        </div>
+                        <div class="hero__overlay">
+                            <div class="container hero__content">
+                                <p class="eyebrow eyebrow--on-dark">Modelo académico 60 / 40</p>
+                                <h2 class="hero__title">
+                                    60% práctica.
+                                    <span class="hero__title-accent">40% teoría.</span>
+                                </h2>
+                                <p class="hero__lead">
+                                    Un esquema que favorece que los conocimientos se utilicen y comprueben
+                                    mediante ejercicios, prácticas, proyectos y actividades del área profesional.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hero__slide" data-carousel-slide role="group"
+                             aria-roledescription="diapositiva" aria-label="3 de 4" aria-hidden="true">
+                        <div class="hero__media">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1080&q=80&auto=format&fit=crop"
+                                 alt="Vida universitaria UTU" width="1920" height="1080"
+                                 loading="lazy" decoding="async" data-img-fallback="Vida universitaria">
+                        </div>
+                        <div class="hero__overlay">
+                            <div class="container hero__content">
+                                <p class="eyebrow eyebrow--on-dark">Vida universitaria</p>
+                                <h2 class="hero__title">
+                                    La experiencia
+                                    <span class="hero__title-accent">también se vive fuera del aula.</span>
+                                </h2>
+                                <p class="hero__lead">
+                                    Actividades culturales, deportivas y paraescolares que complementan
+                                    tu formación profesional.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hero__slide" data-carousel-slide role="group"
+                             aria-roledescription="diapositiva" aria-label="4 de 4" aria-hidden="true">
+                        <div class="hero__media">
+                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1920&h=1080&q=80&auto=format&fit=crop"
+                                 alt="Egresados UTU" width="1920" height="1080"
+                                 loading="lazy" decoding="async" data-img-fallback="Egresados UTU">
+                        </div>
+                        <div class="hero__overlay">
+                            <div class="container hero__content">
+                                <p class="eyebrow eyebrow--on-dark">Ruta académica</p>
+                                <h2 class="hero__title">
+                                    De TSU a
+                                    <span class="hero__title-accent">Ingeniería o Licenciatura.</span>
+                                </h2>
+                                <p class="hero__lead">
+                                    Dos estadías profesionales y la posibilidad de obtener
+                                    2 títulos y 2 cédulas profesionales.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <button type="button" class="hero__nav hero__nav--prev" data-carousel-prev aria-label="Diapositiva anterior">
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </button>
+                <button type="button" class="hero__nav hero__nav--next" data-carousel-next aria-label="Siguiente diapositiva">
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </button>
+
+                <div class="hero__foot">
+                    <div class="hero__dots" data-carousel-dots role="group" aria-label="Seleccionar diapositiva"></div>
+                    <div class="hero__foot-actions">
+                        <span class="hero__counter" aria-hidden="true">
+                            <span class="hero__counter-current" data-carousel-current>01</span>
+                            <span class="hero__counter-sep">/</span>
+                            <span class="hero__counter-total" data-carousel-total>04</span>
+                        </span>
+                        <button type="button" class="hero__pause" data-carousel-toggle aria-label="Pausar carrusel" aria-pressed="false">
+                            <svg class="icon hero__pause-icon hero__pause-icon--play" aria-hidden="true"><use href="#i-play"></use></svg>
+                            <svg class="icon hero__pause-icon hero__pause-icon--pause" aria-hidden="true"><use href="#i-pause"></use></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hero__progress" data-carousel-progress aria-hidden="true">
+                    <span class="hero__progress-bar"></span>
+                </div>
+            </div>
+
+            <ul class="hero__facts container" aria-label="Datos destacados de la UTU">
+                <li class="hero__fact"><strong data-count="60" data-count-suffix="%">60%</strong><span>Práctica</span></li>
+                <li class="hero__fact"><strong data-count="40" data-count-suffix="%">40%</strong><span>Teoría</span></li>
+                <li class="hero__fact"><strong data-count="2">2</strong><span>Estadías profesionales</span></li>
+                <li class="hero__fact"><strong>2 + 2</strong><span>Títulos y cédulas</span></li>
+            </ul>
+        </section>
+
+        <!-- =====================================================
+             2. PRESENTACIÓN INSTITUCIONAL
+             ===================================================== -->
+        <section class="section section--intro" aria-labelledby="intro-title">
+            <div class="container">
+                <div class="intro__grid">
+                    <div class="intro__text reveal">
+                        <p class="eyebrow">La universidad</p>
+                        <h2 class="section__title" id="intro-title">
+                            Una universidad donde el conocimiento
+                            <span class="intro__title-accent">se convierte en experiencia</span>
+                        </h2>
+                        <p class="lead">
+                            La Universidad Tecnológica del Usumacinta es una institución de educación
+                            superior ubicada en el municipio de Emiliano Zapata, Tabasco, cuya propuesta
+                            educativa se caracteriza por una formación orientada principalmente a la
+                            práctica y a la aplicación de conocimientos.
+                        </p>
+                        <p class="text-muted">
+                            Su modelo formativo combina conocimientos teóricos con una importante
+                            participación práctica: prácticas, proyectos, laboratorios, experiencias
+                            profesionales y participación en la vida universitaria.
+                        </p>
+                        <ul class="intro__facts" aria-label="Datos institucionales">
+                            <li class="intro__fact">
+                                <span class="intro__fact-value">2003</span>
+                                <span class="intro__fact-label">Año de fundación</span>
+                            </li>
+                            <li class="intro__fact">
+                                <span class="intro__fact-value">Emiliano Zapata</span>
+                                <span class="intro__fact-label">Tabasco, México</span>
+                            </li>
+                            <li class="intro__fact">
+                                <span class="intro__fact-value">Pública</span>
+                                <span class="intro__fact-label">Educación superior</span>
+                            </li>
+                        </ul>
+                        <a class="link-arrow" href="/pages/universidad/bienvenida.html">
+                            Conoce más sobre la UTU
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                        </a>
+                    </div>
+
+                    <div class="intro__visual reveal" data-reveal-delay="120">
+                        <div class="intro__decor" aria-hidden="true">
+                            <span class="intro__decor-blob"></span>
+                            <span class="intro__decor-dots"></span>
+                        </div>
+                        <figure class="intro__media">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1000&h=800&q=80&auto=format&fit=crop"
+                                 alt="Estudiantes de la UTU durante una actividad práctica"
+                                 width="1000" height="800" loading="lazy" decoding="async"
+                                 data-img-fallback="Actividad práctica">
+                        </figure>
+                        <div class="intro__badge" aria-hidden="true">
+                            <span class="intro__badge-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg>
+                            </span>
+                            <span class="intro__badge-text">
+                                <strong>Educación pública</strong>
+                                <span>de calidad</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="intro__pillars">
+                    <li class="pillar reveal">
+                        <div class="pillar__head">
+                            <span class="pillar__icon"><svg class="icon" aria-hidden="true"><use href="#i-practice"></use></svg></span>
+                            <span class="pillar__num" aria-hidden="true">01</span>
+                        </div>
+                        <h3 class="pillar__title">Formación práctica</h3>
+                        <p class="pillar__text">Competencias desarrolladas mediante prácticas, proyectos, laboratorios y experiencias profesionales.</p>
+                    </li>
+                    <li class="pillar reveal" data-reveal-delay="90">
+                        <div class="pillar__head">
+                            <span class="pillar__icon"><svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg></span>
+                            <span class="pillar__num" aria-hidden="true">02</span>
+                        </div>
+                        <h3 class="pillar__title">Vinculación con el sector productivo</h3>
+                        <p class="pillar__text">Relación con empresas, organizaciones e instituciones que acerca a los estudiantes a su área profesional.</p>
+                    </li>
+                    <li class="pillar reveal" data-reveal-delay="180">
+                        <div class="pillar__head">
+                            <span class="pillar__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg></span>
+                            <span class="pillar__num" aria-hidden="true">03</span>
+                        </div>
+                        <h3 class="pillar__title">Formación integral</h3>
+                        <p class="pillar__text">Actividades culturales, deportivas y paraescolares que complementan la preparación profesional.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             3. MODELO 60/40, RUTA, OFERTA, CAMPUS, VIDA,
+                NOTICIAS, EVENTOS, COLLAGE, CTA
+             =====================================================
+             (Por brevedad muestro solo secciones clave.
+             El resto sigue el mismo patrón: usar
+             https://images.unsplash.com/photo-XXXX con
+             parámetros de optimización, y data-attributes
+             ya definidos en los módulos JS.)
+        -->
+
+        <!-- 4. RUTA ACADÉMICA -->
+        <section class="section section--route" id="ruta" aria-labelledby="route-title">
+            <div class="container">
+                <header class="section__head section__head--center">
+                    <p class="eyebrow">Ruta académica</p>
+                    <h2 class="section__title" id="route-title">De <span class="route__title-accent">TSU</span> a tu título profesional</h2>
+                    <p class="section__lead section__lead--center">
+                        El TSU y la Ingeniería o Licenciatura forman parte de una misma ruta de formación,
+                        con dos estadías profesionales y la posibilidad de obtener 2 títulos y 2 cédulas.
+                    </p>
+                </header>
+
+                <ol class="route__list">
+                    <li class="route__step reveal">
+                        <div class="route__node" aria-hidden="true">01</div>
+                        <article class="route__body">
+                            <p class="route__meta">2 años</p>
+                            <h3 class="route__title">Técnico Superior Universitario</h3>
+                            <p class="route__text">Primera etapa de la ruta formativa universitaria.</p>
+                        </article>
+                    </li>
+                    <li class="route__step reveal" data-reveal-delay="80">
+                        <div class="route__node" aria-hidden="true">02</div>
+                        <article class="route__body">
+                            <p class="route__meta">Último cuatrimestre TSU</p>
+                            <h3 class="route__title">Primera estadía</h3>
+                            <p class="route__text">Aplicación de conocimientos en el sector productivo.</p>
+                        </article>
+                    </li>
+                    <li class="route__step reveal" data-reveal-delay="160">
+                        <div class="route__node" aria-hidden="true">03</div>
+                        <article class="route__body">
+                            <p class="route__meta">1 año 4 meses</p>
+                            <h3 class="route__title">Ingeniería o Licenciatura</h3>
+                            <p class="route__text">Continuidad de estudios para completar la formación profesional.</p>
+                        </article>
+                    </li>
+                    <li class="route__step reveal" data-reveal-delay="240">
+                        <div class="route__node" aria-hidden="true">04</div>
+                        <article class="route__body">
+                            <p class="route__meta">Último cuatrimestre Ing./Lic.</p>
+                            <h3 class="route__title">Segunda estadía</h3>
+                            <p class="route__text">Cierre de la formación profesional vinculado al sector.</p>
+                        </article>
+                    </li>
+                    <li class="route__step route__step--final reveal" data-reveal-delay="320">
+                        <div class="route__node" aria-hidden="true">05</div>
+                        <article class="route__body">
+                            <p class="route__meta">2 títulos + 2 cédulas</p>
+                            <h3 class="route__title">Egreso profesional</h3>
+                            <p class="route__text">Conclusión de la ruta completa con doble titulación.</p>
+                        </article>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 9. NOTICIAS (consumidas desde /js/data/news.json) -->
+        <section class="section section--news" aria-labelledby="news-title">
+            <div class="container">
+                <header class="section__head section__head--row">
+                    <div>
+                        <p class="eyebrow">Noticias y eventos</p>
+                        <h2 class="section__title" id="news-title">Lo que ocurre en la <span class="news__title-accent">UTU</span></h2>
+                        <p class="section__lead">Actividades académicas, culturales, deportivas e institucionales.</p>
+                    </div>
+                    <a class="btn btn--outline btn--sm" href="/pages/noticias/index.html">
+                        Ver todas
+                        <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                    </a>
+                </header>
+
+                <p class="news__note" data-news-note>Contenido demostrativo. Pendiente de sustituirse por publicaciones oficiales.</p>
+
+                <div class="news__stage">
+                    <div class="news__grid" data-news-grid></div>
+                    <div class="news__empty" data-news-empty hidden>
+                        <h3 class="news__empty-title">Aún no hay publicaciones</h3>
+                        <p class="news__empty-text">Las noticias aparecerán aquí conforme se publiquen.</p>
+                    </div>
+                </div>
+
+                <nav class="news__pagination" data-news-pagination aria-label="Paginación de noticias" hidden>
+                    <button class="news__page-nav" type="button" data-news-prev aria-label="Página anterior">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>
+                    </button>
+                    <ol class="news__page-list" data-news-pages></ol>
+                    <button class="news__page-nav" type="button" data-news-next aria-label="Página siguiente">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                    </button>
+                </nav>
+                <p class="sr-only" data-news-status aria-live="polite"></p>
+            </div>
+        </section>
+
+        <!-- 10. EVENTOS (consumidos desde /js/data/events.json) -->
+        <section class="section section--events" aria-labelledby="events-title">
+            <div class="container">
+                <header class="section__head section__head--row">
+                    <div>
+                        <p class="eyebrow">Próximos eventos</p>
+                        <h2 class="section__title" id="events-title">Agenda institucional</h2>
+                    </div>
+                    <div class="events__controls" aria-label="Controles de eventos">
+                        <button type="button" class="events__nav" data-events-prev aria-label="Evento anterior"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button>
+                        <button type="button" class="events__nav" data-events-next aria-label="Siguiente evento"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button>
+                    </div>
+                </header>
+                <p class="news__note" data-events-note>Contenido demostrativo. Pendiente de sustituirse por eventos oficiales.</p>
+                <div class="events__viewport" data-events-viewport>
+                    <ul class="events__track" data-events-track></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. COLLAGE — "Somos UTU" -->
+        <section class="section section--community" aria-labelledby="community-title">
+            <div class="container">
+                <header class="section__head section__head--center">
+                    <p class="eyebrow">Somos</p>
+                    <h2 class="section__title" id="community-title">#UTUSumacinta</h2>
+                    <p class="section__lead section__lead--center">
+                        Comunidad, cultura, deporte, laboratorios, proyectos y vida universitaria.
+                    </p>
+                </header>
+                <div class="collage" data-collage>
+                    <button class="collage__cell collage__cell--a" data-lightbox-index="0" aria-label="Ampliar imagen 1">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&h=1000&q=80&auto=format&fit=crop" alt="Comunidad UTU 1" loading="lazy" decoding="async" width="1200" height="1000">
+                    </button>
+                    <button class="collage__cell collage__cell--b" data-lightbox-index="1" aria-label="Ampliar imagen 2">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=800&q=80&auto=format&fit=crop" alt="Comunidad UTU 2" loading="lazy" decoding="async" width="800" height="800">
+                    </button>
+                    <button class="collage__cell collage__cell--c" data-lightbox-index="2" aria-label="Ampliar imagen 3">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=800&q=80&auto=format&fit=crop" alt="Comunidad UTU 3" loading="lazy" decoding="async" width="800" height="800">
+                    </button>
+                    <button class="collage__cell collage__cell--d" data-lightbox-index="3" aria-label="Ampliar imagen 4">
+                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1200&h=800&q=80&auto=format&fit=crop" alt="Comunidad UTU 4" loading="lazy" decoding="async" width="1200" height="800">
+                    </button>
+                    <button class="collage__cell collage__cell--e" data-lightbox-index="4" aria-label="Ampliar imagen 5">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&h=1000&q=80&auto=format&fit=crop" alt="Comunidad UTU 5" loading="lazy" decoding="async" width="800" height="1000">
+                    </button>
+                    <button class="collage__cell collage__cell--f" data-lightbox-index="5" aria-label="Ampliar imagen 6">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1000&h=800&q=80&auto=format&fit=crop" alt="Comunidad UTU 6" loading="lazy" decoding="async" width="1000" height="800">
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. CTA -->
+        <section class="section section--cta" aria-labelledby="cta-title">
+            <div class="container">
+                <div class="cta reveal">
+                    <div class="cta__decor" aria-hidden="true"><span class="cta__glow"></span></div>
+                    <div class="cta__content">
+                        <p class="eyebrow eyebrow--on-dark">#OrgullosamenteUTU · #ÚneteYa</p>
+                        <h2 class="cta__title" id="cta-title">Aquí, aprender no significa únicamente conocer.</h2>
+                        <p class="cta__text">
+                            Significa practicar, desarrollar, participar y transformar.
+                            Conoce la oferta académica de la UTU y forma parte de una ruta de
+                            formación con experiencia profesional.
+                        </p>
+                        <div class="cta__actions">
+                            <a class="btn btn--light" href="/pages/oferta-educativa/index.html">
+                                Explora la oferta educativa
+                                <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                            </a>
+                            <a class="btn btn--ghost-light" href="/pages/comunidad/ubicacion.html">Ubicación y contacto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER (inyectado por js/components/footer.js) -->
+    <div data-component="footer"></div>
+
+    <!-- LIGHTBOX (compartido) -->
+    <div class="lightbox" data-lightbox hidden>
+        <div class="lightbox__backdrop" data-lightbox-close></div>
+        <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
+            <button type="button" class="lightbox__close" data-lightbox-close aria-label="Cerrar visor">
+                <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
+            </button>
+            <button type="button" class="lightbox__nav lightbox__nav--prev" data-lightbox-prev aria-label="Imagen anterior">
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </button>
+            <figure class="lightbox__figure">
+                <img class="lightbox__img" alt="" data-lightbox-img>
+                <figcaption class="lightbox__caption" data-lightbox-caption></figcaption>
+            </figure>
+            <button type="button" class="lightbox__nav lightbox__nav--next" data-lightbox-next aria-label="Imagen siguiente">
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ÚNICO SCRIPT NECESARIO -->
+    <script type="module" src="/js/app.js"></script>
+</body>
+</html>
