@@ -1,11 +1,3 @@
-<!-- ============================================================
-     pages/universidad/bienvenida.html — Ejemplo de página interna
-     ------------------------------------------------------------
-     Patrón a replicar para:
-       historia.html, mision-vision.html, autoridades.html,
-       instalaciones.html, oferta-educativa/*, admisiones,
-       becas, comunidad/*, noticias/*, etc.
-     ============================================================ -->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,17 +7,25 @@
     <meta name="theme-color" content="#30348C">
 
     <title>Bienvenida del Rector | UTU</title>
-    <meta name="description" content="Mensaje de bienvenida del Rector de la Universidad Tecnológica del Usumacinta.">
+    <meta name="description" content="Mensaje de bienvenida del Mtro. Darvin Daniel González Baños, Rector de la Universidad Tecnológica del Usumacinta.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.utu.edu.mx/pages/universidad/bienvenida.html">
 
-    <link rel="icon" href="/assets/icons/icon.png" type="image/png">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="Universidad Tecnológica del Usumacinta">
+    <meta property="og:title" content="Bienvenida del Rector | UTU">
+    <meta property="og:description" content="Un mensaje de nuestra comunidad universitaria.">
+    <meta property="og:url" content="https://www.utu.edu.mx/pages/universidad/bienvenida.html">
+    <meta property="og:image" content="https://www.utu.edu.mx/assets/images/rector/Rector.webp">
+
+    <link rel="icon" href="/assets/images/icons/icon.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Estilos base + componentes comunes -->
+    <!-- Base + componentes compartidos -->
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/main.css">
@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/components/breadcrumbs.css">
     <link rel="stylesheet" href="/css/components/page-hero.css">
-    <!-- Estilos específicos de esta página -->
+    <!-- Estilos únicos de esta página -->
     <link rel="stylesheet" href="/css/pages/bienvenida.css">
 
     <script>document.documentElement.classList.add('js');</script>
@@ -49,10 +49,13 @@
 
     <main id="contenido">
 
-        <!-- HERO interno (comparte estilos con todas las páginas internas) -->
-        <section class="page-hero" aria-labelledby="bienvenida-title">
+        <!-- ============================================================
+             HERO — Bienvenida institucional
+             ============================================================ -->
+        <section class="page-hero page-hero--bienvenida" aria-labelledby="bienvenida-title">
             <div class="page-hero__bg" aria-hidden="true"></div>
             <div class="container page-hero__inner">
+
                 <nav class="breadcrumbs breadcrumbs--on-dark" aria-label="Ruta de navegación">
                     <ol>
                         <li><a href="/">Inicio</a></li>
@@ -60,70 +63,102 @@
                         <li><span aria-current="page">Bienvenida</span></li>
                     </ol>
                 </nav>
-                <p class="eyebrow eyebrow--on-dark">Bienvenida institucional</p>
+
+                <p class="eyebrow eyebrow--on-dark" data-content="hero.eyebrow"></p>
+
                 <h1 class="page-hero__title" id="bienvenida-title">
-                    Un mensaje de nuestro
-                    <span class="page-hero__title-accent">Rector</span>
+                    <span data-content="hero.titlePrefix"></span>
+                    <span class="page-hero__title-accent" data-content="hero.titleAccent"></span>
                 </h1>
-                <p class="page-hero__lead">
-                    Conoce el mensaje de bienvenida del Mtro. Darvin Daniel González Baños,
-                    Rector de la Universidad Tecnológica del Usumacinta.
-                </p>
+
+                <p class="page-hero__lead" data-content="hero.lead"></p>
             </div>
         </section>
 
-        <!-- CONTENIDO EDITORIAL -->
-        <section class="section bienvenida" aria-labelledby="rector-title">
+        <!-- ============================================================
+             MENSAJE EDITORIAL — Retrato + Carta + Firma
+             ============================================================ -->
+        <section class="section section--bienvenida" aria-labelledby="rector-title">
             <div class="container">
                 <div class="bienvenida__layout">
 
-                    <div class="bienvenida__portrait reveal">
-                        <figure class="bienvenida__media">
-                            <img src="/assets/images/rector/Rector.webp"
-                                 alt="Mtro. Darvin Daniel González Baños, Rector de la UTU"
-                                 width="800" height="1000"
-                                 loading="eager" decoding="async" fetchpriority="high"
-                                 data-img-fallback="Retrato oficial del Rector">
-                        </figure>
-                        <div class="bienvenida__badge">
-                            <span class="bienvenida__badge-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="m8.21 13.89-1.21 7.11L12 18l5 3-1.21-7.12"/></svg>
-                            </span>
-                            <span class="bienvenida__badge-text">
-                                <strong>Rector</strong>
-                                <span>UT Usumacinta</span>
-                            </span>
+                    <!-- Retrato con marco editorial -->
+                    <aside class="bienvenida__portrait reveal" aria-label="Retrato del Rector">
+                        <div class="bienvenida__portrait-inner">
+                            <figure class="bienvenida__media">
+                                <img data-img-content="rector.imagen"
+                                     width="800" height="1000"
+                                     loading="eager" decoding="async" fetchpriority="high">
+                            </figure>
+                            <div class="bienvenida__badge" aria-hidden="true">
+                                <span class="bienvenida__badge-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="8" r="6"/>
+                                        <path d="m8.21 13.89-1.21 7.11L12 18l5 3-1.21-7.12"/>
+                                    </svg>
+                                </span>
+                                <span class="bienvenida__badge-text">
+                                    <strong data-content="rector.badge.title"></strong>
+                                    <span data-content="rector.badge.subtitle"></span>
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    </aside>
 
-                    <div class="bienvenida__content reveal" data-reveal-delay="140">
+                    <!-- Carta editorial -->
+                    <article class="bienvenida__content reveal" data-reveal-delay="140">
+
                         <h2 class="bienvenida__title" id="rector-title">
-                            Un mensaje de nuestro <span class="bienvenida__title-accent">Rector</span>
+                            <span data-content="mensaje.titlePrefix"></span>
+                            <span class="bienvenida__title-accent" data-content="mensaje.titleAccent"></span>
                         </h2>
-                        <blockquote class="bienvenida__message">
-                            <p class="bienvenida__paragraph bienvenida__paragraph--lead">
-                                Es un honor darles la más cordial bienvenida a nuestra
-                                comunidad universitaria. En la UT del Usumacinta nos dedicamos
-                                a formar profesionales de <span class="bienvenida__highlight">excelencia con valores humanos</span>,
-                                comprometidos con el desarrollo sostenible de nuestra región.
-                            </p>
-                            <p class="bienvenida__paragraph">
-                                Nuestro compromiso es brindar una educación de calidad que
-                                combine la teoría con la práctica, preparando a nuestros
-                                estudiantes para los desafíos del mundo actual.
-                            </p>
-                            <p class="bienvenida__paragraph">
-                                Los invito a ser parte activa de esta gran familia
-                                universitaria, donde juntos construiremos un futuro mejor
-                                para Tabasco y para México.
-                            </p>
-                        </blockquote>
-                        <footer class="bienvenida__signature">
-                            <span class="bienvenida__signature-name">Mtro. Darvin Daniel González Baños</span>
-                            <span class="bienvenida__signature-role">Rector de la Universidad Tecnológica del Usumacinta</span>
-                        </footer>
-                    </div>
 
+                        <blockquote class="bienvenida__message">
+                            <div data-mensaje-paragraphs></div>
+                        </blockquote>
+
+                        <footer class="bienvenida__signature">
+                            <span class="bienvenida__signature-name" data-content="rector.nombre"></span>
+                            <span class="bienvenida__signature-role" data-content="rector.cargo"></span>
+                        </footer>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             VALORES — Tres pilares del mensaje
+             ============================================================ -->
+        <section class="section section--valores" aria-labelledby="valores-title">
+            <div class="container">
+
+                <header class="section__head section__head--center reveal">
+                    <p class="eyebrow" data-content="valores.eyebrow"></p>
+                    <h2 class="section__title" id="valores-title">
+                        <span data-content="valores.title"></span>
+                        <span class="valores__title-accent" data-content="valores.titleAccent"></span>
+                    </h2>
+                    <p class="section__lead section__lead--center" data-content="valores.lead"></p>
+                </header>
+
+                <ul class="valores__grid" data-valores-grid></ul>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CTA FINAL
+             ============================================================ -->
+        <section class="section section--cta" aria-labelledby="cta-title">
+            <div class="container">
+                <div class="cta reveal">
+                    <div class="cta__content">
+                        <p class="eyebrow eyebrow--on-dark" data-content="cta.eyebrow"></p>
+                        <h2 class="cta__title" id="cta-title" data-content="cta.title"></h2>
+                        <p class="cta__text" data-content="cta.texto"></p>
+                        <div class="cta__actions" data-cta-buttons></div>
+                    </div>
                 </div>
             </div>
         </section>
