@@ -5,6 +5,8 @@
      el contenido siempre quepa en el área visible del navegador
      móvil (las barras del navegador ya no recortan el fondo).
    · Fallback a vh para navegadores antiguos.
+   · Sin min-height forzado: el hero se ajusta al espacio
+     disponible en pantallas bajas (landscape móvil).
    ============================================================ */
 
 :root {
@@ -59,7 +61,6 @@
     --space-4xl: clamp(4rem,   2.5rem + 7vw, 8rem);
 
     /* ---------- Layout ---------- */
-    /* AQUÍ ESTÁ EL CAMBIO: de 1400px a 1680px para igualar el ancho del hero__facts */
     --container-max:    1680px;
     --container-narrow: 960px;
     --container-pad:    clamp(1rem, 4vw, 4rem);
@@ -96,20 +97,22 @@
     --header-h: 68px;
 
     /* Hero: altura exacta = viewport visible − header.
-       · svh (small viewport height) → reserva el espacio de las
+       · svh (small viewport height) reserva el espacio de las
          barras del navegador móvil. Es lo más estable.
        · Fallback a vh para navegadores antiguos.
-       · max(520px, …) garantiza legibilidad en pantallas bajas
-         (landscape móvil); si se supera, hace scroll. */
-    --hero-h: max(520px, calc(100vh  - var(--header-h)));
-    --hero-h: max(520px, calc(100svh - var(--header-h)));
+       · Sin min-height forzado: el hero se ajusta al espacio
+         disponible en pantallas bajas (landscape móvil) y el
+         contenido interno se adapta con las media queries de
+         altura definidas en home.css. */
+    --hero-h: calc(100vh  - var(--header-h));
+    --hero-h: calc(100svh - var(--header-h));
 }
 
 @media (min-width: 1024px) {
     :root {
         --header-h: 84px;
-        --hero-h: max(560px, calc(100vh  - var(--header-h)));
-        --hero-h: max(560px, calc(100svh - var(--header-h)));
+        --hero-h: calc(100vh  - var(--header-h));
+        --hero-h: calc(100svh - var(--header-h));
     }
 }
 
