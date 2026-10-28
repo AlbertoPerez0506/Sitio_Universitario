@@ -1,9 +1,5 @@
-<!-- ============================================================
-     index.html — Página principal UTU
-     ============================================================ -->
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,9 +18,9 @@
     <meta property="og:description" content="Formación que se vive. Conocimiento que se aplica.">
     <meta property="og:url" content="https://www.utu.edu.mx/">
     <meta property="og:image" content="https://www.utu.edu.mx/assets/images/branding/logo-utu.png">
-
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- FAVICON: intacto -->
     <link rel="icon" href="/assets/images/icons/icon.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,80 +48,12 @@
 
     <main id="contenido">
 
-        <!-- HERO (sin cambios) -->
+        <!-- ============================ HERO ============================ -->
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero__carousel" data-carousel data-autoplay="6500"
                  role="region" aria-roledescription="carrusel"
                  aria-label="Imágenes destacadas de la UTU">
-                <div class="hero__track" data-carousel-track>
-                    <article class="hero__slide is-active" data-carousel-slide role="group"
-                             aria-roledescription="diapositiva" aria-label="1 de 4">
-                        <div class="hero__media">
-                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&q=80&auto=format&fit=crop"
-                                 alt="Campus de la UTU" width="1920" height="1080"
-                                 fetchpriority="high" decoding="async" data-img-fallback="Campus UTU">
-                        </div>
-                        <div class="hero__overlay">
-                            <div class="container hero__content">
-                                <p class="eyebrow eyebrow--on-dark">Universidad Tecnológica del Usumacinta</p>
-                                <h1 class="hero__title" id="hero-title">
-                                    Formación que se vive.
-                                    <span class="hero__title-accent">Conocimiento que se aplica.</span>
-                                </h1>
-                                <p class="hero__lead">
-                                    En la UTU la formación profesional combina el conocimiento académico
-                                    con la práctica, los proyectos y las experiencias que te preparan
-                                    para tu futuro profesional.
-                                </p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="hero__slide" data-carousel-slide role="group" aria-roledescription="diapositiva" aria-label="2 de 4" aria-hidden="true">
-                        <div class="hero__media">
-                            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1920&h=1080&q=80&auto=format&fit=crop"
-                                 alt="Estudiantes en laboratorio" width="1920" height="1080"
-                                 loading="lazy" decoding="async" data-img-fallback="Laboratorio UTU">
-                        </div>
-                        <div class="hero__overlay">
-                            <div class="container hero__content">
-                                <p class="eyebrow eyebrow--on-dark">Modelo académico 60 / 40</p>
-                                <h2 class="hero__title">60% práctica. <span class="hero__title-accent">40% teoría.</span></h2>
-                                <p class="hero__lead">
-                                    Un esquema que favorece que los conocimientos se utilicen y comprueben
-                                    mediante ejercicios, prácticas, proyectos y actividades del área profesional.
-                                </p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="hero__slide" data-carousel-slide role="group" aria-roledescription="diapositiva" aria-label="3 de 4" aria-hidden="true">
-                        <div class="hero__media">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1080&q=80&auto=format&fit=crop"
-                                 alt="Vida universitaria UTU" width="1920" height="1080"
-                                 loading="lazy" decoding="async" data-img-fallback="Vida universitaria">
-                        </div>
-                        <div class="hero__overlay">
-                            <div class="container hero__content">
-                                <p class="eyebrow eyebrow--on-dark">Vida universitaria</p>
-                                <h2 class="hero__title">La experiencia <span class="hero__title-accent">también se vive fuera del aula.</span></h2>
-                                <p class="hero__lead">Actividades culturales, deportivas y paraescolares que complementan tu formación profesional.</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="hero__slide" data-carousel-slide role="group" aria-roledescription="diapositiva" aria-label="4 de 4" aria-hidden="true">
-                        <div class="hero__media">
-                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1920&h=1080&q=80&auto=format&fit=crop"
-                                 alt="Egresados UTU" width="1920" height="1080"
-                                 loading="lazy" decoding="async" data-img-fallback="Egresados UTU">
-                        </div>
-                        <div class="hero__overlay">
-                            <div class="container hero__content">
-                                <p class="eyebrow eyebrow--on-dark">Ruta académica</p>
-                                <h2 class="hero__title">De TSU a <span class="hero__title-accent">Ingeniería o Licenciatura.</span></h2>
-                                <p class="hero__lead">Dos estadías profesionales y la posibilidad de obtener 2 títulos y 2 cédulas profesionales.</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                <div class="hero__track" data-carousel-track><!-- JS --></div>
 
                 <button type="button" class="hero__nav hero__nav--prev" data-carousel-prev aria-label="Diapositiva anterior">
                     <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
@@ -153,66 +81,24 @@
                 </div>
             </div>
 
-            <ul class="hero__facts container" aria-label="Datos destacados de la UTU">
-                <li class="hero__fact"><strong data-count="60" data-count-suffix="%">60%</strong><span>Práctica</span></li>
-                <li class="hero__fact"><strong data-count="40" data-count-suffix="%">40%</strong><span>Teoría</span></li>
-                <li class="hero__fact"><strong data-count="2">2</strong><span>Estadías profesionales</span></li>
-                <li class="hero__fact"><strong>2 + 2</strong><span>Títulos y cédulas</span></li>
-            </ul>
+            <ul class="hero__facts container" aria-label="Datos destacados de la UTU" data-hero-facts></ul>
         </section>
 
-        <!-- PRESENTACIÓN INSTITUCIONAL — JERARQUÍA CORREGIDA -->
+        <!-- ============================ INTRO ============================ -->
         <section class="section section--intro" aria-labelledby="intro-title">
             <div class="container">
                 <div class="intro__grid">
                     <div class="intro__text reveal">
-                        <p class="eyebrow">La universidad</p>
+                        <p class="eyebrow" data-content="institucional.intro.eyebrow"></p>
                         <h2 class="section__title" id="intro-title">
-                            Una universidad donde el conocimiento
-                            <span class="intro__title-accent">se convierte en experiencia</span>
+                            <span data-content="institucional.intro.title"></span>
+                            <span class="intro__title-accent" data-content="institucional.intro.titleAccent"></span>
                         </h2>
-                        <p class="section__lead">
-                            La Universidad Tecnológica del Usumacinta es una institución de educación
-                            superior ubicada en el municipio de Emiliano Zapata, Tabasco, cuya propuesta
-                            educativa se caracteriza por una formación orientada principalmente a la
-                            práctica y a la aplicación de conocimientos.
-                        </p>
-                        <p class="text-muted">
-                            Su modelo formativo combina conocimientos teóricos con una importante
-                            participación práctica: prácticas, proyectos, laboratorios, experiencias
-                            profesionales y participación en la vida universitaria.
-                        </p>
-                        <ul class="intro__facts" aria-label="Datos institucionales">
-                            <li class="intro__fact">
-                                <span class="intro__fact-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                                </span>
-                                <div class="intro__fact-body">
-                                    <span class="intro__fact-value">2003</span>
-                                    <span class="intro__fact-label">Año de fundación</span>
-                                </div>
-                            </li>
-                            <li class="intro__fact">
-                                <span class="intro__fact-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                </span>
-                                <div class="intro__fact-body">
-                                    <span class="intro__fact-value">Emiliano Zapata</span>
-                                    <span class="intro__fact-label">Tabasco, México</span>
-                                </div>
-                            </li>
-                            <li class="intro__fact">
-                                <span class="intro__fact-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-                                </span>
-                                <div class="intro__fact-body">
-                                    <span class="intro__fact-value">Pública</span>
-                                    <span class="intro__fact-label">Educación superior</span>
-                                </div>
-                            </li>
-                        </ul>
-                        <a class="link-arrow" href="/pages/universidad/bienvenida.html">
-                            Conoce más sobre la UTU
+                        <p class="section__lead" data-content="institucional.intro.lead"></p>
+                        <p class="text-muted" data-content="institucional.intro.texto"></p>
+                        <ul class="intro__facts" aria-label="Datos institucionales" data-intro-facts></ul>
+                        <a class="link-arrow" href="/pages/universidad/bienvenida.html" data-content-href="institucional.intro.linkCta.href">
+                            <span data-content="institucional.intro.linkCta.label"></span>
                             <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
                         </a>
                     </div>
@@ -226,486 +112,79 @@
                             <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1000&h=800&q=80&auto=format&fit=crop"
                                  alt="Estudiantes de la UTU durante una actividad práctica"
                                  width="1000" height="800" loading="lazy" decoding="async"
-                                 data-img-fallback="Actividad práctica">
+                                 data-img-fallback="Actividad práctica"
+                                 data-img-content="institucional.intro.imagen">
                         </figure>
                         <div class="intro__badge" aria-hidden="true">
                             <span class="intro__badge-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg>
                             </span>
                             <span class="intro__badge-text">
-                                <strong>Educación pública</strong>
-                                <span>de calidad</span>
+                                <strong data-content="institucional.intro.badge.title"></strong>
+                                <span data-content="institucional.intro.badge.subtitle"></span>
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <ul class="intro__pillars">
-                    <li class="pillar reveal">
-                        <div class="pillar__head">
-                            <span class="pillar__icon"><svg class="icon" aria-hidden="true"><use href="#i-practice"></use></svg></span>
-                            <span class="pillar__num" aria-hidden="true">01</span>
-                        </div>
-                        <h3 class="pillar__title">Formación práctica</h3>
-                        <p class="pillar__text">Competencias desarrolladas mediante prácticas, proyectos, laboratorios y experiencias profesionales.</p>
-                    </li>
-                    <li class="pillar reveal" data-reveal-delay="90">
-                        <div class="pillar__head">
-                            <span class="pillar__icon"><svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg></span>
-                            <span class="pillar__num" aria-hidden="true">02</span>
-                        </div>
-                        <h3 class="pillar__title">Vinculación con el sector productivo</h3>
-                        <p class="pillar__text">Relación con empresas, organizaciones e instituciones que acerca a los estudiantes a su área profesional.</p>
-                    </li>
-                    <li class="pillar reveal" data-reveal-delay="180">
-                        <div class="pillar__head">
-                            <span class="pillar__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg></span>
-                            <span class="pillar__num" aria-hidden="true">03</span>
-                        </div>
-                        <h3 class="pillar__title">Formación integral</h3>
-                        <p class="pillar__text">Actividades culturales, deportivas y paraescolares que complementan la preparación profesional.</p>
-                    </li>
-                </ul>
+                <ul class="intro__pillars" data-intro-pillars></ul>
             </div>
         </section>
 
-        <!-- RUTA ACADÉMICA -->
+        <!-- ============================ RUTA ============================ -->
         <section class="section section--route" id="ruta" aria-labelledby="route-title">
             <div class="container">
                 <header class="section__head section__head--center">
-                    <p class="eyebrow">Ruta académica</p>
-                    <h2 class="section__title" id="route-title">De <span class="route__title-accent">TSU</span> a tu título profesional</h2>
-                    <p class="section__lead section__lead--center">
-                        El TSU y la Ingeniería o Licenciatura forman parte de una misma ruta de formación,
-                        con dos estadías profesionales y la posibilidad de obtener 2 títulos y 2 cédulas.
-                    </p>
+                    <p class="eyebrow" data-content="institucional.ruta.eyebrow"></p>
+                    <h2 class="section__title" id="route-title">
+                        <span data-content="institucional.ruta.titlePrefix"></span>
+                        <span class="route__title-accent" data-content="institucional.ruta.titleAccent"></span>
+                        <span data-content="institucional.ruta.titleSuffix"></span>
+                    </h2>
+                    <p class="section__lead section__lead--center" data-content="institucional.ruta.lead"></p>
                 </header>
 
-                <ol class="route__list">
-                    <li class="route__step reveal">
-                        <div class="route__node" aria-hidden="true">01</div>
-                        <article class="route__body">
-                            <p class="route__meta">2 años</p>
-                            <h3 class="route__title">Técnico Superior Universitario</h3>
-                            <p class="route__text">Primera etapa de la ruta formativa universitaria.</p>
-                        </article>
-                    </li>
-                    <li class="route__step reveal" data-reveal-delay="80">
-                        <div class="route__node" aria-hidden="true">02</div>
-                        <article class="route__body">
-                            <p class="route__meta">Último cuatrimestre TSU</p>
-                            <h3 class="route__title">Primera estadía</h3>
-                            <p class="route__text">Aplicación de conocimientos en el sector productivo.</p>
-                        </article>
-                    </li>
-                    <li class="route__step reveal" data-reveal-delay="160">
-                        <div class="route__node" aria-hidden="true">03</div>
-                        <article class="route__body">
-                            <p class="route__meta">1 año 4 meses</p>
-                            <h3 class="route__title">Ingeniería o Licenciatura</h3>
-                            <p class="route__text">Continuidad de estudios para completar la formación profesional.</p>
-                        </article>
-                    </li>
-                    <li class="route__step reveal" data-reveal-delay="240">
-                        <div class="route__node" aria-hidden="true">04</div>
-                        <article class="route__body">
-                            <p class="route__meta">Último cuatrimestre Ing./Lic.</p>
-                            <h3 class="route__title">Segunda estadía</h3>
-                            <p class="route__text">Cierre de la formación profesional vinculado al sector.</p>
-                        </article>
-                    </li>
-                    <li class="route__step route__step--final reveal" data-reveal-delay="320">
-                        <div class="route__node" aria-hidden="true">05</div>
-                        <article class="route__body">
-                            <p class="route__meta">2 títulos + 2 cédulas</p>
-                            <h3 class="route__title">Egreso profesional</h3>
-                            <p class="route__text">Conclusión de la ruta completa con doble titulación.</p>
-                        </article>
-                    </li>
-                </ol>
+                <ol class="route__list" data-ruta-steps></ol>
             </div>
         </section>
 
-        <!-- =====================================================
-             OFERTA EDUCATIVA — REDISEÑO COMPLETO
-             8 tarjetas: 7 carreras + Modalidad Mixta (destacada)
-             ===================================================== -->
+        <!-- ============================ OFERTA ============================ -->
         <section class="section section--programs" id="oferta" aria-labelledby="programs-title">
             <div class="container">
                 <header class="section__head section__head--center">
-                    <p class="eyebrow">Oferta educativa · 8 opciones</p>
+                    <p class="eyebrow" data-content="oferta.head.eyebrow"></p>
                     <h2 class="section__title" id="programs-title">
-                        8 programas, <span class="programs__title-accent">una misma ruta</span>
+                        <span data-content="oferta.head.title"></span>
+                        <span class="programs__title-accent" data-content="oferta.head.titleAccent"></span>
                     </h2>
-                    <p class="section__lead section__lead--center">
-                        TSU con continuidad a Ingeniería o Licenciatura.
-                        Dos estadías profesionales, 2 títulos y 2 cédulas profesionales.
-                    </p>
+                    <p class="section__lead section__lead--center" data-content="oferta.head.lead"></p>
                 </header>
 
-                <div class="programs__grid">
-
-                    <!-- 01 · Ing. Entornos Virtuales / TSU -->
-                    <article class="program-card reveal">
-                        <figure class="program-card__media">
-                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=600&q=80&auto=format&fit=crop"
-                                 alt="Entornos virtuales y negocios digitales" width="900" height="600"
-                                 loading="lazy" decoding="async">
-                            <span class="program-card__num" aria-hidden="true">01</span>
-                            <span class="program-card__level-badge">Ingeniería</span>
-                            <span class="program-card__area-badge">
-                                <span class="program-card__area-dot" aria-hidden="true"></span>
-                                Tecnología
-                            </span>
-                        </figure>
-                        <div class="program-card__body">
-                            <p class="program-card__eyebrow">
-                                <span class="program-card__eyebrow-dot" aria-hidden="true"></span>
-                                TSU + Continuidad a Ingeniería
-                            </p>
-                            <h3 class="program-card__title">Entornos Virtuales y Negocios Digitales</h3>
-                            <p class="program-card__tagline">Diseña soluciones digitales, plataformas y experiencias conectadas.</p>
-                            <ul class="program-card__facts" aria-label="Datos del programa">
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                                    <span>2 años + 1 año 4 meses</span>
-                                </li>
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-                                    <span>2 títulos + 2 cédulas</span>
-                                </li>
-                            </ul>
-                            <a class="program-card__cta" href="/pages/oferta-educativa/carrera-01.html">
-                                <span class="program-card__cta-text">Ver programa</span>
-                                <span class="program-card__cta-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-                                </span>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- 02 · Ing. Biotecnología / TSU -->
-                    <article class="program-card reveal" data-reveal-delay="60">
-                        <figure class="program-card__media">
-                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900&h=600&q=80&auto=format&fit=crop"
-                                 alt="Biotecnología UTU" width="900" height="600"
-                                 loading="lazy" decoding="async">
-                            <span class="program-card__num" aria-hidden="true">02</span>
-                            <span class="program-card__level-badge">Ingeniería</span>
-                            <span class="program-card__area-badge">
-                                <span class="program-card__area-dot" aria-hidden="true"></span>
-                                Ciencias de la vida
-                            </span>
-                        </figure>
-                        <div class="program-card__body">
-                            <p class="program-card__eyebrow">
-                                <span class="program-card__eyebrow-dot" aria-hidden="true"></span>
-                                TSU + Continuidad a Ingeniería
-                            </p>
-                            <h3 class="program-card__title">Biotecnología</h3>
-                            <p class="program-card__tagline">Investiga y aplica procesos biológicos en laboratorio y campo.</p>
-                            <ul class="program-card__facts" aria-label="Datos del programa">
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                                    <span>2 años + 1 año 4 meses</span>
-                                </li>
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-                                    <span>2 títulos + 2 cédulas</span>
-                                </li>
-                            </ul>
-                            <a class="program-card__cta" href="/pages/oferta-educativa/carrera-02.html">
-                                <span class="program-card__cta-text">Ver programa</span>
-                                <span class="program-card__cta-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-                                </span>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- 03 · Lic. Negocios / TSU Mercadotecnia -->
-                    <article class="program-card reveal" data-reveal-delay="120">
-                        <figure class="program-card__media">
-                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&h=600&q=80&auto=format&fit=crop"
-                                 alt="Negocios y Mercadotecnia UTU" width="900" height="600"
-                                 loading="lazy" decoding="async">
-                            <span class="program-card__num" aria-hidden="true">03</span>
-                            <span class="program-card__level-badge">Licenciatura</span>
-                            <span class="program-card__area-badge">
-                                <span class="program-card__area-dot" aria-hidden="true"></span>
-                                Negocios
-                            </span>
-                        </figure>
-                        <div class="program-card__body">
-                            <p class="program-card__eyebrow">
-                                <span class="program-card__eyebrow-dot" aria-hidden="true"></span>
-                                TSU + Continuidad a Licenciatura
-                            </p>
-                            <h3 class="program-card__title">Negocios y Mercadotecnia</h3>
-                            <p class="program-card__tagline">Construye marcas, estrategias comerciales y experiencias de cliente.</p>
-                            <ul class="program-card__facts" aria-label="Datos del programa">
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                                    <span>2 años + 1 año 4 meses</span>
-                                </li>
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-                                    <span>2 títulos + 2 cédulas</span>
-                                </li>
-                            </ul>
-                            <a class="program-card__cta" href="/pages/oferta-educativa/carrera-03.html">
-                                <span class="program-card__cta-text">Ver programa</span>
-                                <span class="program-card__cta-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-                                </span>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- 04 · Lic. Gastronomía / TSU -->
-                    <article class="program-card reveal" data-reveal-delay="180">
-                        <figure class="program-card__media">
-                            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=900&h=600&q=80&auto=format&fit=crop"
-                                 alt="Gastronomía UTU" width="900" height="600"
-                                 loading="lazy" decoding="async">
-                            <span class="program-card__num" aria-hidden="true">04</span>
-                            <span class="program-card__level-badge">Licenciatura</span>
-                            <span class="program-card__area-badge">
-                                <span class="program-card__area-dot" aria-hidden="true"></span>
-                                Gastronomía
-                            </span>
-                        </figure>
-                        <div class="program-card__body">
-                            <p class="program-card__eyebrow">
-                                <span class="program-card__eyebrow-dot" aria-hidden="true"></span>
-                                TSU + Continuidad a Licenciatura
-                            </p>
-                            <h3 class="program-card__title">Gastronomía</h3>
-                            <p class="program-card__tagline">Domina técnicas culinarias y gestión de servicios gastronómicos.</p>
-                            <ul class="program-card__facts" aria-label="Datos del programa">
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                                    <span>2 años + 1 año 4 meses</span>
-                                </li>
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-                                    <span>2 títulos + 2 cédulas</span>
-                                </li>
-                            </ul>
-                            <a class="program-card__cta" href="/pages/oferta-educativa/carrera-04.html">
-                                <span class="program-card__cta-text">Ver programa</span>
-                                <span class="program-card__cta-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-                                </span>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- 05 · Lic. Turismo / TSU -->
-                    <article class="program-card reveal" data-reveal-delay="240">
-                        <figure class="program-card__media">
-                            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&h=600&q=80&auto=format&fit=crop"
-                                 alt="Gestión y desarrollo turístico" width="900" height="600"
-                                 loading="lazy" decoding="async">
-                            <span class="program-card__num" aria-hidden="true">05</span>
-                            <span class="program-card__level-badge">Licenciatura</span>
-                            <span class="program-card__area-badge">
-                                <span class="program-card__area-dot" aria-hidden="true"></span>
-                                Turismo
-                            </span>
-                        </figure>
-                        <div class="program-card__body">
-                            <p class="program-card__eyebrow">
-                                <span class="program-card__eyebrow-dot" aria-hidden="true"></span>
-                                TSU + Continuidad a Licenciatura
-                            </p>
-                            <h3 class="program-card__title">Gestión y Desarrollo Turístico</h3>
-                            <p class="program-card__tagline">Diseña destinos, experiencias y proyectos turísticos sostenibles.</p>
-                            <ul class="program-card__facts" aria-label="Datos del programa">
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                                    <span>2 años + 1 año 4 meses</span>
-                                </li>
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-                                    <span>2 títulos + 2 cédulas</span>
-                                </li>
-                            </ul>
-                            <a class="program-card__cta" href="/pages/oferta-educativa/carrera-05.html">
-                                <span class="program-card__cta-text">Ver programa</span>
-                                <span class="program-card__cta-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-                                </span>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- 06 · Lic. Protección Civil / TSU Paramédico -->
-                    <article class="program-card reveal" data-reveal-delay="300">
-                        <figure class="program-card__media">
-                            <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=900&h=600&q=80&auto=format&fit=crop"
-                                 alt="Paramédico y protección civil" width="900" height="600"
-                                 loading="lazy" decoding="async">
-                            <span class="program-card__num" aria-hidden="true">06</span>
-                            <span class="program-card__level-badge">Licenciatura</span>
-                            <span class="program-card__area-badge">
-                                <span class="program-card__area-dot" aria-hidden="true"></span>
-                                Salud
-                            </span>
-                        </figure>
-                        <div class="program-card__body">
-                            <p class="program-card__eyebrow">
-                                <span class="program-card__eyebrow-dot" aria-hidden="true"></span>
-                                TSU + Continuidad a Licenciatura
-                            </p>
-                            <h3 class="program-card__title">Protección Civil</h3>
-                            <p class="program-card__tagline">Formación en atención prehospitalaria y gestión de riesgos.</p>
-                            <ul class="program-card__facts" aria-label="Datos del programa">
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                                    <span>2 años + 1 año 4 meses</span>
-                                </li>
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-                                    <span>2 títulos + 2 cédulas</span>
-                                </li>
-                            </ul>
-                            <a class="program-card__cta" href="/pages/oferta-educativa/carrera-06.html">
-                                <span class="program-card__cta-text">Ver programa</span>
-                                <span class="program-card__cta-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-                                </span>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- 07 · Lic. Contaduría / TSU -->
-                    <article class="program-card reveal" data-reveal-delay="360">
-                        <figure class="program-card__media">
-                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&h=600&q=80&auto=format&fit=crop"
-                                 alt="Contaduría UTU" width="900" height="600"
-                                 loading="lazy" decoding="async">
-                            <span class="program-card__num" aria-hidden="true">07</span>
-                            <span class="program-card__level-badge">Licenciatura</span>
-                            <span class="program-card__area-badge">
-                                <span class="program-card__area-dot" aria-hidden="true"></span>
-                                Finanzas
-                            </span>
-                        </figure>
-                        <div class="program-card__body">
-                            <p class="program-card__eyebrow">
-                                <span class="program-card__eyebrow-dot" aria-hidden="true"></span>
-                                TSU + Continuidad a Licenciatura
-                            </p>
-                            <h3 class="program-card__title">Contaduría</h3>
-                            <p class="program-card__tagline">Domina la información financiera, fiscal y de auditoría.</p>
-                            <ul class="program-card__facts" aria-label="Datos del programa">
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                                    <span>2 años + 1 año 4 meses</span>
-                                </li>
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-                                    <span>2 títulos + 2 cédulas</span>
-                                </li>
-                            </ul>
-                            <a class="program-card__cta" href="/pages/oferta-educativa/carrera-07.html">
-                                <span class="program-card__cta-text">Ver programa</span>
-                                <span class="program-card__cta-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-                                </span>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- 08 · MODALIDAD MIXTA — DESTACADA COMO CARD -->
-                    <article class="program-card program-card--featured reveal" data-reveal-delay="420"
-                             data-featured-card>
-                        <figure class="program-card__media">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&h=600&q=80&auto=format&fit=crop"
-                                 alt="Modalidad Mixta UTU — Estudia y trabaja" width="900" height="600"
-                                 loading="lazy" decoding="async">
-                            <span class="program-card__num" aria-hidden="true">08</span>
-                            <span class="program-card__level-badge program-card__level-badge--new">
-                                <svg class="program-card__sparkle" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2.5l1.6 4.5 4.4 1.6-4.4 1.6L12 14.7l-1.6-4.5L6 8.6l4.4-1.6L12 2.5z"/>
-                                    <path d="M19 13.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2z"/>
-                                    <path d="M5 14.5l.6 1.6 1.6.6-1.6.6L5 18.9l-.6-1.6L2.8 16.7l1.6-.6L5 14.5z"/>
-                                </svg>
-                                Nueva opción 2026
-                            </span>
-                            <span class="program-card__area-badge">
-                                <span class="program-card__area-dot" aria-hidden="true"></span>
-                                Modalidad Mixta
-                            </span>
-                        </figure>
-                        <div class="program-card__body">
-                            <p class="program-card__eyebrow">
-                                <span class="program-card__eyebrow-dot" aria-hidden="true"></span>
-                                TSU + Continuidad · Estudia y trabaja
-                            </p>
-                            <h3 class="program-card__title">Modalidad Mixta</h3>
-                            <p class="program-card__tagline">Combina sesiones sabatinas y trabajo autónomo. Diseñada para quienes estudian y trabajan.</p>
-                            <ul class="program-card__facts" aria-label="Datos de la modalidad">
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                                    <span>Horario sabatino</span>
-                                </li>
-                                <li>
-                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                                    <span>Cupo limitado</span>
-                                </li>
-                            </ul>
-                            <a class="program-card__cta" href="/pages/oferta-educativa/index.html">
-                                <span class="program-card__cta-text">Consultar programas</span>
-                                <span class="program-card__cta-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-                                </span>
-                            </a>
-                        </div>
-                    </article>
-
-                </div>
+                <div class="programs__grid" data-programs-grid></div>
 
                 <p class="programs__note">
                     <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                    La apertura de grupos está sujeta al cupo mínimo por cuatrimestre y a la disponibilidad docente. Consulta con Control Escolar antes de inscribirte.
+                    <span data-content="oferta.nota"></span>
                 </p>
             </div>
         </section>
 
-        <!-- VIDA UNIVERSITARIA (sin cambios estructurales, solo jerarquía) -->
+        <!-- ============================ VIDA UNIVERSITARIA ============================ -->
         <section class="section section--life" id="paraescolares" aria-labelledby="life-title">
             <div class="container">
                 <div class="life__grid">
                     <div class="life__content reveal">
-                        <p class="eyebrow">Vida universitaria</p>
+                        <p class="eyebrow" data-content="vidaUniversitaria.eyebrow"></p>
                         <h2 class="section__title" id="life-title">
-                            Paraescolares: la experiencia
-                            <span class="life__title-accent">también se vive fuera del aula</span>
+                            <span data-content="vidaUniversitaria.title"></span>
+                            <span class="life__title-accent" data-content="vidaUniversitaria.titleAccent"></span>
                         </h2>
-                        <p class="section__lead">
-                            La experiencia universitaria va más allá de las clases. Los paraescolares
-                            de la UTU son espacios para desarrollar disciplina, creatividad, trabajo
-                            en equipo y convivencia.
-                        </p>
-                        <p class="text-muted">
-                            Deporte, cultura y arte se reúnen en los talleres que forman parte de
-                            la vida universitaria. Al cierre de cada periodo se realizan
-                            demostraciones abiertas a toda la comunidad.
-                        </p>
-                        <ul class="life__stats" aria-label="Datos de paraescolares">
-                            <li class="life__stat"><strong data-count="9">0</strong><span>Paraescolares</span></li>
-                            <li class="life__stat"><strong data-count="3">0</strong><span>Categorías</span></li>
-                            <li class="life__stat"><strong data-count="12">0</strong><span>Eventos al año</span></li>
-                        </ul>
-                        <div class="life__cats" aria-label="Categorías de paraescolares">
-                            <span class="life__cat life__cat--sport">Deporte</span>
-                            <span class="life__cat life__cat--culture">Cultura</span>
-                            <span class="life__cat life__cat--art">Arte</span>
-                        </div>
-                        <a class="link-arrow" href="/pages/comunidad/paraescolares.html">
-                            Conoce los paraescolares
+                        <p class="section__lead" data-content="vidaUniversitaria.lead"></p>
+                        <p class="text-muted" data-content="vidaUniversitaria.texto"></p>
+                        <ul class="life__stats" aria-label="Datos de paraescolares" data-life-stats></ul>
+                        <div class="life__cats" aria-label="Categorías de paraescolares" data-life-cats></div>
+                        <a class="link-arrow" href="/pages/comunidad/paraescolares.html" data-content-href="vidaUniversitaria.linkCta.href">
+                            <span data-content="vidaUniversitaria.linkCta.label"></span>
                             <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
                         </a>
                     </div>
@@ -714,86 +193,7 @@
                          data-vintage-gallery data-vintage-autoplay="5500"
                          role="region" aria-roledescription="galería de fotos"
                          aria-label="Galería de paraescolares de la UTU">
-                        <div class="vintage__stage">
-                            <figure class="vintage__slide is-active" data-vintage-slide>
-                                <div class="vintage__frame">
-                                    <div class="vintage__photo">
-                                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=900&h=700&q=80&auto=format&fit=crop"
-                                             alt="Tamborileros de la UTU en presentación"
-                                             width="900" height="700" loading="lazy" decoding="async">
-                                        <span class="vintage__cat vintage__cat--culture"><span class="vintage__cat-dot" aria-hidden="true"></span>Cultura</span>
-                                    </div>
-                                    <figcaption class="vintage__caption">
-                                        <span class="vintage__caption-num">01</span>
-                                        <span class="vintage__caption-text">Tamborileros</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="vintage__slide" data-vintage-slide>
-                                <div class="vintage__frame">
-                                    <div class="vintage__photo">
-                                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=900&h=700&q=80&auto=format&fit=crop"
-                                             alt="Banda de Guerra de la UTU" width="900" height="700" loading="lazy" decoding="async">
-                                        <span class="vintage__cat vintage__cat--culture"><span class="vintage__cat-dot" aria-hidden="true"></span>Cultura</span>
-                                    </div>
-                                    <figcaption class="vintage__caption">
-                                        <span class="vintage__caption-num">02</span>
-                                        <span class="vintage__caption-text">Banda de Guerra</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="vintage__slide" data-vintage-slide>
-                                <div class="vintage__frame">
-                                    <div class="vintage__photo">
-                                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&h=700&q=80&auto=format&fit=crop"
-                                             alt="Práctica de Taekwondo en la UTU" width="900" height="700" loading="lazy" decoding="async">
-                                        <span class="vintage__cat vintage__cat--sport"><span class="vintage__cat-dot" aria-hidden="true"></span>Deporte</span>
-                                    </div>
-                                    <figcaption class="vintage__caption">
-                                        <span class="vintage__caption-num">03</span>
-                                        <span class="vintage__caption-text">Taekwondo</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="vintage__slide" data-vintage-slide>
-                                <div class="vintage__frame">
-                                    <div class="vintage__photo">
-                                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=900&h=700&q=80&auto=format&fit=crop"
-                                             alt="Equipo de fútbol de la UTU" width="900" height="700" loading="lazy" decoding="async">
-                                        <span class="vintage__cat vintage__cat--sport"><span class="vintage__cat-dot" aria-hidden="true"></span>Deporte</span>
-                                    </div>
-                                    <figcaption class="vintage__caption">
-                                        <span class="vintage__caption-num">04</span>
-                                        <span class="vintage__caption-text">Fútbol</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="vintage__slide" data-vintage-slide>
-                                <div class="vintage__frame">
-                                    <div class="vintage__photo">
-                                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&h=700&q=80&auto=format&fit=crop"
-                                             alt="Taller de Pintura en la UTU" width="900" height="700" loading="lazy" decoding="async">
-                                        <span class="vintage__cat vintage__cat--art"><span class="vintage__cat-dot" aria-hidden="true"></span>Arte</span>
-                                    </div>
-                                    <figcaption class="vintage__caption">
-                                        <span class="vintage__caption-num">05</span>
-                                        <span class="vintage__caption-text">Pintura</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="vintage__slide" data-vintage-slide>
-                                <div class="vintage__frame">
-                                    <div class="vintage__photo">
-                                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=700&q=80&auto=format&fit=crop"
-                                             alt="Taller de Serigrafía en la UTU" width="900" height="700" loading="lazy" decoding="async">
-                                        <span class="vintage__cat vintage__cat--art"><span class="vintage__cat-dot" aria-hidden="true"></span>Arte</span>
-                                    </div>
-                                    <figcaption class="vintage__caption">
-                                        <span class="vintage__caption-num">06</span>
-                                        <span class="vintage__caption-text">Serigrafía</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
+                        <div class="vintage__stage" data-vintage-stage>
                             <span class="vintage__stamp" aria-hidden="true">
                                 <span data-vintage-current>01</span>
                                 <span class="vintage__stamp-sep">/</span>
@@ -814,21 +214,24 @@
             </div>
         </section>
 
-        <!-- NOTICIAS -->
+        <!-- ============================ NOTICIAS ============================ -->
         <section class="section section--news" aria-labelledby="news-title">
             <div class="container">
                 <header class="section__head section__head--row">
                     <div>
-                        <p class="eyebrow">Noticias y eventos</p>
-                        <h2 class="section__title" id="news-title">Lo que ocurre en la <span class="news__title-accent">UTU</span></h2>
-                        <p class="section__lead">Actividades académicas, culturales, deportivas e institucionales.</p>
+                        <p class="eyebrow" data-content="noticias.head.eyebrow"></p>
+                        <h2 class="section__title" id="news-title">
+                            <span data-content="noticias.head.title"></span>
+                            <span class="news__title-accent" data-content="noticias.head.titleAccent"></span>
+                        </h2>
+                        <p class="section__lead" data-content="noticias.head.lead"></p>
                     </div>
                     <a class="btn btn--outline btn--sm" href="/pages/noticias/index.html">
-                        Ver todas
+                        <span data-content="noticias.head.ctaLabel">Ver todas</span>
                         <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
                     </a>
                 </header>
-                <p class="news__note" data-news-note>Contenido demostrativo. Pendiente de sustituirse por publicaciones oficiales.</p>
+                <p class="news__note" data-news-note data-content="noticias.nota"></p>
                 <div class="news__stage">
                     <div class="news__grid" data-news-grid></div>
                     <div class="news__empty" data-news-empty hidden>
@@ -849,76 +252,47 @@
             </div>
         </section>
 
-        <!-- EVENTOS -->
+        <!-- ============================ EVENTOS ============================ -->
         <section class="section section--events" aria-labelledby="events-title">
             <div class="container">
                 <header class="section__head section__head--row">
                     <div>
-                        <p class="eyebrow">Próximos eventos</p>
-                        <h2 class="section__title" id="events-title">Agenda institucional</h2>
+                        <p class="eyebrow" data-content="eventos.head.eyebrow"></p>
+                        <h2 class="section__title" id="events-title" data-content="eventos.head.title"></h2>
                     </div>
                     <div class="events__controls" aria-label="Controles de eventos">
                         <button type="button" class="events__nav" data-events-prev aria-label="Evento anterior"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button>
                         <button type="button" class="events__nav" data-events-next aria-label="Siguiente evento"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button>
                     </div>
                 </header>
-                <p class="news__note" data-events-note>Contenido demostrativo. Pendiente de sustituirse por eventos oficiales.</p>
+                <p class="news__note" data-events-note data-content="eventos.nota"></p>
                 <div class="events__viewport" data-events-viewport>
                     <ul class="events__track" data-events-track></ul>
                 </div>
             </div>
         </section>
 
-        <!-- COLLAGE -->
+        <!-- ============================ COLLAGE ============================ -->
         <section class="section section--community" aria-labelledby="community-title">
             <div class="container">
                 <header class="section__head section__head--center">
-                    <p class="eyebrow">Somos</p>
-                    <h2 class="section__title" id="community-title">#UTUSumacinta</h2>
-                    <p class="section__lead section__lead--center">Comunidad, cultura, deporte, laboratorios, proyectos y vida universitaria.</p>
+                    <p class="eyebrow" data-content="collage.eyebrow"></p>
+                    <h2 class="section__title" id="community-title" data-content="collage.title"></h2>
+                    <p class="section__lead section__lead--center" data-content="collage.lead"></p>
                 </header>
-                <div class="collage" data-collage>
-                    <button class="collage__cell collage__cell--a" data-lightbox-index="0" aria-label="Ampliar imagen 1">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&h=1000&q=80&auto=format&fit=crop" alt="Comunidad UTU 1" loading="lazy" decoding="async" width="1200" height="1000">
-                    </button>
-                    <button class="collage__cell collage__cell--b" data-lightbox-index="1" aria-label="Ampliar imagen 2">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=800&q=80&auto=format&fit=crop" alt="Comunidad UTU 2" loading="lazy" decoding="async" width="800" height="800">
-                    </button>
-                    <button class="collage__cell collage__cell--c" data-lightbox-index="2" aria-label="Ampliar imagen 3">
-                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=800&q=80&auto=format&fit=crop" alt="Comunidad UTU 3" loading="lazy" decoding="async" width="800" height="800">
-                    </button>
-                    <button class="collage__cell collage__cell--d" data-lightbox-index="3" aria-label="Ampliar imagen 4">
-                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1200&h=800&q=80&auto=format&fit=crop" alt="Comunidad UTU 4" loading="lazy" decoding="async" width="1200" height="800">
-                    </button>
-                    <button class="collage__cell collage__cell--e" data-lightbox-index="4" aria-label="Ampliar imagen 5">
-                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&h=1000&q=80&auto=format&fit=crop" alt="Comunidad UTU 5" loading="lazy" decoding="async" width="800" height="1000">
-                    </button>
-                    <button class="collage__cell collage__cell--f" data-lightbox-index="5" aria-label="Ampliar imagen 6">
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1000&h=800&q=80&auto=format&fit=crop" alt="Comunidad UTU 6" loading="lazy" decoding="async" width="1000" height="800">
-                    </button>
-                </div>
+                <div class="collage" data-collage></div>
             </div>
         </section>
 
-        <!-- CTA -->
+        <!-- ============================ CTA ============================ -->
         <section class="section section--cta" aria-labelledby="cta-title">
             <div class="container">
                 <div class="cta reveal">
                     <div class="cta__content">
-                        <p class="eyebrow eyebrow--on-dark">#OrgullosamenteUTU · #ÚneteYa</p>
-                        <h2 class="cta__title" id="cta-title">Aquí, aprender no significa únicamente conocer.</h2>
-                        <p class="cta__text">
-                            Significa practicar, desarrollar, participar y transformar.
-                            Conoce la oferta académica de la UTU y forma parte de una ruta de
-                            formación con experiencia profesional.
-                        </p>
-                        <div class="cta__actions">
-                            <a class="btn btn--light" href="/pages/oferta-educativa/index.html">
-                                Explora la oferta educativa
-                                <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
-                            </a>
-                            <a class="btn btn--ghost-light" href="/pages/comunidad/ubicacion.html">Ubicación y contacto</a>
-                        </div>
+                        <p class="eyebrow eyebrow--on-dark" data-content="cta.eyebrow"></p>
+                        <h2 class="cta__title" id="cta-title" data-content="cta.title"></h2>
+                        <p class="cta__text" data-content="cta.texto"></p>
+                        <div class="cta__actions" data-cta-buttons></div>
                     </div>
                 </div>
             </div>
@@ -927,7 +301,7 @@
 
     <div data-component="footer"></div>
 
-    <!-- LIGHTBOX -->
+    <!-- LIGHTBOX (sin cambios) -->
     <div class="lightbox" data-lightbox hidden>
         <div class="lightbox__backdrop" data-lightbox-close></div>
         <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Visor de imágenes">

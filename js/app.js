@@ -1,10 +1,12 @@
 /* ============================================================
    app.js — Bootstrap del sitio
    ------------------------------------------------------------
-   Este es el ÚNICO script que cada página HTML necesita:
-     <script type="module" src="/js/app.js"></script>
-   El atributo data-page en <body> determina qué módulo
-   específico se inicializa (home, historia, contacto…).
+   ORDEN IMPORTANTE:
+     1. Sprite + header + footer (inyección estática).
+     2. Módulo de página (renderiza contenido dinámico desde
+        site-content.js).
+     3. Componentes globales (reveal, counters, carousels…)
+        que ahora observan el DOM ya poblado.
    ============================================================ */
 
 import { onReady } from './core/utils.js';
@@ -17,10 +19,8 @@ import { initCarousels } from './components/carousel.js';
 import { initVintageGalleries } from './components/gallery.js';
 import { initLightbox } from './components/lightbox.js';
 
-// Marca que JS está activo (evita parpadeos en animaciones)
 document.documentElement.classList.add('js');
 
-/** Monta un componente en su placeholder [data-component="nombre"]. */
 function mount(name, component) {
     const placeholder = document.querySelector(`[data-component="${name}"]`);
     if (!placeholder) return;
@@ -30,7 +30,6 @@ function mount(name, component) {
     if (typeof component.init === 'function') component.init();
 }
 
-/** Carga el módulo específico de la página. */
 async function initPageModule() {
     const page = document.body.dataset.page;
     if (!page) return;
@@ -38,29 +37,24 @@ async function initPageModule() {
         const mod = await import(`./pages/${page}.js`);
         if (typeof mod.init === 'function') mod.init();
     } catch (err) {
-        // Si la página no tiene módulo propio, no pasa nada
         console.debug(`[UTU] Sin módulo específico para la página "${page}".`);
     }
 }
 
 onReady(async () => {
-    // 1. Sprite
     injectSprite();
-
-    // 2. Header + footer
     mount('header', header);
     mount('footer', footer);
 
-    // 3. Componentes globales
+    // 1) Render dinámico primero
+    await initPageModule();
+
+    // 2) Componentes globales después (el DOM ya contiene las listas)
     initReveal();
     initCounters();
     initCarousels();
     initVintageGalleries();
     initLightbox();
 
-    // 4. Módulo específico de la página
-    await initPageModule();
-
-    // 5. Notificar (útil para tests o extensiones futuras)
     document.dispatchEvent(new CustomEvent('utu:ready'));
 });
