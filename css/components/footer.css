@@ -731,3 +731,14 @@
         bottom: 6rem; /* por encima del bottom bar, con aire */
     }
 }
+
+/* ============================================================
+   7. FIX — Margen inferior de la lista de contacto
+   ------------------------------------------------------------
+   El reset (ul[class] { margin: 0 }) gana por especificidad
+   (0,1,1) sobre .site-footer__contact (0,1,0), anulando el
+   margin-bottom declarado. Este override lo restaura.
+   ============================================================ */
+ul.site-footer__contact {
+    margin-bottom: var(--space-lg);
+}

@@ -285,7 +285,8 @@ function renderCollage() {
     if (!wrap) return;
     const items = sortVisible(SITE_CONTENT.collage?.imagenes);
     wrap.innerHTML = items.map((img, i) => `
-        <button class="collage__cell collage__cell--${escapeHTML(img.cell)}"
+        <button type="button"
+                class="collage__cell collage__cell--${escapeHTML(img.cell)}"
                 data-lightbox-index="${i}" aria-label="Ampliar imagen ${i + 1}">
             <img src="${escapeHTML(img.src)}" alt="${escapeHTML(img.alt)}"
                  loading="lazy" decoding="async" width="1200" height="1000">
@@ -393,12 +394,15 @@ async function initNews() {
         const pageItems = items.slice(start, start + CONFIG.NEWS_PER_PAGE);
         grid.innerHTML = '';
         pageItems.forEach((item, i) => {
-            const card = buildNewsCard(item, i === 0);
+            // Fix A: solo la 1ª tarjeta de la página 1 es destacada.
+            // Si prefieres que cada página tenga su hero card, usa: i === 0
+            const isFeatured = page === 1 && i === 0;
+            const card = buildNewsCard(item, isFeatured);
             if (i > 0) card.setAttribute('data-reveal-delay', String(Math.min(i * 50, 400)));
             grid.appendChild(card);
         });
 
-        // ✅ FIX: observar las tarjetas recién creadas para que sean visibles
+        // Observar las tarjetas recién creadas para que sean visibles
         if (window.UTU?.observeReveals) {
             window.UTU.observeReveals(grid);
         } else {
@@ -538,7 +542,7 @@ function initFeaturedCard() {
    N) Init
    ============================================================ */
 export function init() {
-    // ✅ FIX: sincronizar autoplay desde site-content.js
+    // Sincronizar autoplay desde site-content.js
     const carouselRoot = document.querySelector('[data-carousel]');
     if (carouselRoot && SITE_CONTENT.hero?.autoplayMs) {
         carouselRoot.setAttribute('data-autoplay', String(SITE_CONTENT.hero.autoplayMs));
