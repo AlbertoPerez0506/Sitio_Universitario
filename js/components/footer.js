@@ -1,5 +1,21 @@
 /* ============================================================
    components/footer.js — Footer institucional UTU
+   ------------------------------------------------------------
+   Reconoce:
+     · Identificación institucional (UTU).
+     · Autoría y desarrollo original del sitio web.
+     · Procedencia de los materiales institucionales.
+     · Enlaces legales.
+
+   No declara "Todos los derechos reservados" sobre el software
+   ni atribuye a la universidad la titularidad del desarrollo
+   original. Los materiales institucionales conservan los
+   derechos de sus respectivos titulares.
+
+   El año de copyright del software no se genera con
+   new Date(): se incorporará únicamente cuando exista la
+   declaración documental correspondiente (ver
+   docs/creditos-y-titularidad.md).
    ============================================================ */
 
 const GROUPS = [
@@ -132,13 +148,29 @@ export function html() {
             </div>
 
             <div class="site-footer__bottom">
-                <p class="site-footer__copy">© <span data-year>2026</span> Universidad Tecnológica del Usumacinta. Todos los derechos reservados.</p>
-                <ul class="site-footer__legal">
-                    <li><a href="#">Aviso de privacidad</a></li>
-                    <li><a href="#">Términos de uso</a></li>
-                    <li><a href="/pages/comunidad/ubicacion.html">Contacto</a></li>
-                </ul>
-                <p class="site-footer__made">Hecho en <span aria-hidden="true">Tabasco</span> <span class="site-footer__made-dot" aria-hidden="true"></span> México</p>
+                <div class="site-footer__meta">
+                    <div class="site-footer__meta-left">
+                        <p class="site-footer__copy">
+                            Sitio web institucional de la Universidad Tecnológica del Usumacinta.
+                        </p>
+                        <ul class="site-footer__legal">
+                            <li><a href="#">Aviso de privacidad</a></li>
+                            <li><a href="#">Términos de uso</a></li>
+                            <li><a href="/pages/comunidad/ubicacion.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <p class="site-footer__made">Hecho en <span aria-hidden="true">Tabasco</span> <span class="site-footer__made-dot" aria-hidden="true"></span> México</p>
+                </div>
+
+                <div class="site-footer__credit">
+                    <p class="site-footer__credit-author">
+                        <span class="site-footer__credit-label">Autoría, diseño y desarrollo original del sitio web:</span>
+                        <strong class="site-footer__credit-name">Iván Alberto Pérez Ramírez</strong>
+                    </p>
+                    <p class="site-footer__credit-materials">
+                        Contenido institucional y materiales oficiales proporcionados por la Universidad Tecnológica del Usumacinta, sujetos a los derechos de sus respectivos titulares.
+                    </p>
+                </div>
             </div>
         </div>
         <button type="button" class="site-footer__to-top" data-footer-top aria-label="Volver arriba">
@@ -155,7 +187,9 @@ export function init() {
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
     });
-    // Año dinámico
-    const year = new Date().getFullYear();
-    document.querySelectorAll('[data-year]').forEach(el => { el.textContent = year; });
+    // Nota: se retiró la actualización automática de [data-year].
+    // El año de copyright del software no debe generarse con
+    // new Date() sin verificación documental. Si en el futuro
+    // se requiere un año estático, se declarará como valor
+    // explícito en el HTML del footer.
 }

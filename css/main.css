@@ -40,9 +40,8 @@ body {
     }
 }
 
-/* ---------- TÍTULOS DE SECCIÓN — Jerarquía reforzada ---------- */
+/* ---------- TÍTULOS DE SECCIÓN ---------- */
 .section__title {
-    /* Más grande y con más "presencia" que antes */
     font-size: clamp(2rem, 1.4rem + 2.8vw, 3.5rem);
     letter-spacing: -.028em;
     color: var(--color-ink);
@@ -50,7 +49,6 @@ body {
     line-height: 1.06;
 }
 
-/* Lead: claramente subordinado al título, claramente superior al body */
 .section__lead {
     margin-top: var(--space-lg);
     font-size: clamp(1.0625rem, 1rem + 0.55vw, 1.3125rem);
@@ -61,7 +59,7 @@ body {
 }
 .section__lead--center { margin-inline: auto; }
 
-/* ---------- Eyebrow — kicker con presencia ---------- */
+/* ---------- Eyebrow ---------- */
 .eyebrow {
     display: inline-flex;
     align-items: center;
@@ -98,7 +96,6 @@ body {
     .eyebrow::before { animation: none; }
 }
 
-/* Variante sobre fondo oscuro */
 .eyebrow--on-dark {
     background: rgba(48,191,151,.12);
     border-color: rgba(48,191,151,.30);
@@ -162,6 +159,93 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- CTA (bloque oscuro compartido) ----------
+   Usado por home y bienvenida con la misma estructura.
+   Vive aquí para evitar duplicación entre páginas. */
+.section--cta {
+    background-color: var(--color-surface);
+    padding-block: var(--space-3xl);
+}
+
+.cta {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem);
+    background-color: var(--color-ink);
+    border-radius: var(--radius-lg);
+    color: #FFFFFF;
+}
+
+.cta::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(48, 191, 151, 0.55) 35%,
+        rgba(126, 224, 194, 0.75) 50%,
+        rgba(48, 191, 151, 0.55) 65%,
+        transparent 100%);
+    pointer-events: none;
+}
+
+.cta__content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+}
+
+.cta .eyebrow--on-dark {
+    color: var(--color-secondary);
+    margin-bottom: var(--space-sm);
+    letter-spacing: 0.14em;
+}
+
+.cta__title {
+    font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    color: #FFFFFF;
+    margin-bottom: var(--space-md);
+}
+
+.cta__text {
+    font-size: var(--fs-base);
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 58ch;
+    line-height: 1.65;
+    margin-bottom: var(--space-xl);
+}
+
+.cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.cta .btn--light {
+    background: #FFFFFF;
+    color: var(--color-ink);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.cta .btn--light:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+}
+
+.cta .btn--ghost-light {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    color: #FFFFFF;
+    box-shadow: none;
+}
+.cta .btn--ghost-light:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.36);
+    box-shadow: none;
 }
 
 /* ---------- Utilidades ---------- */

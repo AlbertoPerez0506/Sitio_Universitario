@@ -5,7 +5,8 @@
    · Cuerpo principal: marca + 3 columnas de enlaces
    · Redes sociales premium (glass + brand color)
    · Tarjeta Radio Universitaria (próximamente)
-   · Barra inferior con legal + "Hecho en Tabasco"
+   · Barra inferior: identidad institucional + enlaces legales
+     + hecho en Tabasco + reconocimiento de autoría
    · Botón flotante "volver arriba"
    ============================================================ */
 
@@ -17,7 +18,6 @@
     isolation: isolate;
 }
 
-/* Glow y patrón decorativo de fondo */
 .site-footer::before {
     content: "";
     position: absolute;
@@ -64,7 +64,6 @@
     padding-block: clamp(2.5rem, 5vw, 4rem);
     align-items: center;
 }
-
 @media (min-width: 900px) {
     .site-footer__cta-inner {
         grid-template-columns: 1.4fr 1fr;
@@ -90,7 +89,6 @@
     color: #FFFFFF;
     margin-bottom: var(--space-sm);
 }
-
 .site-footer__cta-title span {
     background: linear-gradient(135deg, #30BF97 0%, #7EE0C2 100%);
     -webkit-background-clip: text;
@@ -110,11 +108,8 @@
     gap: var(--space-sm);
     justify-content: flex-start;
 }
-
 @media (min-width: 900px) {
-    .site-footer__cta-actions {
-        justify-content: flex-end;
-    }
+    .site-footer__cta-actions { justify-content: flex-end; }
 }
 
 /* ---------- Botones del CTA ---------- */
@@ -142,7 +137,6 @@
         0 8px 24px rgba(48, 191, 151, 0.32),
         inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
-
 .footer-cta--primary:hover,
 .footer-cta--primary:focus-visible {
     transform: translateY(-2px);
@@ -151,7 +145,6 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.28);
     outline: none;
 }
-
 .footer-cta--primary .footer-cta__icon {
     display: inline-flex;
     align-items: center;
@@ -160,12 +153,7 @@
     height: 16px;
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-.footer-cta--primary .footer-cta__icon svg {
-    width: 100%;
-    height: 100%;
-}
-
+.footer-cta--primary .footer-cta__icon svg { width: 100%; height: 100%; }
 .footer-cta--primary:hover .footer-cta__icon,
 .footer-cta--primary:focus-visible .footer-cta__icon {
     transform: translateX(3px);
@@ -178,7 +166,6 @@
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
 }
-
 .footer-cta--ghost:hover,
 .footer-cta--ghost:focus-visible {
     background-color: rgba(255, 255, 255, 0.12);
@@ -200,13 +187,9 @@
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
 }
-
 @media (min-width: 640px) {
-    .site-footer__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .site-footer__grid { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (min-width: 1024px) {
     .site-footer__grid {
         grid-template-columns: 1.7fr 1fr 1fr 1fr;
@@ -215,9 +198,7 @@
 }
 
 /* ---------- Columna de marca ---------- */
-.site-footer__brand {
-    max-width: 420px;
-}
+.site-footer__brand { max-width: 420px; }
 
 .site-footer__logo {
     height: 44px;
@@ -246,10 +227,7 @@
     flex-direction: column;
     gap: var(--space-sm);
 }
-
-.site-footer__contact li {
-    list-style: none;
-}
+.site-footer__contact li { list-style: none; }
 
 .site-footer__contact-item {
     display: flex;
@@ -259,7 +237,6 @@
     line-height: 1.6;
     font-size: var(--fs-sm);
 }
-
 .site-footer__contact-item em {
     color: #7A80A0;
     font-style: italic;
@@ -278,13 +255,9 @@
     color: var(--color-secondary);
     margin-top: 2px;
 }
+.site-footer__contact-icon svg { width: 15px; height: 15px; }
 
-.site-footer__contact-icon svg {
-    width: 15px;
-    height: 15px;
-}
-
-/* ---------- Redes sociales premium ---------- */
+/* ---------- Redes sociales ---------- */
 .site-footer__social {
     display: flex;
     gap: 0.625rem;
@@ -320,11 +293,7 @@
     height: 100%;
     transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-.site-footer__social-icon svg {
-    width: 17px;
-    height: 17px;
-}
+.site-footer__social-icon svg { width: 17px; height: 17px; }
 
 .site-footer__social-link:hover,
 .site-footer__social-link:focus-visible {
@@ -335,13 +304,11 @@
     box-shadow: 0 12px 24px color-mix(in srgb, var(--brand-color, #30BF97) 40%, transparent);
     outline: none;
 }
-
 .site-footer__social-link:hover .site-footer__social-icon,
 .site-footer__social-link:focus-visible .site-footer__social-icon {
     transform: rotate(-8deg) scale(1.08);
 }
 
-/* Tooltip flotante */
 .site-footer__social-tip {
     position: absolute;
     bottom: calc(100% + 10px);
@@ -359,14 +326,10 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition:
-        opacity 0.24s,
-        transform 0.24s,
-        visibility 0.24s;
+    transition: opacity 0.24s, transform 0.24s, visibility 0.24s;
     z-index: 3;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
-
 .site-footer__social-tip::after {
     content: "";
     position: absolute;
@@ -380,7 +343,6 @@
     transform: translateX(-50%) rotate(45deg);
     margin-top: -3px;
 }
-
 .site-footer__social-link:hover .site-footer__social-tip,
 .site-footer__social-link:focus-visible .site-footer__social-tip {
     opacity: 1;
@@ -412,7 +374,6 @@
     color: #FFFFFF;
     position: relative;
 }
-
 .site-footer__radio-icon::after {
     content: "";
     position: absolute;
@@ -421,20 +382,14 @@
     border: 1px solid rgba(48, 191, 151, 0.35);
     animation: footerRadioPulse 2.6s ease-out infinite;
 }
-
 @keyframes footerRadioPulse {
     0%   { transform: scale(0.9); opacity: 0.9; }
     100% { transform: scale(1.35); opacity: 0; }
 }
-
 @media (prefers-reduced-motion: reduce) {
     .site-footer__radio-icon::after { animation: none; }
 }
-
-.site-footer__radio-icon svg {
-    width: 17px;
-    height: 17px;
-}
+.site-footer__radio-icon svg { width: 17px; height: 17px; }
 
 .site-footer__radio-title {
     display: flex;
@@ -498,10 +453,7 @@
     flex-direction: column;
     gap: 0.625rem;
 }
-
-.site-footer__list li {
-    list-style: none;
-}
+.site-footer__list li { list-style: none; }
 
 .site-footer__link {
     display: inline-flex;
@@ -529,18 +481,13 @@
         transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
     flex-shrink: 0;
 }
-
-.site-footer__link-arrow svg {
-    width: 100%;
-    height: 100%;
-}
+.site-footer__link-arrow svg { width: 100%; height: 100%; }
 
 .site-footer__link:hover,
 .site-footer__link:focus-visible {
     color: #FFFFFF;
     outline: none;
 }
-
 .site-footer__link:hover .site-footer__link-arrow,
 .site-footer__link:focus-visible .site-footer__link-arrow {
     opacity: 1;
@@ -549,6 +496,17 @@
 
 /* ============================================================
    3. BARRA INFERIOR
+   ------------------------------------------------------------
+   Estructura:
+     .site-footer__bottom
+       .site-footer__meta        → identidad + legal + origen
+         .site-footer__meta-left → copy + legal
+         .site-footer__made
+       .site-footer__credit      → autoría + procedencia
+         .site-footer__credit-author
+           .site-footer__credit-label
+           .site-footer__credit-name
+         .site-footer__credit-materials
    ============================================================ */
 .site-footer__bottom {
     margin-top: var(--space-2xl);
@@ -556,13 +514,18 @@
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--space-lg);
     font-size: var(--fs-xs);
     color: #8B90A8;
 }
 
+.site-footer__meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
 @media (min-width: 900px) {
-    .site-footer__bottom {
+    .site-footer__meta {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
@@ -570,9 +533,21 @@
     }
 }
 
-.site-footer__copy {
-    line-height: 1.6;
+.site-footer__meta-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
 }
+@media (min-width: 900px) {
+    .site-footer__meta-left {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--space-sm) var(--space-lg);
+    }
+}
+
+.site-footer__copy { line-height: 1.6; }
 
 .site-footer__legal {
     list-style: none;
@@ -582,10 +557,7 @@
     flex-wrap: wrap;
     gap: 0.5rem 1.25rem;
 }
-
-.site-footer__legal li {
-    list-style: none;
-}
+.site-footer__legal li { list-style: none; }
 
 .site-footer__legal a {
     color: #8B90A8;
@@ -593,26 +565,21 @@
     transition: color 0.24s;
     position: relative;
 }
-
 .site-footer__legal a::after {
     content: "";
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -2px;
+    left: 0; right: 0; bottom: -2px;
     height: 1px;
     background-color: var(--color-secondary);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 .site-footer__legal a:hover,
 .site-footer__legal a:focus-visible {
     color: var(--color-secondary);
     outline: none;
 }
-
 .site-footer__legal a:hover::after,
 .site-footer__legal a:focus-visible::after {
     transform: scaleX(1);
@@ -624,7 +591,6 @@
     gap: 0.5rem;
     letter-spacing: 0.02em;
 }
-
 .site-footer__made span[aria-hidden] {
     color: #A6ACC2;
     font-weight: 600;
@@ -637,6 +603,41 @@
     border-radius: 50%;
     background-color: var(--color-secondary);
     box-shadow: 0 0 6px rgba(48, 191, 151, 0.75);
+}
+
+/* ---------- Crédito de autoría y procedencia ---------- */
+.site-footer__credit {
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    max-width: 80ch;
+    line-height: 1.6;
+}
+
+.site-footer__credit-author {
+    margin: 0;
+    color: #A6ACC2;
+    line-height: 1.5;
+}
+
+.site-footer__credit-label {
+    color: #8B90A8;
+    margin-right: 0.25rem;
+}
+
+.site-footer__credit-name {
+    color: #E4E6EF;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.site-footer__credit-materials {
+    margin: 0;
+    color: #7A80A0;
+    font-size: 0.6875rem;
+    line-height: 1.6;
 }
 
 /* ============================================================
@@ -665,7 +666,6 @@
         box-shadow 0.32s;
     -webkit-tap-highlight-color: transparent;
 }
-
 .site-footer__to-top::before {
     content: "";
     position: absolute;
@@ -677,13 +677,11 @@
     z-index: -1;
     filter: blur(8px);
 }
-
 .site-footer__to-top svg {
     width: 20px;
     height: 20px;
     transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 .site-footer__to-top:hover,
 .site-footer__to-top:focus-visible {
     transform: translateY(-4px);
@@ -692,15 +690,13 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.28);
     outline: none;
 }
-
 .site-footer__to-top:hover::before,
-.site-footer__to-top:focus-visible::before {
-    opacity: 1;
-}
-
+.site-footer__to-top:focus-visible::before { opacity: 1; }
 .site-footer__to-top:hover svg,
-.site-footer__to-top:focus-visible svg {
-    transform: translateY(-2px);
+.site-footer__to-top:focus-visible svg { transform: translateY(-2px); }
+
+@media (min-width: 900px) {
+    .site-footer__to-top { bottom: 6rem; }
 }
 
 /* ============================================================
@@ -718,27 +714,4 @@
     .site-footer__legal a::after {
         transition: none;
     }
-}
-
-/* ============================================================
-   6. FIX — Botón "volver arriba" en desktop
-   ------------------------------------------------------------
-   Evita que el botón se solape con la barra inferior
-   ("Hecho en Tabasco") a partir del breakpoint 900px.
-   ============================================================ */
-@media (min-width: 900px) {
-    .site-footer__to-top {
-        bottom: 6rem; /* por encima del bottom bar, con aire */
-    }
-}
-
-/* ============================================================
-   7. FIX — Margen inferior de la lista de contacto
-   ------------------------------------------------------------
-   El reset (ul[class] { margin: 0 }) gana por especificidad
-   (0,1,1) sobre .site-footer__contact (0,1,0), anulando el
-   margin-bottom declarado. Este override lo restaura.
-   ============================================================ */
-ul.site-footer__contact {
-    margin-bottom: var(--space-lg);
 }

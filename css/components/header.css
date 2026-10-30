@@ -15,9 +15,7 @@
    ============================================================ */
 .top-progress {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 3px;
     z-index: calc(var(--z-header) + 20);
     pointer-events: none;
@@ -26,9 +24,7 @@
     transition: opacity 0.4s ease-out;
 }
 
-.top-progress.is-hidden {
-    opacity: 0;
-}
+.top-progress.is-hidden { opacity: 0; }
 
 .top-progress__bar {
     display: block;
@@ -55,19 +51,12 @@
 }
 
 @keyframes topProgressShimmer {
-    0% {
-        background-position: 100% 0;
-    }
-
-    100% {
-        background-position: -100% 0;
-    }
+    0%   { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .top-progress__bar {
-        animation: none;
-    }
+    .top-progress__bar { animation: none; }
 }
 
 /* ============================================================
@@ -75,9 +64,7 @@
    ============================================================ */
 .site-header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: var(--z-header);
     background-color: rgba(255, 255, 255, 0.94);
     backdrop-filter: saturate(180%) blur(18px);
@@ -95,9 +82,7 @@
     box-shadow: 0 8px 24px rgba(15, 18, 38, 0.06);
 }
 
-.site-header.is-hidden {
-    transform: translateY(-100%);
-}
+.site-header.is-hidden { transform: translateY(-100%); }
 
 .site-header__inner {
     display: flex;
@@ -111,31 +96,85 @@
     padding-inline: var(--container-pad);
 }
 
-/* ---------- Logo ---------- */
+/* ---------- Logo + texto de marca ----------
+   El texto se muestra siempre (mobile y desktop);
+   los tamaños tipográficos cambian por breakpoint. */
 .site-header__brand {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    gap: .625rem;
+    min-width: 0;
     transition: opacity var(--t-fast);
 }
-
-.site-header__brand:hover {
-    opacity: 0.85;
-}
+.site-header__brand:hover { opacity: 0.85; }
 
 .site-header__logo {
     height: clamp(32px, 5vw, 46px);
     width: auto;
     aspect-ratio: 5 / 2;
     object-fit: contain;
+    flex-shrink: 0;
+}
+
+.site-header__brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1px;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    line-height: 1.08;
+    letter-spacing: -.01em;
+}
+
+.site-header__brand-name {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: clamp(.5625rem, 2.4vw, .75rem);
+    font-weight: 800;
+    color: var(--color-logo-blue, #0D378C);
+    text-transform: uppercase;
+}
+
+.site-header__brand-name--accent {
+    color: var(--color-logo-green, #078C5B);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+@media (max-width: 1023.98px) {
+    .site-header__brand {
+        flex-shrink: 1;
+        gap: .5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .site-header__brand { gap: 0.875rem; }
+    .site-header__brand-text {
+        gap: 2px;
+        line-height: 1.1;
+    }
+    .site-header__brand-name {
+        font-size: clamp(0.75rem, 0.85vw, 0.875rem);
+        letter-spacing: -0.015em;
+    }
+    .site-header__brand-name--accent {
+        font-size: clamp(0.65rem, 0.75vw, 0.75rem);
+        letter-spacing: 0.01em;
+    }
 }
 
 /* ============================================================
    3. NAV DESKTOP — hover pill premium
    ============================================================ */
-.site-header__nav {
-    display: none;
-}
+.site-header__nav { display: none; }
 
 .nav__list {
     display: flex;
@@ -172,7 +211,6 @@
     overflow: hidden;
 }
 
-/* Pill de fondo con gradiente sutil (hover premium) */
 .nav__link::before {
     content: "";
     position: absolute;
@@ -189,7 +227,6 @@
     z-index: -1;
 }
 
-/* Halo inferior (detalle premium) */
 .nav__link::after {
     content: "";
     position: absolute;
@@ -228,7 +265,6 @@
     opacity: 1;
 }
 
-/* Estado activo */
 .nav__link.is-active,
 .nav__item.is-open .nav__trigger {
     color: var(--color-primary);
@@ -259,7 +295,6 @@
     transform: translateY(-1px);
 }
 
-/* Chevron */
 .nav__chevron {
     width: 12px;
     height: 12px;
@@ -269,74 +304,11 @@
     z-index: 1;
 }
 
-.nav__link:hover .nav__chevron {
-    opacity: 1;
-}
+.nav__link:hover .nav__chevron { opacity: 1; }
 
 .nav__item.is-open .nav__chevron {
     transform: rotate(180deg);
     opacity: 1;
-}
-
-/* ============================================================
-   MARCA — Texto junto al logo (solo móvil/tablet)
-   ------------------------------------------------------------
-   · En escritorio se mantiene exactamente igual: solo logo.
-   · En <=1023.98px aparece el nombre para llenar el espacio
-     entre el logo y el botón hamburguesa.
-   · Usa los colores exactos del logo: #0D378C y #078C5B.
-   ============================================================ */
-
-.site-header__brand {
-    gap: .625rem;
-    min-width: 0;
-}
-
-.site-header__logo {
-    flex-shrink: 0;
-}
-
-.site-header__brand-text {
-    display: none;
-}
-
-@media (max-width: 1023.98px) {
-    .site-header__brand {
-        flex-shrink: 1;
-        gap: .5rem;
-        min-width: 0;
-    }
-
-    .site-header__brand-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1px;
-        min-width: 0;
-        max-width: 100%;
-        overflow: hidden;
-        line-height: 1.08;
-        letter-spacing: -.01em;
-    }
-
-    .site-header__brand-name {
-        display: block;
-        min-width: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        font-size: clamp(.5625rem, 2.4vw, .75rem);
-        font-weight: 800;
-        color: var(--color-logo-blue, #0D378C);
-        text-transform: uppercase;
-    }
-
-    .site-header__brand-name--accent {
-        color: var(--color-logo-green, #078C5B);
-        font-weight: 700;
-        text-transform: none;
-        letter-spacing: 0;
-    }
 }
 
 /* ============================================================
@@ -393,10 +365,7 @@
     flex-direction: column;
     gap: 2px;
 }
-
-.nav__panel-list li {
-    list-style: none;
-}
+.nav__panel-list li { list-style: none; }
 
 .nav__panel-list a {
     display: block;
@@ -432,11 +401,7 @@
     min-width: 640px;
     padding: 1.375rem;
 }
-
-.nav__panel--mega::before {
-    display: none;
-}
-
+.nav__panel--mega::before { display: none; }
 .nav__item.is-open .nav__panel--mega {
     transform: translateY(0) scale(1);
 }
@@ -447,10 +412,7 @@
     gap: 1.5rem;
 }
 
-.nav__mega-group {
-    display: flex;
-    flex-direction: column;
-}
+.nav__mega-group { display: flex; flex-direction: column; }
 
 .nav__mega-head {
     display: flex;
@@ -483,7 +445,6 @@
         0 4px 12px rgba(48, 52, 140, 0.28),
         inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
-
 .nav__mega-badge--lic {
     background: linear-gradient(135deg, #30BF97 0%, #2DA683 100%);
     box-shadow:
@@ -506,10 +467,7 @@
     flex-direction: column;
     gap: 2px;
 }
-
-.nav__mega-list li {
-    list-style: none;
-}
+.nav__mega-list li { list-style: none; }
 
 .nav__mega-item {
     display: block;
@@ -543,7 +501,6 @@
     transform: translateX(3px);
     outline: none;
 }
-
 .nav__mega-item:hover::before,
 .nav__mega-item:focus-visible::before {
     height: 60%;
@@ -573,18 +530,15 @@
     line-height: 1.35;
     transition: color var(--t-fast), transform 0.28s var(--ease-out);
 }
-
 .nav__mega-item-sub svg {
     flex-shrink: 0;
     opacity: 0.65;
     transition: transform 0.28s var(--ease-out), opacity 0.28s;
 }
-
 .nav__mega-item:hover .nav__mega-item-sub,
 .nav__mega-item:focus-visible .nav__mega-item-sub {
     color: var(--color-secondary-dark);
 }
-
 .nav__mega-item:hover .nav__mega-item-sub svg {
     transform: translateX(3px);
     opacity: 1;
@@ -593,9 +547,7 @@
 /* ============================================================
    6. CTA PREMIUM — "Contacto"
    ============================================================ */
-.site-header__actions {
-    display: none;
-}
+.site-header__actions { display: none; }
 
 .header-cta {
     position: relative;
@@ -622,7 +574,6 @@
 }
 
 .header-cta::before {
-    /* Shine sweep */
     content: "";
     position: absolute;
     top: 0;
@@ -639,7 +590,6 @@
 }
 
 .header-cta::after {
-    /* Glow interior en hover */
     content: "";
     position: absolute;
     inset: 0;
@@ -662,16 +612,10 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.28);
     outline: none;
 }
-
 .header-cta:hover::before,
-.header-cta:focus-visible::before {
-    left: 120%;
-}
-
+.header-cta:focus-visible::before { left: 120%; }
 .header-cta:hover::after,
-.header-cta:focus-visible::after {
-    opacity: 1;
-}
+.header-cta:focus-visible::after { opacity: 1; }
 
 .header-cta__icon {
     display: inline-flex;
@@ -688,7 +632,6 @@
     z-index: 2;
     transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 .header-cta__icon svg {
     width: 15px;
     height: 15px;
@@ -712,25 +655,21 @@
     z-index: 2;
     transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 .header-cta__arrow svg {
     width: 100%;
     height: 100%;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
-
 .header-cta:hover .header-cta__icon,
 .header-cta:focus-visible .header-cta__icon {
     transform: scale(1.06) rotate(-3deg);
 }
-
 .header-cta:hover .header-cta__arrow,
 .header-cta:focus-visible .header-cta__arrow {
     transform: translateX(3px);
 }
 
-/* Variante full (dentro del menú móvil) */
 .header-cta--full {
     width: 100%;
     justify-content: center;
@@ -754,16 +693,11 @@
     transition: background-color var(--t-fast);
     -webkit-tap-highlight-color: transparent;
 }
-
 .site-header__toggle:hover,
 .site-header__toggle:focus-visible {
     background-color: rgba(15, 18, 38, 0.05);
 }
-
-.site-header__toggle svg {
-    width: 22px;
-    height: 22px;
-}
+.site-header__toggle svg { width: 22px; height: 22px; }
 
 /* ============================================================
    8. MENÚ MÓVIL
@@ -786,8 +720,7 @@
 
 .mobile-menu__panel {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 0; right: 0;
     height: 100dvh;
     width: min(88vw, 380px);
     background-color: var(--color-surface);
@@ -804,14 +737,8 @@
     visibility: visible;
     pointer-events: auto;
 }
-
-.mobile-menu.is-open .mobile-menu__backdrop {
-    opacity: 1;
-}
-
-.mobile-menu.is-open .mobile-menu__panel {
-    transform: translateX(0);
-}
+.mobile-menu.is-open .mobile-menu__backdrop { opacity: 1; }
+.mobile-menu.is-open .mobile-menu__panel { transform: translateX(0); }
 
 .mobile-menu__head {
     display: flex;
@@ -843,7 +770,6 @@
     transition: background-color var(--t-fast);
     -webkit-tap-highlight-color: transparent;
 }
-
 .mobile-menu__close:hover,
 .mobile-menu__close:focus-visible {
     background-color: var(--color-background);
@@ -854,7 +780,6 @@
     display: flex;
     flex-direction: column;
 }
-
 .mobile-menu__nav ul {
     list-style: none;
     margin: 0;
@@ -863,10 +788,7 @@
     flex-direction: column;
     gap: var(--space-2xs);
 }
-
-.mobile-menu__nav li {
-    list-style: none;
-}
+.mobile-menu__nav li { list-style: none; }
 
 .mobile-menu__link {
     display: block;
@@ -888,7 +810,6 @@
         padding-left var(--t-fast);
     -webkit-tap-highlight-color: transparent;
 }
-
 .mobile-menu__link:hover,
 .mobile-menu__link:focus-visible {
     background-color: var(--color-background);
@@ -903,7 +824,6 @@
     gap: var(--space-sm);
     padding-right: 1rem;
 }
-
 .mobile-menu__trigger:hover,
 .mobile-menu__trigger:focus-visible {
     padding-left: 1rem;
@@ -916,12 +836,10 @@
     transition: transform var(--t-base), color var(--t-base);
     flex-shrink: 0;
 }
-
 .mobile-menu__group.is-open .mobile-menu__chevron {
     transform: rotate(180deg);
     color: var(--color-primary);
 }
-
 .mobile-menu__group.is-open .mobile-menu__trigger {
     background-color: var(--color-background);
     color: var(--color-primary);
@@ -936,27 +854,14 @@
     gap: 2px;
     animation: mobileSubOpen 0.28s var(--ease-out);
 }
-
-.mobile-menu__sub[hidden] {
-    display: none;
-}
+.mobile-menu__sub[hidden] { display: none; }
 
 @keyframes mobileSubOpen {
-    from {
-        opacity: 0;
-        transform: translateY(-4px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
-
 @media (prefers-reduced-motion: reduce) {
-    .mobile-menu__sub {
-        animation: none;
-    }
+    .mobile-menu__sub { animation: none; }
 }
 
 .mobile-menu__sub-link {
@@ -973,7 +878,6 @@
         background-color var(--t-fast);
     -webkit-tap-highlight-color: transparent;
 }
-
 .mobile-menu__sub-link:hover,
 .mobile-menu__sub-link:focus-visible,
 .mobile-menu__sub-link.is-active {
@@ -989,64 +893,33 @@
     padding-top: var(--space-lg);
     border-top: 1px solid var(--color-border);
 }
+.mobile-menu__cta .header-cta { width: 100%; }
 
-.mobile-menu__cta .header-cta {
-    width: 100%;
-}
-
-body.menu-open {
-    overflow: hidden;
-}
+body.menu-open { overflow: hidden; }
 
 /* ============================================================
    9. DESKTOP
    ============================================================ */
 @media (min-width: 1024px) {
-    .site-header__nav {
-        display: block;
-    }
-
+    .site-header__nav { display: block; }
     .site-header__actions {
         display: flex;
         align-items: center;
         gap: var(--space-sm);
     }
-
-    .site-header__toggle {
-        display: none;
-    }
-
-    .mobile-menu {
-        display: none;
-    }
+    .site-header__toggle { display: none; }
+    .mobile-menu { display: none; }
 }
 
 /* ============================================================
    10. MOVIMIENTO REDUCIDO
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
-    .site-header {
-        transition: none;
-    }
-
-    .nav__panel {
-        transition: none;
-    }
-
-    .nav__panel--mega {
-        transition: none;
-    }
-
-    .mobile-menu__panel {
-        transition: none;
-    }
-
-    .header-cta {
-        transition: none;
-    }
-
+    .site-header { transition: none; }
+    .nav__panel { transition: none; }
+    .nav__panel--mega { transition: none; }
+    .mobile-menu__panel { transition: none; }
+    .header-cta { transition: none; }
     .header-cta::before,
-    .header-cta::after {
-        transition: none;
-    }
+    .header-cta::after { transition: none; }
 }

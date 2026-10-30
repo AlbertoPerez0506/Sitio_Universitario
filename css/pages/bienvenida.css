@@ -3,6 +3,9 @@
    ------------------------------------------------------------
    Diseño editorial minimalista con jerarquía visual premium.
    Hereda tokens de /css/variables.css.
+
+   Nota: el bloque CTA (.section--cta, .cta, …) vive en main.css
+   por ser un patrón compartido con la home.
    ============================================================ */
 
 /* ============================================================
@@ -23,7 +26,6 @@
     background-color: var(--color-surface);
 }
 
-/* Halo decorativo muy sutil en el fondo */
 .section--bienvenida::before {
     content: "";
     position: absolute;
@@ -48,7 +50,6 @@
     gap: var(--space-2xl);
     align-items: start;
 }
-
 @media (min-width: 1024px) {
     .bienvenida__layout {
         grid-template-columns: 0.85fr 1.15fr;
@@ -64,7 +65,6 @@
     max-width: 460px;
     margin-inline: auto;
 }
-
 @media (min-width: 1024px) {
     .bienvenida__portrait {
         position: sticky;
@@ -73,11 +73,8 @@
     }
 }
 
-.bienvenida__portrait-inner {
-    position: relative;
-}
+.bienvenida__portrait-inner { position: relative; }
 
-/* Anillo punteado que orbita lentamente */
 .bienvenida__portrait::before {
     content: "";
     position: absolute;
@@ -88,18 +85,11 @@
     z-index: 0;
     animation: bienvenidaRingRotate 90s linear infinite;
 }
-
-@keyframes bienvenidaRingRotate {
-    to { transform: rotate(360deg); }
-}
-
+@keyframes bienvenidaRingRotate { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) {
-    .bienvenida__portrait::before {
-        animation: none;
-    }
+    .bienvenida__portrait::before { animation: none; }
 }
 
-/* Marco con gradiente institucional */
 .bienvenida__media {
     position: relative;
     margin: 0;
@@ -124,12 +114,10 @@
     transition: transform 0.9s var(--ease-out);
     display: block;
 }
-
 .bienvenida__portrait:hover .bienvenida__media > img {
     transform: scale(1.04);
 }
 
-/* Badge flotante con icono */
 .bienvenida__badge {
     position: absolute;
     left: 1.5rem;
@@ -147,12 +135,10 @@
     z-index: 3;
     animation: bienvenidaBadgeFloat 5s ease-in-out infinite;
 }
-
 @keyframes bienvenidaBadgeFloat {
     0%, 100% { transform: translateY(0); }
     50%      { transform: translateY(-4px); }
 }
-
 @media (prefers-reduced-motion: reduce) {
     .bienvenida__badge { animation: none; }
 }
@@ -169,24 +155,18 @@
     box-shadow: 0 6px 16px rgba(48, 191, 151, 0.32);
     flex-shrink: 0;
 }
-
-.bienvenida__badge-icon svg {
-    width: 20px;
-    height: 20px;
-}
+.bienvenida__badge-icon svg { width: 20px; height: 20px; }
 
 .bienvenida__badge-text {
     display: flex;
     flex-direction: column;
     line-height: 1.2;
 }
-
 .bienvenida__badge-text strong {
     font-size: var(--fs-sm);
     font-weight: 700;
     color: var(--color-ink);
 }
-
 .bienvenida__badge-text span {
     font-size: var(--fs-xs);
     color: var(--color-muted);
@@ -198,14 +178,8 @@
         bottom: 0.875rem;
         padding: 0.625rem 0.875rem;
     }
-    .bienvenida__badge-icon {
-        width: 34px;
-        height: 34px;
-    }
-    .bienvenida__badge-icon svg {
-        width: 17px;
-        height: 17px;
-    }
+    .bienvenida__badge-icon { width: 34px; height: 34px; }
+    .bienvenida__badge-icon svg { width: 17px; height: 17px; }
 }
 
 /* ============================================================
@@ -217,7 +191,6 @@
     flex-direction: column;
     max-width: 720px;
 }
-
 @media (min-width: 1024px) {
     .bienvenida__content {
         max-width: 640px;
@@ -233,7 +206,6 @@
     color: var(--color-ink);
     margin-bottom: var(--space-lg);
 }
-
 @media (min-width: 1024px) {
     .bienvenida__title { font-size: var(--fs-4xl); }
 }
@@ -248,7 +220,6 @@
     color: transparent;
 }
 
-/* Bloque del mensaje con línea lateral + comilla decorativa */
 .bienvenida__message {
     position: relative;
     margin: 0;
@@ -280,10 +251,7 @@
     color: var(--color-text);
     margin-bottom: var(--space-md);
 }
-
-.bienvenida__paragraph:last-child {
-    margin-bottom: 0;
-}
+.bienvenida__paragraph:last-child { margin-bottom: 0; }
 
 .bienvenida__paragraph--lead {
     font-size: var(--fs-lg);
@@ -292,7 +260,6 @@
     color: var(--color-ink);
 }
 
-/* Destacado dentro del párrafo (marcado con [texto] en content) */
 .bienvenida__highlight {
     background: linear-gradient(180deg,
         transparent 62%,
@@ -302,7 +269,6 @@
     font-weight: 600;
 }
 
-/* Firma */
 .bienvenida__signature {
     display: flex;
     flex-direction: column;
@@ -311,12 +277,10 @@
     padding-top: var(--space-lg);
     position: relative;
 }
-
 .bienvenida__signature::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 64px;
     height: 3px;
     background: linear-gradient(90deg,
@@ -384,11 +348,9 @@
     margin: var(--space-2xl) 0 0;
     padding: 0;
 }
-
 @media (min-width: 640px) {
     .valores__grid { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (min-width: 900px) {
     .valores__grid { grid-template-columns: repeat(3, 1fr); }
 }
@@ -413,9 +375,7 @@
 .valor-card::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 3px;
     background: linear-gradient(90deg,
         var(--color-primary) 0%,
@@ -430,10 +390,7 @@
     box-shadow: var(--shadow-lg);
     border-color: rgba(48, 52, 140, 0.18);
 }
-
-.valor-card:hover::before {
-    transform: scaleX(1);
-}
+.valor-card:hover::before { transform: scaleX(1); }
 
 .valor-card__icon {
     display: inline-flex;
@@ -450,15 +407,10 @@
     transition: transform 0.4s var(--ease-out);
     flex-shrink: 0;
 }
-
 .valor-card:hover .valor-card__icon {
     transform: scale(1.06) rotate(-4deg);
 }
-
-.valor-card__icon .icon {
-    width: 24px;
-    height: 24px;
-}
+.valor-card__icon .icon { width: 24px; height: 24px; }
 
 .valor-card__body {
     display: flex;
@@ -481,105 +433,7 @@
 }
 
 /* ============================================================
-   6. CTA — mini-block minimalista (autocontenido)
-   ============================================================ */
-.section--cta {
-    background-color: var(--color-surface);
-    padding-block: var(--space-3xl);
-}
-
-.cta {
-    position: relative;
-    overflow: hidden;
-    padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem);
-    background-color: var(--color-ink);
-    border-radius: var(--radius-lg);
-    color: #FFFFFF;
-}
-
-.cta::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(48, 191, 151, 0.55) 35%,
-        rgba(126, 224, 194, 0.75) 50%,
-        rgba(48, 191, 151, 0.55) 65%,
-        transparent 100%);
-    pointer-events: none;
-}
-
-.cta__content {
-    position: relative;
-    z-index: 1;
-    max-width: 720px;
-}
-
-.cta .eyebrow--on-dark {
-    color: var(--color-secondary);
-    margin-bottom: var(--space-sm);
-    letter-spacing: 0.14em;
-}
-
-.cta__title {
-    font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.15;
-    color: #FFFFFF;
-    margin-bottom: var(--space-md);
-}
-
-.cta__text {
-    font-size: var(--fs-base);
-    color: rgba(255, 255, 255, 0.72);
-    max-width: 58ch;
-    line-height: 1.65;
-    margin-bottom: var(--space-xl);
-}
-
-.cta__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-}
-
-.cta .btn--light {
-    background: #FFFFFF;
-    color: var(--color-ink);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.cta .btn--light:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
-}
-
-.cta .btn--ghost-light {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    color: #FFFFFF;
-    box-shadow: none;
-}
-
-.cta .btn--ghost-light:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.36);
-    box-shadow: none;
-}
-
-/* ============================================================
-   7. FIX del reset (ul[class] anula margin)
-   ============================================================ */
-ul.valores__grid {
-    margin-top: var(--space-2xl);
-}
-
-/* ============================================================
-   8. MOVIMIENTO REDUCIDO
+   6. MOVIMIENTO REDUCIDO
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
     .bienvenida__media > img,

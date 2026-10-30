@@ -3,6 +3,11 @@
    ------------------------------------------------------------
    Basado en Josh Comeau + Andy Bell adaptado a UTU.
    Solo normaliza comportamientos, NO define identidad.
+
+   Nota: se usa :where() para que las listas con clase tengan
+   especificidad 0,1,0 (igual que .mi-clase). Así los estilos
+   de componente siempre ganan por orden de carga, sin necesidad
+   de overrides ul.mi-clase { … }.
    ============================================================ */
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -41,9 +46,11 @@ textarea { resize: vertical; }
 
 p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
 
-ul[class], ol[class],
-nav ul, nav ol,
-footer ul, footer ol {
+/* Listas sin estilo (menús, footers, listas con clase).
+   :where() neutraliza la especificidad del reset. */
+:where(ul, ol)[class],
+:where(nav) :where(ul, ol),
+:where(footer) :where(ul, ol) {
     list-style: none;
     margin: 0;
     padding: 0;
