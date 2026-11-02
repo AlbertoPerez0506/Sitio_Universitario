@@ -1,130 +1,118 @@
 /* ============================================================
-   bienvenida-content.js — Contenido editorial de la página
-   "Bienvenida del Rector"
-   ------------------------------------------------------------
-   ▸ Todo el texto editable vive aquí.
-   ▸ El diseño estructural (hero, retrato, firma, valores, CTA)
-     vive en /css/pages/bienvenida.css y en el HTML.
-   ▸ Preparado para migrar a un panel administrativo.
-   ▸ Expuesto en window.UTU_BIENVENIDA_CONTENT.
+   bienvenida-content.js — Contenido editable de la página
+   de Bienvenida de la Universidad Tecnológica del Usumacinta.
    ============================================================ */
 
-export const BIENVENIDA_CONTENT = {
+export const welcomeContent = {
+  /* ---------- HERO ---------- */
+  hero: {
+    eyebrow: 'Bienvenida institucional',
+    titleLine1: 'Bienvenidos a la UTU.',
+    titleAccent: 'Formación que se vive.',
+    lead:
+      'Conocimiento que se aplica. Una universidad tecnológica donde el 60% ' +
+      'de la formación es práctica, con dos estadías profesionales y una ruta ' +
+      'clara de TSU a Ingeniería o Licenciatura.',
+    ctaLabel: 'Conoce nuestra oferta',
+    ctaHref: '/pages/oferta/index.html',
+  },
 
-    /* ------------------------------------------------------------
-       META — usado por el módulo de página y por futuros editores
-       ------------------------------------------------------------ */
-    meta: {
-        title: 'Bienvenida del Rector | UTU',
-        description: 'Mensaje de bienvenida del Mtro. Darvin Daniel González Baños, Rector de la Universidad Tecnológica del Usumacinta.'
-    },
+  /* ---------- FRANJA DE DATOS (nueva) ---------- */
+  highlights: {
+    eyebrow: 'La UTU en datos',
+    title: 'Nuestro modelo en cifras',
+    items: [
+      { value: 60, suffix: '%', label: 'Formación práctica' },
+      { value: 40, suffix: '%', label: 'Formación teórica' },
+      { value: 2, label: 'Estadías profesionales' },
+      { text: 'TSU → Lic.', label: 'Continuidad académica' },
+    ],
+  },
 
-    /* ------------------------------------------------------------
-       HERO — cabecera interna
-       ------------------------------------------------------------ */
-    hero: {
-        eyebrow: 'Bienvenida institucional',
-        titlePrefix: 'Un mensaje de nuestro',
-        titleAccent: 'Rector',
-        lead: 'Conoce el mensaje de bienvenida del Mtro. Darvin Daniel González Baños, Rector de la Universidad Tecnológica del Usumacinta, para toda nuestra comunidad universitaria.'
-    },
+  /* ---------- IDENTIDAD ---------- */
+  identity: {
+    eyebrow: 'Nuestra identidad',
+    titleLine1: 'Una universidad',
+    titleAccent: 'para el mundo real',
+    text1:
+      'La Universidad Tecnológica del Usumacinta forma profesionales a ' +
+      'través de un modelo educativo que combina 60% de práctica y 40% de ' +
+      'teoría, con dos estadías profesionales que conectan el aula con la ' +
+      'industria, el campo y la comunidad.',
+    text2:
+      'Nuestra ruta académica permite a los estudiantes construir su ' +
+      'trayectoria profesional de forma progresiva: del Técnico Superior ' +
+      'Universitario (TSU) a la Ingeniería o Licenciatura, con un perfil de ' +
+      'egreso orientado a la solución de problemas reales.',
+  },
 
-    /* ------------------------------------------------------------
-       RECTOR — datos personales e imagen
-       ------------------------------------------------------------ */
-    rector: {
-        nombre: 'Mtro. Darvin Daniel González Baños',
-        cargo: 'Rector de la Universidad Tecnológica del Usumacinta',
-        imagen: {
-            src: '/assets/images/rector/Rector.webp',
-            alt: 'Mtro. Darvin Daniel González Baños, Rector de la UTU',
-            fallback: 'Retrato oficial del Rector'
-        },
-        badge: {
-            title: 'Rector',
-            subtitle: 'UT Usumacinta'
-        }
-    },
+  /* ---------- RUTA ACADÉMICA (chips dentro de identidad) ---------- */
+  route: {
+    eyebrow: 'Ruta académica',
+    stepTsu: 'TSU · 2 años',
+    stepFinal: 'Ingeniería o Licenciatura',
+  },
 
-    /* ------------------------------------------------------------
-       MENSAJE — carta del Rector
-       ------------------------------------------------------------
-       ▸ Usa [texto] para marcar fragmentos destacados.
-         Se renderizarán como <span class="bienvenida__highlight">.
-       ▸ tipo: 'lead' | 'normal'
-       ------------------------------------------------------------ */
-    mensaje: {
-        titlePrefix: 'Un mensaje de nuestro',
-        titleAccent: 'Rector',
-        parrafos: [
-            {
-                tipo: 'lead',
-                texto: 'Es un honor darles la más cordial bienvenida a nuestra comunidad universitaria. En la UT del Usumacinta nos dedicamos a formar profesionales de [excelencia con valores humanos], comprometidos con el desarrollo sostenible de nuestra región.'
-            },
-            {
-                tipo: 'normal',
-                texto: 'Nuestro compromiso es brindar una educación de calidad que combine la teoría con la práctica, preparando a nuestros estudiantes para los desafíos del mundo actual.'
-            },
-            {
-                tipo: 'normal',
-                texto: 'Los invito a ser parte activa de esta gran familia universitaria, donde juntos construiremos un futuro mejor para Tabasco y para México.'
-            }
-        ]
-    },
+  /* ---------- MENSAJE DEL RECTOR ---------- */
+  rector: {
+    eyebrow: 'Mensaje del rector',
+    title: 'Un mensaje para nuestra comunidad',
 
-    /* ------------------------------------------------------------
-       VALORES — pilares que refuerzan el mensaje
-       ------------------------------------------------------------ */
-    valores: {
-        eyebrow: 'Nuestro compromiso',
-        title: 'Lo que nos',
-        titleAccent: 'define',
-        lead: 'Tres principios que guían la formación de cada estudiante en la UTU.',
-        items: [
-            {
-                icon: 'i-users',
-                title: 'Formación integral',
-                text: 'Profesionales con excelencia académica y valores humanos, preparados para servir a su comunidad.'
-            },
-            {
-                icon: 'i-practice',
-                title: 'Teoría y práctica',
-                text: 'Un modelo 60/40 que conecta el conocimiento con la realidad del sector productivo.'
-            },
-            {
-                icon: 'i-globe',
-                title: 'Compromiso regional',
-                text: 'Desarrollo sostenible para Tabasco y México, con vinculación activa con el entorno.'
-            }
-        ]
-    },
+    message: [
+      'Bienvenidos a la Universidad Tecnológica del Usumacinta, una ' +
+      'institución donde el conocimiento cobra sentido cuando se lleva a la ' +
+      'práctica. Aquí no solo se estudia: se experimenta, se construye y se ' +
+      'transforma la realidad desde las aulas, los laboratorios y el campo.',
 
-    /* ------------------------------------------------------------
-       CTA FINAL — invita a seguir explorando
-       ------------------------------------------------------------ */
-    cta: {
-        eyebrow: 'Siguiente paso',
-        title: 'Conoce la universidad que te espera.',
-        texto: 'Descubre nuestra oferta académica, nuestras instalaciones y todo lo que la UTU tiene para ti.',
-        botones: [
-            {
-                label: 'Explora la oferta',
-                href: '/pages/oferta-educativa/index.html',
-                style: 'btn--light',
-                icon: true
-            },
-            {
-                label: 'Conoce la UTU',
-                href: '/pages/universidad/historia.html',
-                style: 'btn--ghost-light',
-                icon: false
-            }
-        ]
-    }
+      'Nuestro modelo formativo —60% práctica y 40% teoría— es una ' +
+      'convicción profunda: los profesionales se forman enfrentando retos ' +
+      'reales. Las dos estadías profesionales que acompañan su trayectoria ' +
+      'académica son la prueba de ese compromiso: aprender en el entorno ' +
+      'productivo para egresar con experiencia.',
+
+      'La ruta académica de la UTU les permite construir su futuro de manera ' +
+      'progresiva, del Técnico Superior Universitario a la Ingeniería o ' +
+      'Licenciatura, con la posibilidad de obtener dos títulos y dos cédulas ' +
+      'profesionales. En la UTU encontrarán además una comunidad que valora ' +
+      'el respeto, la responsabilidad, la ética y la solidaridad, con ' +
+      'tutorías, asesorías, actividades culturales, deportivas y ' +
+      'paraescolares, y una vinculación permanente con el sector productivo.',
+
+      'Los invito a asumir este camino con disciplina, curiosidad y ' +
+      'compromiso. Estoy convencido de que aquí no solo encontrarán una ' +
+      'carrera: encontrarán la oportunidad de transformar su entorno. ' +
+      'Bienvenidos, orgullosamente UTU.',
+    ],
+
+    // Datos oficiales del Rector — pendientes de validación institucional.
+    name: 'Mtro. Darvin Daniel González Baños',
+    position: 'Rector',
+
+    // Institución (visible siempre).
+    university: 'Universidad Tecnológica del Usumacinta',
+
+    // Imágenes oficiales colocadas desde /assets/images/rector/
+    photo: '/assets/images/rector/Rector.webp',
+    photoAlt: 'Fotografía oficial del Rector de la UTU',
+    signature: '/assets/images/rector/Firma_Falsa.webp',
+  },
+
+  /* ---------- CTA FINAL ---------- */
+  cta: {
+    eyebrow: 'Continúa tu camino',
+    title: 'Conoce la oferta educativa de la UTU',
+    texto:
+      'Explora los programas de TSU, Ingeniería y Licenciatura que la ' +
+      'Universidad Tecnológica del Usumacinta tiene para ti.',
+    primaryLabel: 'Ver oferta educativa',
+    primaryHref: '/pages/oferta/index.html',
+    secondaryLabel: 'Contacto',
+    secondaryHref: '/pages/contacto/index.html',
+  },
 };
 
 if (typeof window !== 'undefined') {
-    window.UTU_BIENVENIDA_CONTENT = BIENVENIDA_CONTENT;
+  window.UTU_BIENVENIDA_CONTENT = welcomeContent;
 }
 
-export default BIENVENIDA_CONTENT;
+export default welcomeContent;

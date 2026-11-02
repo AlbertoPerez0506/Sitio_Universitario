@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#30348C">
 
-    <title>Bienvenida del Rector | UTU</title>
-    <meta name="description" content="Mensaje de bienvenida del Mtro. Darvin Daniel González Baños, Rector de la Universidad Tecnológica del Usumacinta.">
+    <title>Bienvenida | Universidad Tecnológica del Usumacinta (UTU)</title>
+    <meta name="description" content="Bienvenida institucional de la Universidad Tecnológica del Usumacinta (UTU). Conoce nuestro modelo educativo, mensaje del Rector y ruta académica TSU → Ingeniería o Licenciatura.">
     <meta name="robots" content="index, follow">
+    <meta name="author" content="Universidad Tecnológica del Usumacinta">
+
     <link rel="canonical" href="https://www.utu.edu.mx/pages/universidad/bienvenida.html">
 
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
     <meta property="og:locale" content="es_MX">
     <meta property="og:site_name" content="Universidad Tecnológica del Usumacinta">
-    <meta property="og:title" content="Bienvenida del Rector | UTU">
-    <meta property="og:description" content="Un mensaje de nuestra comunidad universitaria.">
+    <meta property="og:title" content="Bienvenida | UTU">
+    <meta property="og:description" content="Formación que se vive. Conocimiento que se aplica.">
     <meta property="og:url" content="https://www.utu.edu.mx/pages/universidad/bienvenida.html">
-    <meta property="og:image" content="https://www.utu.edu.mx/assets/images/rector/Rector.webp">
+    <meta property="og:image" content="https://www.utu.edu.mx/assets/images/branding/logo-utu.png">
+    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" href="/assets/images/icons/icon.png" type="image/png">
 
@@ -25,17 +27,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Base + componentes compartidos -->
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/components/buttons.css">
-    <link rel="stylesheet" href="/css/components/cards.css">
     <link rel="stylesheet" href="/css/components/header.css">
     <link rel="stylesheet" href="/css/components/footer.css">
-    <link rel="stylesheet" href="/css/components/breadcrumbs.css">
-    <link rel="stylesheet" href="/css/components/page-hero.css">
-    <!-- Estilos únicos de esta página -->
+
     <link rel="stylesheet" href="/css/pages/bienvenida.css">
 
     <script>document.documentElement.classList.add('js');</script>
@@ -49,115 +47,137 @@
 
     <main id="contenido">
 
-        <!-- ============================================================
-             HERO — Bienvenida institucional
-             ============================================================ -->
-        <section class="page-hero page-hero--bienvenida" aria-labelledby="bienvenida-title">
-            <div class="page-hero__bg" aria-hidden="true"></div>
-            <div class="container page-hero__inner">
+        <!-- 1. HERO -->
+        <section class="welcome-hero" aria-labelledby="welcome-title">
+            <canvas class="welcome-hero__canvas"
+                    data-welcome-particles
+                    aria-hidden="true"></canvas>
 
-                <nav class="breadcrumbs breadcrumbs--on-dark" aria-label="Ruta de navegación">
-                    <ol>
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="/pages/universidad/bienvenida.html">Universidad</a></li>
-                        <li><span aria-current="page">Bienvenida</span></li>
-                    </ol>
-                </nav>
+            <div class="container welcome-hero__inner">
+                <div class="welcome-hero__content reveal">
+                    <p class="welcome-hero__eyebrow" data-content="hero.eyebrow"></p>
 
-                <p class="eyebrow eyebrow--on-dark" data-content="hero.eyebrow"></p>
+                    <h1 class="welcome-hero__title" id="welcome-title">
+                        <span data-content="hero.titleLine1"></span>
+                        <em data-content="hero.titleAccent"></em>
+                    </h1>
 
-                <h1 class="page-hero__title" id="bienvenida-title">
-                    <span data-content="hero.titlePrefix"></span>
-                    <span class="page-hero__title-accent" data-content="hero.titleAccent"></span>
-                </h1>
+                    <p class="welcome-hero__lead" data-content="hero.lead"></p>
 
-                <p class="page-hero__lead" data-content="hero.lead"></p>
-            </div>
-        </section>
-
-        <!-- ============================================================
-             MENSAJE EDITORIAL — Retrato + Carta + Firma
-             ============================================================ -->
-        <section class="section section--bienvenida" aria-labelledby="rector-title">
-            <div class="container">
-                <div class="bienvenida__layout">
-
-                    <!-- Retrato con marco editorial -->
-                    <aside class="bienvenida__portrait reveal" aria-label="Retrato del Rector">
-                        <div class="bienvenida__portrait-inner">
-                            <figure class="bienvenida__media">
-                                <img data-img-content="rector.imagen"
-                                     width="800" height="1000"
-                                     loading="eager" decoding="async" fetchpriority="high">
-                            </figure>
-                            <div class="bienvenida__badge" aria-hidden="true">
-                                <span class="bienvenida__badge-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="8" r="6"/>
-                                        <path d="m8.21 13.89-1.21 7.11L12 18l5 3-1.21-7.12"/>
-                                    </svg>
-                                </span>
-                                <span class="bienvenida__badge-text">
-                                    <strong data-content="rector.badge.title"></strong>
-                                    <span data-content="rector.badge.subtitle"></span>
-                                </span>
-                            </div>
-                        </div>
-                    </aside>
-
-                    <!-- Carta editorial -->
-                    <article class="bienvenida__content reveal" data-reveal-delay="140">
-
-                        <h2 class="bienvenida__title" id="rector-title">
-                            <span data-content="mensaje.titlePrefix"></span>
-                            <span class="bienvenida__title-accent" data-content="mensaje.titleAccent"></span>
-                        </h2>
-
-                        <blockquote class="bienvenida__message">
-                            <div data-mensaje-paragraphs></div>
-                        </blockquote>
-
-                        <footer class="bienvenida__signature">
-                            <span class="bienvenida__signature-name" data-content="rector.nombre"></span>
-                            <span class="bienvenida__signature-role" data-content="rector.cargo"></span>
-                        </footer>
-                    </article>
-
+                    <div class="welcome-hero__actions">
+                        <a class="btn btn--primary" data-content-href="hero.ctaHref">
+                            <span data-content="hero.ctaLabel"></span>
+                            <svg class="btn__icon" aria-hidden="true">
+                                <use href="#i-arrow-right"></use>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============================================================
-             VALORES — Tres pilares del mensaje
-             ============================================================ -->
-        <section class="section section--valores" aria-labelledby="valores-title">
+        <!-- 2. FRANJA DE DATOS (NUEVA) -->
+        <section class="welcome-stats" aria-labelledby="welcome-stats-title">
             <div class="container">
+                <div class="welcome-stats__head reveal">
+                    <p class="welcome-stats__eyebrow" data-content="highlights.eyebrow"></p>
+                    <h2 class="welcome-stats__title" id="welcome-stats-title"
+                        data-content="highlights.title"></h2>
+                </div>
 
-                <header class="section__head section__head--center reveal">
-                    <p class="eyebrow" data-content="valores.eyebrow"></p>
-                    <h2 class="section__title" id="valores-title">
-                        <span data-content="valores.title"></span>
-                        <span class="valores__title-accent" data-content="valores.titleAccent"></span>
-                    </h2>
-                    <p class="section__lead section__lead--center" data-content="valores.lead"></p>
-                </header>
-
-                <ul class="valores__grid" data-valores-grid></ul>
+                <div class="welcome-stats__grid reveal"
+                     data-highlights-grid
+                     data-reveal-delay="120">
+                    <!-- Renderizado por JS -->
+                </div>
             </div>
         </section>
 
-        <!-- ============================================================
-             CTA FINAL
-             ============================================================ -->
-        <section class="section section--cta" aria-labelledby="cta-title">
+        <!-- 3. IDENTIDAD -->
+        <section class="welcome-identity" aria-labelledby="identity-title">
+            <div class="container welcome-identity__inner">
+                <div class="welcome-identity__intro reveal">
+                    <p class="welcome-identity__eyebrow" data-content="identity.eyebrow"></p>
+                    <h2 class="welcome-identity__title" id="identity-title">
+                        <span data-content="identity.titleLine1"></span>
+                        <span class="welcome-identity__accent"
+                              data-content="identity.titleAccent"></span>
+                    </h2>
+                </div>
+
+                <div class="welcome-identity__body reveal" data-reveal-delay="120">
+                    <p class="welcome-identity__text" data-content="identity.text1"></p>
+                    <p class="welcome-identity__text" data-content="identity.text2"></p>
+
+                    <!-- Mini-ruta académica -->
+                    <div class="welcome-identity__route">
+                        <p class="welcome-identity__route-label" data-content="route.eyebrow"></p>
+                        <div class="welcome-identity__route-steps">
+                            <span class="welcome-identity__route-step"
+                                  data-content="route.stepTsu"></span>
+                            <span class="welcome-identity__route-arrow" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M13 6l6 6-6 6"/>
+                                </svg>
+                            </span>
+                            <span class="welcome-identity__route-step welcome-identity__route-step--final"
+                                  data-content="route.stepFinal"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MENSAJE DEL RECTOR -->
+        <section class="welcome-rector" aria-labelledby="rector-title">
+            <div class="container welcome-rector__inner">
+
+                <div class="welcome-rector__content reveal">
+                    <p class="welcome-rector__eyebrow" data-content="rector.eyebrow"></p>
+                    <h2 class="welcome-rector__title" id="rector-title"
+                        data-content="rector.title"></h2>
+
+                    <div class="welcome-rector__message" data-rector-message></div>
+
+                    <div class="welcome-rector__signature" data-rector-signature></div>
+
+                    <div class="welcome-rector__info">
+                        <strong data-content="rector.name"></strong>
+                        <span data-content="rector.position"></span>
+                        <span data-content="rector.university"></span>
+                    </div>
+                </div>
+
+                <figure class="welcome-rector__portrait reveal"
+                        data-rector-portrait
+                        data-reveal-delay="120"
+                        aria-label="Fotografía oficial del Rector">
+                    <!-- Renderizado por JS -->
+                </figure>
+            </div>
+        </section>
+
+        <!-- 5. CTA FINAL -->
+        <section class="section section--cta" aria-labelledby="welcome-cta-title">
             <div class="container">
                 <div class="cta reveal">
                     <div class="cta__content">
                         <p class="eyebrow eyebrow--on-dark" data-content="cta.eyebrow"></p>
-                        <h2 class="cta__title" id="cta-title" data-content="cta.title"></h2>
+                        <h2 class="cta__title" id="welcome-cta-title"
+                            data-content="cta.title"></h2>
                         <p class="cta__text" data-content="cta.texto"></p>
-                        <div class="cta__actions" data-cta-buttons></div>
+                        <div class="cta__actions">
+                            <a class="btn btn--light" data-content-href="cta.primaryHref">
+                                <span data-content="cta.primaryLabel"></span>
+                                <svg class="btn__icon" aria-hidden="true">
+                                    <use href="#i-arrow-right"></use>
+                                </svg>
+                            </a>
+                            <a class="btn btn--ghost-light" data-content-href="cta.secondaryHref">
+                                <span data-content="cta.secondaryLabel"></span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

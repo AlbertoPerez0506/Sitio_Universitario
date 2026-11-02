@@ -1,445 +1,807 @@
 /* ============================================================
-   pages/bienvenida.css — Estilos de la página del Rector
+   bienvenida.css — Página de Bienvenida UTU
    ------------------------------------------------------------
-   Diseño editorial minimalista con jerarquía visual premium.
-   Hereda tokens de /css/variables.css.
-
-   Nota: el bloque CTA (.section--cta, .cta, …) vive en main.css
-   por ser un patrón compartido con la home.
+   · Aislamiento total: todos los selectores usan prefijo
+     .welcome-* para no afectar header, footer ni el resto.
+   · Reutiliza tokens de variables.css sin modificarlos.
+   · Respeta prefers-reduced-motion.
+   · Tipografía editorial monumental con clamp().
+   · Layout asimétrico de dos columnas.
+   · Optimizado de 320px a 4K.
    ============================================================ */
 
-/* ============================================================
-   1. HERO — variante sutil de page-hero
-   ============================================================ */
-.page-hero--bienvenida .page-hero__title {
-    font-size: clamp(2.5rem, 1.8rem + 3.5vw, 4.5rem);
-    line-height: 1.04;
-    letter-spacing: -0.03em;
+/* ------------------------------------------------------------
+   0. Variables locales (no tocan :root global)
+   ------------------------------------------------------------ */
+.welcome-hero,
+.welcome-identity,
+.welcome-rector {
+    --welcome-gutter: clamp(1rem, 4vw, 4rem);
+    --welcome-radius: var(--radius-lg);
 }
 
 /* ============================================================
-   2. SECCIÓN BIENVENIDA — layout editorial
+   1. HERO INSTITUCIONAL
    ============================================================ */
-.section--bienvenida {
+.welcome-hero {
     position: relative;
-    overflow: hidden;
+    /* Reduje un poco el padding inferior para que no haya huecos */
+    padding-top: calc(var(--header-h) + clamp(3rem, 8vw, 5rem));
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    
+    /* Quitamos el min-height por defecto. El hero se adapta al contenido. */
+    
     background-color: var(--color-surface);
-}
-
-.section--bienvenida::before {
-    content: "";
-    position: absolute;
-    top: -10%;
-    right: -10%;
-    width: 55%;
-    height: 70%;
-    background: radial-gradient(circle, rgba(48, 191, 151, 0.07) 0%, transparent 70%);
-    filter: blur(70px);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.section--bienvenida .container {
-    position: relative;
-    z-index: 1;
-}
-
-.bienvenida__layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
-    align-items: start;
-}
-@media (min-width: 1024px) {
-    .bienvenida__layout {
-        grid-template-columns: 0.85fr 1.15fr;
-        gap: clamp(2.5rem, 5vw, 5rem);
-    }
-}
-
-/* ============================================================
-   3. RETRATO — marco con anillo decorativo
-   ============================================================ */
-.bienvenida__portrait {
-    position: relative;
-    max-width: 460px;
-    margin-inline: auto;
-}
-@media (min-width: 1024px) {
-    .bienvenida__portrait {
-        position: sticky;
-        top: calc(var(--header-h) + var(--space-xl));
-        max-width: 100%;
-    }
-}
-
-.bienvenida__portrait-inner { position: relative; }
-
-.bienvenida__portrait::before {
-    content: "";
-    position: absolute;
-    inset: -22px;
-    border-radius: calc(var(--radius-xl) + 22px);
-    border: 1.5px dashed rgba(48, 191, 151, 0.22);
-    pointer-events: none;
-    z-index: 0;
-    animation: bienvenidaRingRotate 90s linear infinite;
-}
-@keyframes bienvenidaRingRotate { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) {
-    .bienvenida__portrait::before { animation: none; }
-}
-
-.bienvenida__media {
-    position: relative;
-    margin: 0;
-    aspect-ratio: 4 / 5;
-    border-radius: var(--radius-xl);
     overflow: hidden;
-    background: var(--gradient-primary);
-    padding: 5px;
-    box-shadow:
-        0 24px 60px rgba(15, 18, 38, 0.18),
-        0 8px 20px rgba(15, 18, 38, 0.08);
-    z-index: 1;
+    isolation: isolate;
 }
 
-.bienvenida__media > img {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 18%;
-    border-radius: calc(var(--radius-xl) - 5px);
-    transition: transform 0.9s var(--ease-out);
-    display: block;
-}
-.bienvenida__portrait:hover .bienvenida__media > img {
-    transform: scale(1.04);
-}
-
-.bienvenida__badge {
-    position: absolute;
-    left: 1.5rem;
-    bottom: 1.5rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1.1rem;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    border-radius: var(--radius-md);
-    box-shadow: 0 18px 42px rgba(15, 18, 38, 0.22);
-    z-index: 3;
-    animation: bienvenidaBadgeFloat 5s ease-in-out infinite;
-}
-@keyframes bienvenidaBadgeFloat {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-4px); }
-}
-@media (prefers-reduced-motion: reduce) {
-    .bienvenida__badge { animation: none; }
-}
-
-.bienvenida__badge-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-sm);
-    background: var(--gradient-accent);
-    color: #FFFFFF;
-    box-shadow: 0 6px 16px rgba(48, 191, 151, 0.32);
-    flex-shrink: 0;
-}
-.bienvenida__badge-icon svg { width: 20px; height: 20px; }
-
-.bienvenida__badge-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-}
-.bienvenida__badge-text strong {
-    font-size: var(--fs-sm);
-    font-weight: 700;
-    color: var(--color-ink);
-}
-.bienvenida__badge-text span {
-    font-size: var(--fs-xs);
-    color: var(--color-muted);
-}
-
-@media (max-width: 640px) {
-    .bienvenida__badge {
-        left: 0.875rem;
-        bottom: 0.875rem;
-        padding: 0.625rem 0.875rem;
-    }
-    .bienvenida__badge-icon { width: 34px; height: 34px; }
-    .bienvenida__badge-icon svg { width: 17px; height: 17px; }
-}
-
-/* ============================================================
-   4. CONTENIDO — título, mensaje, firma
-   ============================================================ */
-.bienvenida__content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    max-width: 720px;
-}
-@media (min-width: 1024px) {
-    .bienvenida__content {
-        max-width: 640px;
-        padding-top: var(--space-md);
-    }
-}
-
-.bienvenida__title {
-    font-size: var(--fs-3xl);
-    font-weight: 700;
-    line-height: 1.12;
-    letter-spacing: -0.02em;
-    color: var(--color-ink);
-    margin-bottom: var(--space-lg);
-}
-@media (min-width: 1024px) {
-    .bienvenida__title { font-size: var(--fs-4xl); }
-}
-
-.bienvenida__title-accent {
-    display: inline-block;
-    background: linear-gradient(135deg,
-        var(--color-primary) 0%,
-        var(--color-secondary) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.bienvenida__message {
-    position: relative;
-    margin: 0;
-    padding-left: clamp(1.25rem, 4vw, 2.25rem);
-    border-left: 3px solid transparent;
-    border-image: linear-gradient(180deg,
-        var(--color-primary) 0%,
-        var(--color-secondary) 100%) 1;
-}
-
-.bienvenida__message::before {
-    content: "\201C";
-    position: absolute;
-    top: -3.5rem;
-    left: -0.75rem;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(5rem, 4rem + 4vw, 9rem);
-    line-height: 1;
-    font-weight: 700;
-    color: rgba(48, 52, 140, 0.075);
-    pointer-events: none;
-    user-select: none;
-    z-index: -1;
-}
-
-.bienvenida__paragraph {
-    font-size: var(--fs-base);
-    line-height: 1.75;
-    color: var(--color-text);
-    margin-bottom: var(--space-md);
-}
-.bienvenida__paragraph:last-child { margin-bottom: 0; }
-
-.bienvenida__paragraph--lead {
-    font-size: var(--fs-lg);
-    line-height: 1.6;
-    font-weight: 500;
-    color: var(--color-ink);
-}
-
-.bienvenida__highlight {
-    background: linear-gradient(180deg,
-        transparent 62%,
-        rgba(48, 191, 151, 0.24) 62%);
-    padding: 0 0.1em;
-    color: var(--color-ink);
-    font-weight: 600;
-}
-
-.bienvenida__signature {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    margin-top: var(--space-xl);
-    padding-top: var(--space-lg);
-    position: relative;
-}
-.bienvenida__signature::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 64px;
-    height: 3px;
-    background: linear-gradient(90deg,
-        var(--color-primary) 0%,
-        var(--color-secondary) 100%);
-    border-radius: 3px;
-}
-
-.bienvenida__signature-name {
-    font-family: Georgia, "Times New Roman", serif;
-    font-style: italic;
-    font-size: var(--fs-xl);
-    font-weight: 600;
-    color: var(--color-primary);
-    line-height: 1.2;
-}
-
-.bienvenida__signature-role {
-    font-size: var(--fs-sm);
-    color: var(--color-muted);
-    font-weight: 500;
-}
-
-/* ============================================================
-   5. VALORES — cuadrícula de pilares
-   ============================================================ */
-.section--valores {
-    position: relative;
-    overflow: hidden;
-    background-color: var(--color-surface-alt);
-}
-
-.section--valores::before {
+/* Lavado radial institucional de fondo */
+.welcome-hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle, rgba(48, 52, 140, 0.06) 1px, transparent 1px);
-    background-size: 26px 26px;
-    mask-image: radial-gradient(ellipse at 50% 0%, #000 10%, transparent 65%);
-    -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 10%, transparent 65%);
+    background:
+        radial-gradient(ellipse 80% 60% at 100% 0%,
+            rgba(48, 191, 151, 0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 50% at 0% 100%,
+            rgba(48, 52, 140, 0.08) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
 }
 
-.section--valores .container {
+/* Canvas de partículas (constelación) */
+.welcome-hero__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.85;
+}
+
+.welcome-hero__inner {
+    position: relative;
+    z-index: 2;
+}
+
+.welcome-hero__content {
+    max-width: 62rem;
+}
+
+/* Etiqueta superior tipo editorial */
+.welcome-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    line-height: 1;
+}
+
+.welcome-hero__eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background-color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* Titular monumental */
+.welcome-hero__title {
+    font-size: clamp(2.5rem, 1.2rem + 5.6vw, 6rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+    color: var(--color-ink);
+    margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+    text-wrap: balance;
+}
+
+.welcome-hero__title em {
+    display: block;
+    font-style: normal;
+    font-weight: 400;
+    background: linear-gradient(135deg,
+        var(--color-primary) 0%,
+        var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    margin-top: 0.15em;
+}
+
+/* Lead / párrafo introductorio */
+.welcome-hero__lead {
+    max-width: 55ch;
+    font-size: clamp(1.0625rem, 0.95rem + 0.6vw, 1.375rem);
+    line-height: 1.55;
+    color: var(--color-muted);
+    font-weight: 400;
+    margin: 0 0 clamp(2rem, 4vw, 3rem);
+}
+
+.welcome-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* ------------------------------------------------------------
+   Responsive del hero
+   ------------------------------------------------------------ */
+@media (max-width: 640px) {
+    .welcome-hero__title {
+        letter-spacing: -0.03em;
+    }
+    .welcome-hero__canvas {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 380px) {
+    .welcome-hero__eyebrow {
+        font-size: 0.6875rem;
+        letter-spacing: 0.2em;
+    }
+}
+
+/* Solo en Desktop (PC) devolvemos la altura imponente y centramos */
+@media (min-width: 1024px) {
+    .welcome-hero {
+        min-height: 70svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+/* Pantallas muy bajas (móvil horizontal) */
+@media (max-height: 600px) and (orientation: landscape) {
+    .welcome-hero {
+        min-height: auto;
+        padding-top: calc(var(--header-h) + 2.5rem);
+        padding-bottom: 3rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .welcome-hero__canvas {
+        opacity: 0.4;
+    }
+}
+
+/* ============================================================
+   2. IDENTIDAD UNIVERSITARIA
+   ============================================================ */
+.welcome-identity {
+    padding-block: clamp(4rem, 10vw, 8rem);
+    background-color: var(--color-surface);
+}
+
+.welcome-identity__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .welcome-identity__inner {
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        gap: clamp(3rem, 6vw, 6rem);
+    }
+}
+
+.welcome-identity__intro {
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-identity__eyebrow {
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin: 0 0 1.5rem;
+    line-height: 1;
+}
+
+.welcome-identity__title {
+    font-size: clamp(1.875rem, 1.4rem + 2.4vw, 3.5rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    color: var(--color-ink);
+    margin: 0;
+    text-wrap: balance;
+}
+
+.welcome-identity__accent {
+    display: block;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-top: 0.1em;
+}
+
+.welcome-identity__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: clamp(1rem, 0.94rem + 0.3vw, 1.1875rem);
+    line-height: 1.7;
+    color: var(--color-text);
+    max-width: 55ch;
+}
+
+.welcome-identity__text {
+    margin: 0;
+}
+
+/* ============================================================
+   3. MENSAJE DEL RECTOR
+   ============================================================ */
+.welcome-rector {
+    padding-block: clamp(4rem, 10vw, 8rem);
+    background-color: var(--color-surface-alt);
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-rector::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, rgba(48, 52, 140, 0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image:
+        radial-gradient(ellipse at 30% 40%, #000 20%, transparent 70%);
+    -webkit-mask-image:
+        radial-gradient(ellipse at 30% 40%, #000 20%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.welcome-rector__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .welcome-rector__inner {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        gap: clamp(3rem, 6vw, 6rem);
+    }
+}
+
+.welcome-rector__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.welcome-rector__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin: 0;
+    line-height: 1;
+}
+
+.welcome-rector__eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background-color: var(--color-secondary);
+    flex-shrink: 0;
+}
+
+.welcome-rector__title {
+    font-size: clamp(1.5rem, 1.15rem + 1.6vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    color: var(--color-ink);
+    margin: 0;
+    text-wrap: balance;
+}
+
+.welcome-rector__message {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    font-size: clamp(1rem, 0.94rem + 0.3vw, 1.1875rem);
+    line-height: 1.7;
+    color: var(--color-text);
+    max-width: 60ch;
+}
+
+.welcome-rector__message p {
+    margin: 0;
+}
+
+/* Placeholder de mensaje (cuando aún no existe texto oficial) */
+.welcome-rector__placeholder {
+    color: var(--color-muted);
+    font-style: italic;
+    font-size: var(--fs-base);
+    padding: 1.25rem 1.5rem;
+    border: 1px dashed var(--color-border-strong);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Firma */
+.welcome-rector__signature {
+    padding-block: 0.75rem;
+    min-height: 64px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.welcome-rector__signature img {
+    max-height: 70px;
+    max-width: 240px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.92;
+}
+
+.welcome-rector__signature-placeholder {
+    font-size: var(--fs-xs);
+    color: var(--color-subtle);
+    font-style: italic;
+    padding: 0.5rem 0.875rem;
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    line-height: 1.5;
+}
+
+/* Datos del rector */
+.welcome-rector__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.welcome-rector__info strong {
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--color-ink);
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+}
+
+.welcome-rector__info span {
+    font-size: var(--fs-sm);
+    color: var(--color-muted);
+    line-height: 1.5;
+}
+
+/* Placeholder de datos (nombre/cargo aún no oficiales) */
+.welcome-rector__info strong.is-placeholder,
+.welcome-rector__info span.is-placeholder {
+    font-style: italic;
+    color: var(--color-subtle);
+    font-weight: 400;
+}
+
+/* Retrato editorial */
+.welcome-rector__portrait {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--welcome-radius);
+    overflow: hidden;
+    background-color: var(--color-surface);
+    box-shadow:
+        0 24px 64px rgba(15, 18, 38, 0.14),
+        0 4px 14px rgba(15, 18, 38, 0.05);
+}
+
+.welcome-rector__portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.welcome-rector__portrait-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    text-align: center;
+    background: linear-gradient(135deg,
+        var(--color-surface-alt) 0%,
+        var(--color-background) 100%);
+    color: var(--color-muted);
+    z-index: 1;
+}
+
+.welcome-rector__portrait-placeholder svg {
+    width: 64px;
+    height: 64px;
+    opacity: 0.45;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.welcome-rector__portrait-placeholder span {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    max-width: 24ch;
+    line-height: 1.5;
+}
+
+/* Responsive del retrato */
+@media (max-width: 899px) {
+    .welcome-rector__portrait {
+        aspect-ratio: 4 / 4.5;
+        max-width: 480px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-rector__portrait-placeholder svg {
+        width: 48px;
+        height: 48px;
+    }
+    .welcome-rector__portrait-placeholder span {
+        font-size: var(--fs-xs);
+    }
+}
+
+/* ============================================================
+   4. PANTALLAS GRANDES / 4K
+   ============================================================ */
+@media (min-width: 1920px) {
+    .welcome-hero__content {
+        max-width: 76rem;
+    }
+    .welcome-hero__title {
+        font-size: clamp(5.5rem, 4rem + 3.2vw, 7.5rem);
+    }
+    .welcome-identity__inner {
+        gap: clamp(4rem, 8vw, 8rem);
+    }
+    .welcome-rector__inner {
+        gap: clamp(4rem, 8vw, 7rem);
+    }
+}
+
+/* ============================================================
+   5. MOVIMIENTO REDUCIDO
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .welcome-hero__canvas {
+        opacity: 0.4;
+    }
+}
+
+/* ============================================================
+   NUEVAS SECCIONES DINÁMICAS — Bienvenida UTU
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   A. FRANJA DE DATOS (después del hero)
+   ------------------------------------------------------------ */
+.welcome-stats {
+    position: relative;
+    padding-block: clamp(3rem, 7vw, 6rem);
+    background-color: var(--color-surface);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.welcome-stats::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 45% at 50% 0%,
+            rgba(48, 191, 151, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 40% at 50% 100%,
+            rgba(48, 52, 140, 0.05) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+    animation: welcomeStatsGlow 9s ease-in-out infinite;
+}
+
+@keyframes welcomeStatsGlow {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50%      { opacity: 1;   transform: scale(1.03); }
+}
+
+.welcome-stats > .container {
     position: relative;
     z-index: 1;
 }
 
-.valores__title-accent {
+.welcome-stats__head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto clamp(2rem, 4vw, 3rem);
+}
+
+.welcome-stats__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin: 0 0 1rem;
+    line-height: 1;
+}
+
+.welcome-stats__eyebrow::before,
+.welcome-stats__eyebrow::after {
+    content: "";
     display: inline-block;
-    background: linear-gradient(135deg,
-        var(--color-secondary) 0%,
-        #7EE0C2 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    width: 2rem;
+    height: 1px;
+    background-color: var(--color-secondary);
+    flex-shrink: 0;
 }
 
-.valores__grid {
+.welcome-stats__title {
+    font-size: clamp(1.5rem, 1.15rem + 1.6vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--color-ink);
+    margin: 0;
+    text-wrap: balance;
+}
+
+/* Grid de datos */
+.welcome-stats__grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    list-style: none;
-    margin: var(--space-2xl) 0 0;
-    padding: 0;
-}
-@media (min-width: 640px) {
-    .valores__grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 900px) {
-    .valores__grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-.valor-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    height: 100%;
-    padding: var(--space-xl) var(--space-lg);
-    background-color: var(--color-surface);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: var(--color-border);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    transition:
-        transform 0.4s var(--ease-out),
-        box-shadow 0.4s var(--ease-out),
-        border-color 0.4s var(--ease-out);
+    box-shadow:
+        0 12px 32px rgba(15, 18, 38, 0.06),
+        0 2px 6px rgba(15, 18, 38, 0.04);
 }
 
-.valor-card::before {
+@media (min-width: 768px) {
+    .welcome-stats__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.welcome-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: clamp(1.5rem, 3vw, 2.25rem) var(--space-md);
+    background-color: var(--color-surface);
+    transition: background-color var(--t-fast), transform var(--t-base);
+    position: relative;
+    isolation: isolate;
+}
+
+.welcome-stat::before {
     content: "";
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
+    inset: auto 0 0 0;
+    height: 2px;
     background: linear-gradient(90deg,
+        transparent 0%,
+        var(--color-secondary) 50%,
+        transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-out);
+    z-index: 1;
+}
+
+.welcome-stat:hover {
+    background-color: var(--color-surface-alt);
+}
+
+.welcome-stat:hover::before {
+    opacity: 1;
+}
+
+.welcome-stat__value {
+    display: inline-block;
+    font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-variant-numeric: tabular-nums;
+    background: linear-gradient(135deg,
         var(--color-primary) 0%,
         var(--color-secondary) 100%);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s var(--ease-out);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    transition: transform 0.4s var(--ease-out);
 }
 
-.valor-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lg);
+.welcome-stat:hover .welcome-stat__value {
+    transform: scale(1.04);
+}
+
+.welcome-stat__value--text {
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.welcome-stat__label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    max-width: 18ch;
+}
+
+/* ------------------------------------------------------------
+   B. MINI-RUTA ACADÉMICA (dentro de identidad)
+   ------------------------------------------------------------ */
+.welcome-identity__route {
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.welcome-identity__route-label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin: 0;
+    line-height: 1;
+}
+
+.welcome-identity__route-steps {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.welcome-identity__route-step {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.2;
+    transition:
+        border-color var(--t-fast),
+        background-color var(--t-fast),
+        transform var(--t-fast);
+}
+
+.welcome-identity__route-step:hover {
+    border-color: var(--color-border-strong);
+    transform: translateY(-1px);
+}
+
+.welcome-identity__route-step--final {
+    background: linear-gradient(135deg,
+        rgba(48, 52, 140, 0.06) 0%,
+        rgba(48, 191, 151, 0.10) 100%);
     border-color: rgba(48, 52, 140, 0.18);
+    color: var(--color-primary);
 }
-.valor-card:hover::before { transform: scaleX(1); }
 
-.valor-card__icon {
+.welcome-identity__route-arrow {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: var(--radius-md);
-    background: var(--gradient-primary);
-    color: #FFFFFF;
-    box-shadow:
-        0 8px 20px rgba(48, 52, 140, 0.22),
-        inset 0 1px 0 rgba(255, 255, 255, 0.18);
-    transition: transform 0.4s var(--ease-out);
+    width: 22px;
+    height: 22px;
+    color: var(--color-secondary);
     flex-shrink: 0;
-}
-.valor-card:hover .valor-card__icon {
-    transform: scale(1.06) rotate(-4deg);
-}
-.valor-card__icon .icon { width: 24px; height: 24px; }
-
-.valor-card__body {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
+    animation: welcomeRouteArrow 2.4s ease-in-out infinite;
 }
 
-.valor-card__title {
-    font-size: var(--fs-lg);
-    font-weight: 700;
-    color: var(--color-ink);
-    letter-spacing: -0.01em;
-    line-height: 1.3;
+.welcome-identity__route-arrow svg {
+    width: 100%;
+    height: 100%;
 }
 
-.valor-card__text {
-    font-size: var(--fs-sm);
-    color: var(--color-muted);
-    line-height: 1.65;
+@keyframes welcomeRouteArrow {
+    0%, 100% { transform: translateX(0); opacity: 0.75; }
+    50%      { transform: translateX(3px); opacity: 1; }
 }
 
-/* ============================================================
-   6. MOVIMIENTO REDUCIDO
-   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
-    .bienvenida__media > img,
-    .valor-card,
-    .valor-card::before,
-    .valor-card__icon {
+    .welcome-identity__route-arrow { animation: none; }
+}
+
+/* ------------------------------------------------------------
+   C. REFUERZO DEL RETRATO DEL RECTOR
+   ------------------------------------------------------------ */
+.welcome-rector__portrait {
+    box-shadow:
+        14px 14px 0 -2px rgba(48, 52, 140, 0.06),
+        0 24px 64px rgba(15, 18, 38, 0.14),
+        0 4px 14px rgba(15, 18, 38, 0.05);
+    transition:
+        box-shadow 0.5s var(--ease-out),
+        transform 0.5s var(--ease-out);
+}
+
+.welcome-rector__portrait img {
+    transition: transform 0.7s var(--ease-out);
+}
+
+@media (hover: hover) {
+    .welcome-rector__portrait:hover {
+        transform: translate(-3px, -3px);
+        box-shadow:
+            18px 18px 0 -2px rgba(48, 191, 151, 0.10),
+            0 28px 72px rgba(15, 18, 38, 0.16),
+            0 6px 18px rgba(15, 18, 38, 0.06);
+    }
+    .welcome-rector__portrait:hover img {
+        transform: scale(1.02);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .welcome-rector__portrait,
+    .welcome-rector__portrait img {
         transition: none;
     }
 }
