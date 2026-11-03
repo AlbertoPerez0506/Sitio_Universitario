@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 Índice
+##  Índice
 
 1. [Visión general](#1-visión-general)
 2. [Arquitectura del sitio](#2-arquitectura-del-sitio)
@@ -48,7 +48,7 @@ construido con:
 
 | Archivo | Rol |
 |---|---|
-| `/site-content.js` | 🎯 **Fuente única de contenido** (textos + imágenes) |
+| `/site-content.js` |  **Fuente única de contenido** (textos + imágenes) |
 | `/index.html` | Esqueleto semántico con `data-content` y contenedores |
 | `/js/app.js` | Bootstrap: inicializa todo en orden correcto |
 | `/js/pages/home.js` | Renderiza todo el contenido del home |
@@ -88,32 +88,32 @@ Cada imagen vive dentro de un objeto en `SITE_CONTENT`, con esta estructura:
 }
 
 /
-├── site-content.js              ← 🎯 TODO el contenido editable
+├── site-content.js              ←  TODO el contenido editable
 ├── index.html
 │
 ├── assets/
 │   └── images/
 │       ├── branding/
-│       │   └── logo-utu.png     ← 🔒 NO TOCAR (header/footer)
+│       │   └── logo-utu.png     ←  NO TOCAR (header/footer)
 │       ├── icons/
-│       │   └── icon.png         ← 🔒 NO TOCAR (favicon)
+│       │   └── icon.png         ←  NO TOCAR (favicon)
 │       │
-│       ├── hero/                ← 🖼️ Imágenes del carrusel principal
+│       ├── hero/                ←  Imágenes del carrusel principal
 │       │   ├── campus1.jpg
 │       │   ├── campus2.jpg
 │       │   └── campus3.jpg
 │       │
-│       ├── carreras/            ← 🖼️ Imágenes de la oferta educativa
+│       ├── carreras/            ←  Imágenes de la oferta educativa
 │       │   ├── carrera-01.jpg
 │       │   ├── carrera-02.jpg
 │       │   └── ...
 │       │
-│       ├── galeria/             ← 🖼️ Fotos de paraescolares
+│       ├── galeria/             ←  Fotos de paraescolares
 │       │   ├── tamborileros.jpg
 │       │   ├── banda-guerra.jpg
 │       │   └── ...
 │       │
-│       └── collage/             ← 🖼️ Fotos de comunidad
+│       └── collage/             ←  Fotos de comunidad
 │           ├── comunidad-01.jpg
 │           ├── comunidad-02.jpg
 │           └── ...
@@ -139,8 +139,8 @@ Cada imagen vive dentro de un objeto en `SITE_CONTENT`, con esta estructura:
 │   │   ├── utils.js
 │   │   └── paths.js
 │   ├── components/
-│   │   ├── header.js            ← 🔒 LOGO PROTEGIDO
-│   │   ├── footer.js            ← 🔒 PROTEGIDO
+│   │   ├── header.js            ←  LOGO PROTEGIDO
+│   │   ├── footer.js            ←  PROTEGIDO
 │   │   ├── sprite.js
 │   │   ├── carousel.js
 │   │   ├── gallery.js
@@ -154,7 +154,7 @@ Cada imagen vive dentro de un objeto en `SITE_CONTENT`, con esta estructura:
 │
 └── docs/
     ├── administracion-contenido.md
-    └── imagenes-y-arquitectura.md   ← 📄 este archivo
+    └── imagenes-y-arquitectura.md   ←  este archivo
 
     Cómo cambiar una imagen
 Paso a paso (para el hero)

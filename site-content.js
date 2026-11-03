@@ -24,7 +24,7 @@ export const SITE_CONTENT = {
                 visible: true,
 
                 /* ------------------------------------------------------------
-                   🖼️ IMAGEN REAL — sustituye la URL de Unsplash original
+                   IMAGEN REAL — sustituye la URL de Unsplash original
                    ------------------------------------------------------------
                    ANTES (Unsplash):
                      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&q=80&auto=format&fit=crop'
@@ -32,9 +32,9 @@ export const SITE_CONTENT = {
                    AHORA (imagen local del campus):
                      '/assets/images/hero/campus1.jpg'
 
-                   📁 Coloca el archivo en: /assets/images/hero/campus1.jpg
-                   📐 Tamaño recomendado: 1920 × 1080 px
-                   ⚖️ Peso recomendado: < 300 KB
+                    Coloca el archivo en: /assets/images/hero/campus1.jpg
+                    Tamaño recomendado: 1920 × 1080 px
+                    Peso recomendado: < 300 KB
                    ------------------------------------------------------------ */
                 image: '/assets/images/hero/campus1.jpg',
 
