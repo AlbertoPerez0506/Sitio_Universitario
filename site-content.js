@@ -388,12 +388,18 @@ export const SITE_CONTENT = {
             { label: 'Arte',    class: 'life__cat--art' }
         ],
         galeria: [
-            { src: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=900&h=700&q=80&auto=format&fit=crop', alt: 'Tamborileros de la UTU en presentación', categoria: 'Cultura', catSlug: 'culture', caption: 'Tamborileros', orden: 1 },
-            { src: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=900&h=700&q=80&auto=format&fit=crop', alt: 'Banda de Guerra de la UTU', categoria: 'Cultura', catSlug: 'culture', caption: 'Banda de Guerra', orden: 2 },
-            { src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&h=700&q=80&auto=format&fit=crop', alt: 'Práctica de Taekwondo en la UTU', categoria: 'Deporte', catSlug: 'sport', caption: 'Taekwondo', orden: 3 },
-            { src: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=900&h=700&q=80&auto=format&fit=crop', alt: 'Equipo de fútbol de la UTU', categoria: 'Deporte', catSlug: 'sport', caption: 'Fútbol', orden: 4 },
-            { src: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&h=700&q=80&auto=format&fit=crop', alt: 'Taller de Pintura en la UTU', categoria: 'Arte', catSlug: 'art', caption: 'Pintura', orden: 5 },
-            { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=700&q=80&auto=format&fit=crop', alt: 'Taller de Serigrafía en la UTU', categoria: 'Arte', catSlug: 'art', caption: 'Serigrafía', orden: 6 }
+            // --- CULTURA ---
+            { src: '/assets/images/paraescolares/tamborileros.webp', alt: 'Tamborileros de la UTU en presentación', categoria: 'Cultura', catSlug: 'culture', caption: 'Tamborileros', orden: 1 },
+            { src: '/assets/images/paraescolares/banda-guerra.webp', alt: 'Banda de Guerra de la UTU', categoria: 'Cultura', catSlug: 'culture', caption: 'Banda de Guerra', orden: 2 },
+            { src: '/assets/images/paraescolares/musica.webp', alt: 'Banda de música de la UTU', categoria: 'Cultura', catSlug: 'culture', caption: 'Música', orden: 3 },
+            
+            // --- DEPORTE ---
+            { src: '/assets/images/paraescolares/taekwondo.webp', alt: 'Práctica de Taekwondo en la UTU', categoria: 'Deporte', catSlug: 'sport', caption: 'Taekwondo', orden: 4 },
+            { src: '/assets/images/paraescolares/basquetbol.webp', alt: 'Entrenamiento de basquetbol en la UTU', categoria: 'Deporte', catSlug: 'sport', caption: 'Basquetbol', orden: 5 },
+            
+            // --- ARTE ---
+            { src: '/assets/images/paraescolares/pintura.webp', alt: 'Taller de Pintura en la UTU', categoria: 'Arte', catSlug: 'art', caption: 'Pintura', orden: 6 },
+            { src: '/assets/images/paraescolares/serigrafia.webp', alt: 'Taller de Serigrafía en la UTU', categoria: 'Arte', catSlug: 'art', caption: 'Serigrafía', orden: 7 }
         ]
     },
 
