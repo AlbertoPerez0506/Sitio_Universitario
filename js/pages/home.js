@@ -53,6 +53,9 @@ function renderHero() {
         const isFirst = i === 0;
         const Tag     = isFirst ? 'h1' : 'h2';
         const titleId = isFirst ? ' id="hero-title"' : '';
+        //  Lógica de atributos de carga mejorada
+        const loadingAttr = isFirst ? 'eager' : 'lazy';
+        const fetchpriorityAttr = isFirst ? ' fetchpriority="high"' : '';
         return `
             <article class="hero__slide${isFirst ? ' is-active' : ''}"
                      data-carousel-slide role="group"
@@ -62,7 +65,8 @@ function renderHero() {
                 <div class="hero__media">
                     <img src="${escapeHTML(s.image)}" alt="${escapeHTML(s.alt)}"
                          width="1920" height="1080"
-                         ${isFirst ? 'fetchpriority="high"' : 'loading="lazy"'}
+                         loading="${loadingAttr}"
+                         ${fetchpriorityAttr}
                          decoding="async"
                          data-img-fallback="${escapeHTML(s.fallback || s.alt)}">
                 </div>
