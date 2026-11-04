@@ -258,7 +258,7 @@ export function html() {
 /* ---------- Lógica ---------- */
 
 /* Breakpoint desktop unificado con la hoja de estilos. */
-const DESKTOP_MQ = '(min-width: 1280px)';
+const DESKTOP_MQ = '(min-width: 1100px)';
 
 function initMobileMenu() {
     const toggle = document.querySelector('[data-menu-toggle]');
