@@ -30,13 +30,13 @@ export const SITE_CONTENT = {
                      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&q=80&auto=format&fit=crop'
 
                    AHORA (imagen local del campus):
-                     '/assets/images/hero/campus1.jpg'
+                     '/assets/images/hero/campus1.webp'
 
-                    Coloca el archivo en: /assets/images/hero/campus1.jpg
+                    Coloca el archivo en: /assets/images/hero/campus1.webp
                     Tamaño recomendado: 1920 × 1080 px
                     Peso recomendado: < 300 KB
                    ------------------------------------------------------------ */
-                image: '/assets/images/hero/campus1.jpg',
+                image: '/assets/images/hero/campus1.webp',
 
                 alt: 'Campus de la UTU',
                 fallback: 'Campus UTU',
@@ -49,7 +49,7 @@ export const SITE_CONTENT = {
                 id: 'hero-modelo',
                 orden: 2,
                 visible: true,
-                image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1920&h=1080&q=80&auto=format&fit=crop',
+                image: '/assets/images/carreras/BIO/BIO2.webp',
                 alt: 'Estudiantes en laboratorio',
                 fallback: 'Laboratorio UTU',
                 eyebrow: 'Modelo académico 60 / 40',
@@ -61,7 +61,7 @@ export const SITE_CONTENT = {
                 id: 'hero-vida',
                 orden: 3,
                 visible: true,
-                image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1080&q=80&auto=format&fit=crop',
+                image: '/assets/images/carreras/TI/ti22.webp',
                 alt: 'Vida universitaria UTU',
                 fallback: 'Vida universitaria',
                 eyebrow: 'Vida universitaria',
@@ -73,7 +73,7 @@ export const SITE_CONTENT = {
                 id: 'hero-ruta',
                 orden: 4,
                 visible: true,
-                image: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1920&h=1080&q=80&auto=format&fit=crop',
+                image: '/assets/images/carreras/NEGOCIOS/negocios9.webp',
                 alt: 'Egresados UTU',
                 fallback: 'Egresados UTU',
                 eyebrow: 'Ruta académica',
@@ -106,7 +106,7 @@ export const SITE_CONTENT = {
             texto: 'Su modelo formativo combina conocimientos teóricos con una importante participación práctica: prácticas, proyectos, laboratorios, experiencias profesionales y participación en la vida universitaria.',
             linkCta: { label: 'Conoce más sobre la UTU', href: '/pages/universidad/bienvenida.html' },
             imagen: {
-                src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1000&h=800&q=80&auto=format&fit=crop',
+                src: '/assets/images/carreras/CONTADURIA/CONTA4.webp',
                 alt: 'Estudiantes de la UTU durante una actividad práctica',
                 fallback: 'Actividad práctica'
             },
@@ -158,7 +158,7 @@ export const SITE_CONTENT = {
 
            💡 Para usar una imagen local en cualquier carrera,
               reemplaza la URL de Unsplash por una ruta como:
-              imagen: '/assets/images/carreras/mi-carrera.jpg',
+              imagen: '/assets/images/carreras/mi-carrera.webp',
            ------------------------------------------------------------ */
         carreras: [
             {
@@ -171,7 +171,7 @@ export const SITE_CONTENT = {
                 tagline: 'Diseña soluciones digitales, plataformas y experiencias conectadas.',
                 area: 'Tecnología',
                 areaClass: 'tech',
-                imagen: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=600&q=80&auto=format&fit=crop',
+                imagen: '/assets/images/carreras/TI/ti22.webp',
                 alt: 'Entornos virtuales y negocios digitales',
                 facts: [
                     { icon: 'clock',       text: '2 años + 1 año 4 meses' },
@@ -191,7 +191,7 @@ export const SITE_CONTENT = {
                 tagline: 'Investiga y aplica procesos biológicos en laboratorio y campo.',
                 area: 'Ciencias de la vida',
                 areaClass: 'bio',
-                imagen: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900&h=600&q=80&auto=format&fit=crop',
+                imagen: '/assets/images/carreras/BIO/BIO9.webp',
                 alt: 'Biotecnología UTU',
                 facts: [
                     { icon: 'clock',       text: '2 años + 1 año 4 meses' },
@@ -211,7 +211,7 @@ export const SITE_CONTENT = {
                 tagline: 'Construye marcas, estrategias comerciales y experiencias de cliente.',
                 area: 'Negocios',
                 areaClass: 'biz',
-                imagen: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&h=600&q=80&auto=format&fit=crop',
+                imagen: '/assets/images/carreras/NEGOCIOS/negocios.webp',
                 alt: 'Negocios y Mercadotecnia UTU',
                 facts: [
                     { icon: 'clock',       text: '2 años + 1 año 4 meses' },
@@ -231,7 +231,7 @@ export const SITE_CONTENT = {
                 tagline: 'Domina técnicas culinarias y gestión de servicios gastronómicos.',
                 area: 'Gastronomía',
                 areaClass: 'gas',
-                imagen: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=900&h=600&q=80&auto=format&fit=crop',
+                imagen: '/assets/images/carreras/GASTRONOMIA/gastro11.webp',
                 alt: 'Gastronomía UTU',
                 facts: [
                     { icon: 'clock',       text: '2 años + 1 año 4 meses' },
@@ -251,7 +251,7 @@ export const SITE_CONTENT = {
                 tagline: 'Diseña destinos, experiencias y proyectos turísticos sostenibles.',
                 area: 'Turismo',
                 areaClass: 'tur',
-                imagen: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&h=600&q=80&auto=format&fit=crop',
+                imagen: '/assets/images/carreras/TURISMO/TURISMO5.webp',
                 alt: 'Gestión y desarrollo turístico',
                 facts: [
                     { icon: 'clock',       text: '2 años + 1 año 4 meses' },
@@ -271,7 +271,7 @@ export const SITE_CONTENT = {
                 tagline: 'Formación en atención prehospitalaria y gestión de riesgos.',
                 area: 'Salud',
                 areaClass: 'salud',
-                imagen: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=900&h=600&q=80&auto=format&fit=crop',
+                imagen: '/assets/images/carreras/PARAMEDICO/paramedico.webp',
                 alt: 'Paramédico y protección civil',
                 facts: [
                     { icon: 'clock',       text: '2 años + 1 año 4 meses' },
@@ -291,7 +291,7 @@ export const SITE_CONTENT = {
                 tagline: 'Domina la información financiera, fiscal y de auditoría.',
                 area: 'Finanzas',
                 areaClass: 'fin',
-                imagen: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&h=600&q=80&auto=format&fit=crop',
+                imagen: '/assets/images/carreras/CONTADURIA/CONTA.2.webp',
                 alt: 'Contaduría UTU',
                 facts: [
                     { icon: 'clock',       text: '2 años + 1 año 4 meses' },
@@ -305,13 +305,13 @@ export const SITE_CONTENT = {
                 id: 'modalidad-mixta',
                 orden: 8,
                 visible: true,
-                nombre: 'Modalidad Mixta',
+                nombre: 'Contaduría Modalidad Mixta',
                 nivel: 'Modalidad Mixta',
                 eyebrow: 'TSU + Continuidad · Estudia y trabaja',
                 tagline: 'Combina sesiones sabatinas y trabajo autónomo. Diseñada para quienes estudian y trabajan.',
                 area: 'Modalidad Mixta',
                 areaClass: 'mixta',
-                imagen: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&h=600&q=80&auto=format&fit=crop',
+                imagen: '/assets/images/carreras/CONTADURIA/CONTA.webp',
                 alt: 'Modalidad Mixta UTU — Estudia y trabaja',
                 facts: [
                     { icon: 'clock', text: 'Horario sabatino' },
@@ -321,6 +321,48 @@ export const SITE_CONTENT = {
                 ctaLabel: 'Consultar programas',
                 featured: true,
                 badgeNuevo: 'Nueva opción 2026'
+            },
+            {
+                id: 'modalidad-mixta',
+                orden: 9,
+                visible: true,
+                nombre: 'TI Modalidad Mixta',
+                nivel: 'Modalidad Mixta',
+                eyebrow: 'TSU + Continuidad · Estudia y trabaja',
+                tagline: 'Combina sesiones sabatinas y trabajo autónomo. Diseñada para quienes estudian y trabajan.',
+                area: 'Modalidad Mixta',
+                areaClass: 'mixta',
+                imagen: '/assets/images/carreras/TI/ti44.webp',
+                alt: 'Modalidad Mixta UTU — Estudia y trabaja',
+                facts: [
+                    { icon: 'clock', text: 'Horario sabatino' },
+                    { icon: 'bolt',  text: 'Cupo limitado' }
+                ],
+                enlace: '/pages/oferta-educativa/index.html',
+                ctaLabel: 'Consultar programas',
+                featured: true,
+                badgeNuevo: 'Nueva opción 2027'
+            },
+            {
+                id: 'modalidad-mixta',
+                orden: 10,
+                visible: true,
+                nombre: 'Gastronomía Modalidad Mixta',
+                nivel: 'Modalidad Mixta',
+                eyebrow: 'TSU + Continuidad · Estudia y trabaja',
+                tagline: 'Combina sesiones sabatinas y trabajo autónomo. Diseñada para quienes estudian y trabajan.',
+                area: 'Modalidad Mixta',
+                areaClass: 'mixta',
+                imagen: '/assets/images/carreras/GASTRONOMIA/gastro.webp',
+                alt: 'Modalidad Mixta UTU — Estudia y trabaja',
+                facts: [
+                    { icon: 'clock', text: 'Horario sabatino' },
+                    { icon: 'bolt',  text: 'Cupo limitado' }
+                ],
+                enlace: '/pages/oferta-educativa/index.html',
+                ctaLabel: 'Consultar programas',
+                featured: true,
+                badgeNuevo: 'Nueva opción 2027'
             }
         ]
     },
@@ -368,15 +410,15 @@ export const SITE_CONTENT = {
         },
         nota: 'Contenido demostrativo. Pendiente de sustituirse por publicaciones oficiales.',
         items: [
-            { id: 'n-01', title: 'Presentación de proyectos integradores del cuatrimestre', excerpt: 'Estudiantes de todas las carreras expusieron sus proyectos finales ante docentes, invitados del sector productivo y la comunidad universitaria.', category: 'academico', categoryLabel: 'Académico', date: '2026-09-15', readMinutes: 4, image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1600&h=900&q=80&auto=format&fit=crop', url: '/pages/noticias/proyectos-integradores.html' },
-            { id: 'n-02', title: 'Concurso interno de inglés: edición 2026', excerpt: 'La UTU celebró su concurso anual de inglés con la participación de estudiantes de todos los niveles.', category: 'academico', categoryLabel: 'Académico', date: '2026-09-10', readMinutes: 3, image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=900&h=700&q=80&auto=format&fit=crop', url: '/pages/noticias/concurso-ingles.html' },
-            { id: 'n-03', title: 'Aniversario de la UTU: una trayectoria desde 2003', excerpt: 'La comunidad universitaria celebró un año más de historia institucional con actividades culturales y académicas.', category: 'institucional', categoryLabel: 'Institucional', date: '2026-09-05', readMinutes: 5, image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&h=700&q=80&auto=format&fit=crop', url: '/pages/noticias/aniversario.html' },
-            { id: 'n-04', title: 'Encuentro deportivo entre universidades tecnológicas', excerpt: 'Equipos de fútbol, básquetbol y voleibol de la región se reunieron en las instalaciones de la UTU.', category: 'deporte', categoryLabel: 'Deporte', date: '2026-09-02', readMinutes: 3, image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=900&h=700&q=80&auto=format&fit=crop', url: '/pages/noticias/encuentro-deportivo.html' },
-            { id: 'n-05', title: 'Taller de habilidades blandas para estudiantes de nuevo ingreso', excerpt: 'Comunicación efectiva, trabajo en equipo y liderazgo fueron algunos de los temas abordados.', category: 'academico', categoryLabel: 'Académico', date: '2026-08-28', readMinutes: 4, image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&h=700&q=80&auto=format&fit=crop', url: '/pages/noticias/taller-habilidades.html' },
-            { id: 'n-06', title: 'Exposición de proyectos de Biotecnología', excerpt: 'Estudiantes presentaron investigaciones y prototipos desarrollados durante el cuatrimestre.', category: 'academico', categoryLabel: 'Académico', date: '2026-08-22', readMinutes: 4, image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900&h=700&q=80&auto=format&fit=crop', url: '/pages/noticias/expo-biotecnologia.html' },
-            { id: 'n-07', title: 'Bienvenida al nuevo ciclo escolar', excerpt: 'Autoridades universitarias dieron la bienvenida a la nueva generación de estudiantes.', category: 'institucional', categoryLabel: 'Institucional', date: '2026-08-19', readMinutes: 2, image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900&h=700&q=80&auto=format&fit=crop', url: '/pages/noticias/bienvenida.html' },
-            { id: 'n-08', title: 'Demostración gastronómica y operación de bar', excerpt: 'Estudiantes de Gastronomía mostraron técnicas de coctelería y montaje de servicios.', category: 'evento', categoryLabel: 'Evento', date: '2026-08-12', readMinutes: 3, image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=900&h=700&q=80&auto=format&fit=crop', url: '/pages/noticias/demostracion-gastronomica.html' },
-            { id: 'n-09', title: 'Concierto de Tamborileros en el campus', excerpt: 'El grupo representativo de la UTU ofreció una presentación abierta a toda la comunidad.', category: 'cultura', categoryLabel: 'Cultura', date: '2026-08-06', readMinutes: 2, image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=900&h=700&q=80&auto=format&fit=crop', url: '/pages/noticias/concierto-tamborileros.html' }
+            { id: 'n-01', title: 'Presentación de proyectos integradores del cuatrimestre', excerpt: 'Estudiantes de todas las carreras expusieron sus proyectos finales ante docentes, invitados del sector productivo y la comunidad universitaria.', category: 'academico', categoryLabel: 'Académico', date: '2026-09-15', readMinutes: 4, image: '/assets/images/carreras/BIO/BIO2.webp', url: '/pages/noticias/proyectos-integradores.html' },
+            { id: 'n-02', title: 'Concurso interno de inglés: edición 2026', excerpt: 'La UTU celebró su concurso anual de inglés con la participación de estudiantes de todos los niveles.', category: 'academico', categoryLabel: 'Académico', date: '2026-09-10', readMinutes: 3, image: '/assets/images/carreras/BIO/BIO3.webp', url: '/pages/noticias/concurso-ingles.html' },
+            { id: 'n-03', title: 'Aniversario de la UTU: una trayectoria desde 2003', excerpt: 'La comunidad universitaria celebró un año más de historia institucional con actividades culturales y académicas.', category: 'institucional', categoryLabel: 'Institucional', date: '2026-09-05', readMinutes: 5, image: '/assets/images/carreras/BIO/BIO4.webp', url: '/pages/noticias/aniversario.html' },
+            { id: 'n-04', title: 'Encuentro deportivo entre universidades tecnológicas', excerpt: 'Equipos de fútbol, básquetbol y voleibol de la región se reunieron en las instalaciones de la UTU.', category: 'deporte', categoryLabel: 'Deporte', date: '2026-09-02', readMinutes: 3, image: '/assets/images/carreras/BIO/BIO5.webp', url: '/pages/noticias/encuentro-deportivo.html' },
+            { id: 'n-05', title: 'Taller de habilidades blandas para estudiantes de nuevo ingreso', excerpt: 'Comunicación efectiva, trabajo en equipo y liderazgo fueron algunos de los temas abordados.', category: 'academico', categoryLabel: 'Académico', date: '2026-08-28', readMinutes: 4, image: '/assets/images/carreras/BIO/BIO6.webp', url: '/pages/noticias/taller-habilidades.html' },
+            { id: 'n-06', title: 'Exposición de proyectos de Biotecnología', excerpt: 'Estudiantes presentaron investigaciones y prototipos desarrollados durante el cuatrimestre.', category: 'academico', categoryLabel: 'Académico', date: '2026-08-22', readMinutes: 4, image: '/assets/images/carreras/BIO/BIO9.webp', url: '/pages/noticias/expo-biotecnologia.html' },
+            { id: 'n-07', title: 'Bienvenida al nuevo ciclo escolar', excerpt: 'Autoridades universitarias dieron la bienvenida a la nueva generación de estudiantes.', category: 'institucional', categoryLabel: 'Institucional', date: '2026-08-19', readMinutes: 2, image: '/assets/images/carreras/CONTADURIA/CONTA4.webp', url: '/pages/noticias/bienvenida.html' },
+            { id: 'n-08', title: 'Demostración gastronómica y operación de bar', excerpt: 'Estudiantes de Gastronomía mostraron técnicas de coctelería y montaje de servicios.', category: 'evento', categoryLabel: 'Evento', date: '2026-08-12', readMinutes: 3, image: '/assets/images/carreras/CONTADURIA/CONTA5.webp', url: '/pages/noticias/demostracion-gastronomica.html' },
+            { id: 'n-09', title: 'Concierto de Tamborileros en el campus', excerpt: 'El grupo representativo de la UTU ofreció una presentación abierta a toda la comunidad.', category: 'cultura', categoryLabel: 'Cultura', date: '2026-08-06', readMinutes: 2, image: '/assets/images/carreras/CONTADURIA/CONTA9.webp', url: '/pages/noticias/concierto-tamborileros.html' }
         ]
     },
 
@@ -403,12 +445,12 @@ export const SITE_CONTENT = {
         title: '#UTUSumacinta',
         lead: 'Comunidad, cultura, deporte, laboratorios, proyectos y vida universitaria.',
         imagenes: [
-            { src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&h=1000&q=80&auto=format&fit=crop', alt: 'Comunidad UTU 1', cell: 'a', orden: 1 },
-            { src: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=800&q=80&auto=format&fit=crop',  alt: 'Comunidad UTU 2', cell: 'b', orden: 2 },
-            { src: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=800&q=80&auto=format&fit=crop',  alt: 'Comunidad UTU 3', cell: 'c', orden: 3 },
-            { src: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1200&h=800&q=80&auto=format&fit=crop',   alt: 'Comunidad UTU 4', cell: 'd', orden: 4 },
-            { src: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&h=1000&q=80&auto=format&fit=crop', alt: 'Comunidad UTU 5', cell: 'e', orden: 5 },
-            { src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1000&h=800&q=80&auto=format&fit=crop', alt: 'Comunidad UTU 6', cell: 'f', orden: 6 }
+            { src: '/assets/images/carreras/CONTADURIA/CONTA4.webp', alt: 'Comunidad UTU 1', cell: 'a', orden: 1 },
+            { src: '/assets/images/carreras/CONTADURIA/CONTA5.webp',  alt: 'Comunidad UTU 2', cell: 'b', orden: 2 },
+            { src: '/assets/images/carreras/CONTADURIA/CONTA5.webp',  alt: 'Comunidad UTU 3', cell: 'c', orden: 3 },
+            { src: '/assets/images/carreras/CONTADURIA/CONTA9.webp',   alt: 'Comunidad UTU 4', cell: 'd', orden: 4 },
+            { src: '/assets/images/carreras/CONTADURIA/CONTA.2.webp', alt: 'Comunidad UTU 5', cell: 'e', orden: 5 },
+            { src: '/assets/images/carreras/BIO/BIO11.webp', alt: 'Comunidad UTU 6', cell: 'f', orden: 6 }
         ]
     },
 

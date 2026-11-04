@@ -5,9 +5,12 @@
      html()  → string con header + mobile menu + progress bar
      init()  → activa menú, dropdowns, scroll y progress
    ------------------------------------------------------------
-   Cambio: los submenús móviles de Oferta educativa separan
-   título (TSU) y descripción (Ing./Lic.) en líneas distintas
-   con jerarquía visual clara, en lugar de concatenar con "—".
+   Cambios respecto a la versión anterior:
+     · Logo reemplazado por logos_utu_transparente_2x.webp (12.41:1).
+     · Eliminado .site-header__brand-text (el nombre de la Universidad
+       ya está dentro de la nueva composición gráfica).
+     · Breakpoint desktop subido de 1024px a 1280px para dar al logotipo
+       panorámico el ancho que necesita para ser legible.
    ============================================================ */
 
 import { CONFIG } from '../core/config.js';
@@ -81,6 +84,14 @@ const NAV = [
 const CTA = { label: 'Contacto', href: '/pages/comunidad/ubicacion.html' };
 
 const CHEVRON = `<svg class="nav__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+/* -------- Rutas y metadatos del recurso institucional -------- */
+const BRANDING = {
+    src:    '/assets/images/branding/logos_utu_transparente_2x.webp',
+    alt:    'Universidad Tecnológica del Usumacinta — Gobierno del Estado de Tabasco, Secretaría de Educación y UST',
+    width:  5412,
+    height: 436
+};
 
 function renderNavItem(item) {
     if (!item.children && !item.groups) {
@@ -181,14 +192,15 @@ export function html() {
 <header class="site-header" data-header>
     <div class="site-header__inner">
         <a class="site-header__brand" href="/" aria-label="UTU — Inicio">
-    <img class="site-header__logo" src="/assets/images/branding/logo-utu.png"
-         alt="Universidad Tecnológica del Usumacinta"
-         width="2000" height="800" decoding="async" data-img-fallback="Logotipo UTU">
-    <span class="site-header__brand-text" aria-hidden="true">
-        <span class="site-header__brand-name">Universidad Tecnológica</span>
-        <span class="site-header__brand-name site-header__brand-name--accent">del Usumacinta</span>
-    </span>
-</a>
+            <img class="site-header__logo"
+                 src="${BRANDING.src}"
+                 alt="${BRANDING.alt}"
+                 width="${BRANDING.width}"
+                 height="${BRANDING.height}"
+                 decoding="async"
+                 fetchpriority="high"
+                 data-img-fallback="Logotipo institucional UTU">
+        </a>
 
         <nav class="site-header__nav" aria-label="Navegación principal">
             <ul class="nav__list">${navDesktop}</ul>
@@ -217,8 +229,13 @@ export function html() {
     <div class="mobile-menu__backdrop" data-menu-close></div>
     <div class="mobile-menu__panel">
         <div class="mobile-menu__head">
-            <img class="mobile-menu__logo" src="/assets/images/branding/logo-utu.png"
-                 alt="Universidad Tecnológica del Usumacinta" width="2000" height="800" decoding="async">
+            <img class="mobile-menu__logo"
+                 src="${BRANDING.src}"
+                 alt="${BRANDING.alt}"
+                 width="${BRANDING.width}"
+                 height="${BRANDING.height}"
+                 decoding="async"
+                 data-img-fallback="Logotipo institucional UTU">
             <button type="button" class="mobile-menu__close" data-menu-close aria-label="Cerrar menú">
                 <svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>
             </button>
@@ -239,6 +256,9 @@ export function html() {
 }
 
 /* ---------- Lógica ---------- */
+
+/* Breakpoint desktop unificado con la hoja de estilos. */
+const DESKTOP_MQ = '(min-width: 1280px)';
 
 function initMobileMenu() {
     const toggle = document.querySelector('[data-menu-toggle]');
@@ -286,7 +306,7 @@ function initMobileMenu() {
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
 
-    window.matchMedia('(min-width: 1024px)').addEventListener?.('change', e => {
+    window.matchMedia(DESKTOP_MQ).addEventListener?.('change', e => {
         if (e.matches && menu.classList.contains('is-open')) close();
     });
 }
@@ -294,7 +314,7 @@ function initMobileMenu() {
 function initDropdowns() {
     const items = Array.from(document.querySelectorAll('[data-dropdown-item]'));
     if (!items.length) return;
-    const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
+    const isDesktop = () => window.matchMedia(DESKTOP_MQ).matches;
 
     function closeAll(except) {
         items.forEach(item => {
@@ -324,7 +344,7 @@ function initDropdowns() {
     });
 
     document.addEventListener('click', e => { if (!e.target.closest('[data-dropdown-item]')) closeAll(null); });
-    window.matchMedia('(min-width: 1024px)').addEventListener?.('change', e => { if (!e.matches) closeAll(null); });
+    window.matchMedia(DESKTOP_MQ).addEventListener?.('change', e => { if (!e.matches) closeAll(null); });
 }
 
 function initMobileAccordions() {

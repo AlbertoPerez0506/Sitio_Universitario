@@ -113,7 +113,7 @@ export function html() {
         <div class="container">
             <div class="site-footer__grid">
                 <div class="site-footer__brand">
-                    <img class="site-footer__logo" src="/assets/images/branding/logo-utu.png"
+                    <img class="site-footer__logo" src="/assets/images/branding/LOGO utu.webp"
                          alt="Universidad Tecnológica del Usumacinta" width="2000" height="800"
                          loading="lazy" decoding="async" data-img-fallback="Logotipo UTU">
                     <p class="site-footer__about">
