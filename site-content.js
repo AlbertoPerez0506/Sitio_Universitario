@@ -1,13 +1,5 @@
 /* ============================================================
    site-content.js — Fuente única de contenido editable
-   ------------------------------------------------------------
-   ▸ Toda modificación de contenido se hace aquí.
-   ▸ El diseño y estructura viven en HTML/CSS.
-   ▸ El logotipo del header, el favicon y el footer NO se
-     centralizan aquí (viven en header.js / footer.js / index.html).
-   ▸ Preparado para migrar a panel administrativo:
-       - Toda la data es serializable (JSON-safe).
-       - Expuesta en window.UTU_SITE_CONTENT para futuros editores.
    ============================================================ */
 
 export const SITE_CONTENT = {
@@ -22,22 +14,7 @@ export const SITE_CONTENT = {
                 id: 'hero-campus',
                 orden: 1,
                 visible: true,
-
-                /* ------------------------------------------------------------
-                   IMAGEN REAL — sustituye la URL de Unsplash original
-                   ------------------------------------------------------------
-                   ANTES (Unsplash):
-                     'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&q=80&auto=format&fit=crop'
-
-                   AHORA (imagen local del campus):
-                     '/assets/images/hero/campus1.webp'
-
-                    Coloca el archivo en: /assets/images/hero/campus1.webp
-                    Tamaño recomendado: 1920 × 1080 px
-                    Peso recomendado: < 300 KB
-                   ------------------------------------------------------------ */
                 image: '/assets/images/hero/campus1.webp',
-
                 alt: 'Campus de la UTU',
                 fallback: 'Campus UTU',
                 eyebrow: 'Universidad Tecnológica del Usumacinta',
@@ -85,7 +62,7 @@ export const SITE_CONTENT = {
     },
 
     /* ============================================================
-       2. HERO FACTS — tarjeta debajo del carrusel
+       2. HERO FACTS
        ============================================================ */
     heroFacts: [
         { count: 60, suffix: '%', label: 'Práctica', orden: 1, visible: true },
@@ -102,8 +79,8 @@ export const SITE_CONTENT = {
             eyebrow: 'La universidad',
             title: 'Una universidad donde el conocimiento',
             titleAccent: 'se convierte en experiencia',
-            lead: 'La Universidad Tecnológica del Usumacinta es una institución de educación superior ubicada en el municipio de Emiliano Zapata, Tabasco, cuya propuesta educativa se caracteriza por una formación orientada principalmente a la práctica y a la aplicación de conocimientos.',
-            texto: 'Su modelo formativo combina conocimientos teóricos con una importante participación práctica: prácticas, proyectos, laboratorios, experiencias profesionales y participación en la vida universitaria.',
+            lead: 'La Universidad Tecnológica del Usumacinta es una institución pública de educación superior ubicada en Emiliano Zapata, Tabasco. Su propuesta educativa se distingue por una formación orientada a la práctica profesional.',
+            texto: 'El modelo articula teoría y experiencia mediante prácticas, proyectos, laboratorios y dos estadías profesionales, complementados con la vida universitaria.',
             linkCta: { label: 'Conoce más sobre la UTU', href: '/pages/universidad/bienvenida.html' },
             imagen: {
                 src: '/assets/images/carreras/CONTADURIA/CONTA4.webp',
@@ -123,7 +100,6 @@ export const SITE_CONTENT = {
             ]
         },
 
-        /* ---------- Ruta académica ---------- */
         ruta: {
             eyebrow: 'Ruta académica',
             titlePrefix: 'De',
@@ -145,21 +121,13 @@ export const SITE_CONTENT = {
        ============================================================ */
     oferta: {
         head: {
-            eyebrow: 'Oferta educativa · 8 opciones',
+            eyebrow: 'Oferta educativa',
             title: '8 programas,',
             titleAccent: 'una misma ruta',
             lead: 'TSU con continuidad a Ingeniería o Licenciatura. Dos estadías profesionales, 2 títulos y 2 cédulas profesionales.'
         },
         nota: 'La apertura de grupos está sujeta al cupo mínimo por cuatrimestre y a la disponibilidad docente. Consulta con Control Escolar antes de inscribirte.',
 
-        /* ------------------------------------------------------------
-           Para agregar una carrera: copia un objeto, pégalo al final,
-           cambia id/orden/nombre/nivel/etc. La tarjeta se genera sola.
-
-           💡 Para usar una imagen local en cualquier carrera,
-              reemplaza la URL de Unsplash por una ruta como:
-              imagen: '/assets/images/carreras/mi-carrera.webp',
-           ------------------------------------------------------------ */
         carreras: [
             {
                 id: 'carrera-01',
@@ -302,7 +270,7 @@ export const SITE_CONTENT = {
                 featured: false
             },
             {
-                id: 'modalidad-mixta',
+                id: 'modalidad-mixta-contaduria',
                 orden: 8,
                 visible: true,
                 nombre: 'Contaduría Modalidad Mixta',
@@ -323,7 +291,7 @@ export const SITE_CONTENT = {
                 badgeNuevo: 'Nueva opción 2026'
             },
             {
-                id: 'modalidad-mixta',
+                id: 'modalidad-mixta-ti',
                 orden: 9,
                 visible: true,
                 nombre: 'TI Modalidad Mixta',
@@ -344,7 +312,7 @@ export const SITE_CONTENT = {
                 badgeNuevo: 'Nueva opción 2027'
             },
             {
-                id: 'modalidad-mixta',
+                id: 'modalidad-mixta-gastronomia',
                 orden: 10,
                 visible: true,
                 nombre: 'Gastronomía Modalidad Mixta',
@@ -388,16 +356,11 @@ export const SITE_CONTENT = {
             { label: 'Arte',    class: 'life__cat--art' }
         ],
         galeria: [
-            // --- CULTURA ---
             { src: '/assets/images/paraescolares/tamborileros.webp', alt: 'Tamborileros de la UTU en presentación', categoria: 'Cultura', catSlug: 'culture', caption: 'Tamborileros', orden: 1 },
             { src: '/assets/images/paraescolares/banda-guerra.webp', alt: 'Banda de Guerra de la UTU', categoria: 'Cultura', catSlug: 'culture', caption: 'Banda de Guerra', orden: 2 },
             { src: '/assets/images/paraescolares/musica.webp', alt: 'Banda de música de la UTU', categoria: 'Cultura', catSlug: 'culture', caption: 'Música', orden: 3 },
-            
-            // --- DEPORTE ---
             { src: '/assets/images/paraescolares/taekwondo.webp', alt: 'Práctica de Taekwondo en la UTU', categoria: 'Deporte', catSlug: 'sport', caption: 'Taekwondo', orden: 4 },
             { src: '/assets/images/paraescolares/basquetbol.webp', alt: 'Entrenamiento de basquetbol en la UTU', categoria: 'Deporte', catSlug: 'sport', caption: 'Basquetbol', orden: 5 },
-            
-            // --- ARTE ---
             { src: '/assets/images/paraescolares/pintura.webp', alt: 'Taller de Pintura en la UTU', categoria: 'Arte', catSlug: 'art', caption: 'Pintura', orden: 6 },
             { src: '/assets/images/paraescolares/serigrafia.webp', alt: 'Taller de Serigrafía en la UTU', categoria: 'Arte', catSlug: 'art', caption: 'Serigrafía', orden: 7 }
         ]
@@ -474,8 +437,6 @@ export const SITE_CONTENT = {
     }
 };
 
-/* Compatibilidad con el futuro panel administrativo.
-   El módulo se puede importar (ESM) o leer desde window. */
 if (typeof window !== 'undefined') {
     window.UTU_SITE_CONTENT = SITE_CONTENT;
 }

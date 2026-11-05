@@ -1,24 +1,12 @@
 /* ============================================================
    home.css — Estilos específicos de la página principal
    ------------------------------------------------------------
-   Índice:
-     1. Hero / Carrusel (con svh)
-     2. Hero facts (tarjeta unificada desktop + móvil)
-     3. Presentación institucional (facts rediseñados)
-     4. Modelo 60/40
-     5. Ruta académica
-     6. Oferta educativa (programas)
-     7. Vida universitaria
-     8. Noticias y eventos
-     9. Próximos eventos
-    10. Collage
-    11. Animaciones de ambiente
-
-   El bloque CTA (.section--cta, .cta, …) vive en main.css
-   por ser compartido con la página de bienvenida.
-   El lightbox vive en lightbox.css.
-   Los estilos desktop del brand-text del header viven en
-   header.css.
+   Incluye integrado el refinamiento visual:
+   · Justificación editorial en intro.
+   · Image reveal de fotografía introductoria y galería vintage.
+   · Oferta educativa sin amarillos/naranjas.
+   · Grid 3 columnas (≥1024px) y 4 columnas (≥1600px).
+   · Ajuste de padding vertical por sección.
    ============================================================ */
 
 /* =========================================================
@@ -90,9 +78,9 @@
 
 .hero__title {
     font-size: var(--fs-hero);
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.05;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.03em;
     color: #FFFFFF;
     margin-bottom: var(--space-md);
     text-shadow: 0 2px 24px rgba(15, 18, 38, 0.35);
@@ -308,7 +296,7 @@
 }
 
 /* =========================================================
-   2. HERO FACTS — tarjeta unificada (escritorio + móvil)
+   2. HERO FACTS
    ========================================================= */
 .hero__facts {
     position: relative;
@@ -381,6 +369,7 @@
 .section--intro {
     position: relative;
     overflow: hidden;
+    padding-block: clamp(3.5rem, 2.5rem + 2.5vw, 4.5rem);
 }
 .section--intro::before {
     content: "";
@@ -420,7 +409,32 @@
     color: transparent;
 }
 
-/* ---------- Facts rediseñados ---------- */
+/* Justificación editorial en escritorio */
+@media (min-width: 1024px) {
+    .section--intro .intro__text .section__lead,
+    .section--intro .intro__text .text-muted {
+        text-align: justify;
+        text-align-last: left;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        line-height: 1.75;
+    }
+    .section--intro .intro__text .text-muted {
+        margin-top: 0.75rem;
+    }
+}
+
+@media (max-width: 1023.98px) {
+    .section--intro .intro__text .section__lead,
+    .section--intro .intro__text .text-muted {
+        text-align: left;
+        text-align-last: auto;
+        hyphens: none;
+        -webkit-hyphens: none;
+    }
+}
+
+/* ---------- Facts ---------- */
 .intro__facts {
     list-style: none;
     margin: var(--space-xl) 0 0;
@@ -557,9 +571,23 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.9s var(--ease-out);
+    transition:
+        transform 0.9s var(--ease-out),
+        opacity 0.7s var(--ease-out);
 }
-.intro__media:hover img { transform: scale(1.04); }
+
+/* Image reveal de la fotografía introductoria */
+.js .intro__visual:not(.is-visible) .intro__media img {
+    opacity: 0;
+    transform: scale(0.985);
+}
+.js .intro__visual.is-visible .intro__media img {
+    opacity: 1;
+    transform: scale(1);
+}
+.js .intro__visual.is-visible .intro__media:hover img {
+    transform: scale(1.04);
+}
 
 .intro__badge {
     position: absolute;
@@ -1116,6 +1144,7 @@
     position: relative;
     overflow: hidden;
     background-color: var(--color-surface);
+    padding-block: clamp(3.5rem, 2.5rem + 2vw, 4rem);
 }
 .section--route::before {
     content: "";
@@ -1263,7 +1292,7 @@
     width: fit-content;
     padding: 0.25rem 0.625rem;
     background-color: rgba(48, 191, 151, 0.10);
-    color: var(--color-secondary-dark);
+    color: var(--color-accent-strong);
     border-radius: var(--radius-pill);
     font-size: 0.6875rem;
     font-weight: 700;
@@ -1403,6 +1432,7 @@
     position: relative;
     overflow: hidden;
     background-color: var(--color-surface-alt);
+    padding-block: clamp(3rem, 2.25rem + 2vw, 4rem);
 }
 .section--programs::before {
     content: "";
@@ -1439,7 +1469,7 @@
 @media (min-width: 1024px) {
     .programs__grid { grid-template-columns: repeat(3, 1fr); }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1600px) {
     .programs__grid { grid-template-columns: repeat(4, 1fr); }
 }
 
@@ -1577,47 +1607,27 @@
     white-space: nowrap;
 }
 
+/* Insignia secundaria: modalidad mixta, dentro de identidad UTU */
 .program-card__level-badge--new {
-    background: linear-gradient(135deg, #FFB800 0%, #FF8F00 100%);
-    box-shadow:
-        0 8px 24px rgba(255, 160, 0, 0.40),
-        inset 0 1px 0 rgba(255, 255, 255, 0.40);
-    color: #FFFFFF;
-    overflow: hidden;
-    position: absolute;
-    padding-left: 0.75rem;
+    background: rgba(48, 52, 140, 0.08);
+    color: var(--color-primary);
+    border: 1px solid rgba(48, 52, 140, 0.20);
+    box-shadow: none;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    overflow: visible;
 }
 .program-card__level-badge--new::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg,
-        transparent 25%,
-        rgba(255, 255, 255, 0.45) 50%,
-        transparent 75%);
-    background-size: 200% 100%;
-    animation: newBadgeSweep 3.4s linear infinite;
-    border-radius: inherit;
-    pointer-events: none;
-}
-@keyframes newBadgeSweep {
-    0%   { background-position: 220% 0; }
-    100% { background-position: -120% 0; }
+    display: none;
+    animation: none;
 }
 
+/* Elementos decorativos del card destacado que ya no se usan */
 .program-card__sparkle {
-    width: 13px;
-    height: 13px;
-    flex-shrink: 0;
-    animation: sparkleTwinkle 2.2s ease-in-out infinite;
+    display: none;
 }
-@keyframes sparkleTwinkle {
-    0%, 100% { transform: scale(1)   rotate(0deg);   opacity: 1;   }
-    50%      { transform: scale(1.2) rotate(15deg); opacity: 0.85; }
-}
-@media (prefers-reduced-motion: reduce) {
-    .program-card__level-badge--new::before,
-    .program-card__sparkle { animation: none; }
+.confetti-bit {
+    display: none !important;
 }
 
 .program-card__area-badge {
@@ -1789,59 +1799,32 @@
 .program-card__cta-icon svg { width: 100%; height: 100%; }
 .program-card__cta:hover .program-card__cta-icon { transform: translateX(3px); }
 
+/* Card destacada: modalidad mixta con identidad UTU */
 .program-card--featured {
-    border: 1.5px solid transparent;
-    background:
-        linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-        linear-gradient(135deg, #FFB800 0%, #30BF97 50%, #30348C 100%) border-box;
-    box-shadow:
-        0 8px 24px rgba(255, 184, 0, 0.10),
-        0 2px 8px rgba(48, 191, 151, 0.08);
+    border: 1px solid rgba(48, 52, 140, 0.22);
+    background: linear-gradient(180deg,
+            rgba(48, 52, 140, 0.035) 0%,
+            rgba(48, 191, 151, 0.035) 100%);
+    box-shadow: var(--shadow-sm);
 }
 .program-card--featured::before {
-    background: linear-gradient(90deg, #FFB800 0%, #30BF97 100%);
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
     transform: scaleX(1);
 }
 .program-card--featured:hover {
-    box-shadow:
-        0 28px 56px rgba(255, 160, 0, 0.18),
-        0 12px 28px rgba(48, 191, 151, 0.12);
-    transform: translateY(-8px);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(48, 52, 140, 0.28);
 }
 .program-card--featured .program-card__cta {
-    background: linear-gradient(135deg, #FF8F00 0%, #FFB800 100%);
-    box-shadow: 0 8px 20px rgba(255, 160, 0, 0.30);
+    background: var(--gradient-primary);
+    box-shadow: 0 8px 20px rgba(48, 52, 140, 0.22);
 }
 .program-card--featured .program-card__cta::before {
-    background: linear-gradient(135deg, #FFB800 0%, #FF8F00 100%);
+    background: var(--gradient-accent);
 }
-
-.confetti-bit {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    border-radius: 2px;
-    pointer-events: none;
-    z-index: 9999;
-    animation: confettiFly var(--d, 1.2s) cubic-bezier(.15, .7, .4, 1) forwards;
-}
-@keyframes confettiFly {
-    0% {
-        transform: translate(0, 0) rotate(0deg) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform:
-            translate(var(--x, 0), var(--y, 0))
-            rotate(var(--r, 360deg))
-            scale(0.6);
-        opacity: 0;
-    }
-}
-@media (prefers-reduced-motion: reduce) {
-    .confetti-bit { display: none; }
+.program-card--featured .program-card__cta:hover {
+    box-shadow: 0 12px 28px rgba(48, 191, 151, 0.28);
 }
 
 @media (max-width: 767px) {
@@ -1878,6 +1861,7 @@
     position: relative;
     overflow: hidden;
     background-color: var(--color-surface);
+    padding-block: clamp(3.5rem, 2.5rem + 2vw, 4.5rem);
 }
 .section--life::before {
     content: "";
@@ -2107,6 +2091,17 @@ ul.life__stats {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+/* Image reveal de la galería vintage (solo primera foto) */
+.js .vintage:not(.is-visible) .vintage__slide.is-active .vintage__photo img {
+    opacity: 0;
+    transform: scale(0.985);
+}
+.js .vintage.is-visible .vintage__slide.is-active .vintage__photo img {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .vintage__cat {
@@ -2329,15 +2324,22 @@ ul.life__stats {
         transition: none !important;
     }
     .vintage__slide.is-active { transform: rotate(-1.5deg); }
+    .js .vintage:not(.is-visible) .vintage__slide.is-active .vintage__photo img,
+    .js .vintage.is-visible .vintage__slide.is-active .vintage__photo img {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 /* =========================================================
-   8. NOTICIAS Y EVENTOS
+   8. NOTICIAS
    ========================================================= */
 .section--news {
     position: relative;
     overflow: hidden;
     background-color: var(--color-surface-alt);
+    padding-block: clamp(3rem, 2.25rem + 2vw, 3.5rem);
 }
 .section--news::before {
     content: "";
@@ -2822,6 +2824,7 @@ ul.life__stats {
 .section--events {
     background-color: var(--color-surface);
     overflow: hidden;
+    padding-block: clamp(3rem, 2.25rem + 2vw, 3.5rem);
 }
 
 .events__controls {
@@ -2905,7 +2908,7 @@ ul.life__stats {
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--color-secondary-dark);
+    color: var(--color-accent-strong);
 }
 .events__title {
     font-size: var(--fs-lg);
@@ -2932,7 +2935,10 @@ ul.life__stats {
 /* =========================================================
    10. COLLAGE / COMUNIDAD
    ========================================================= */
-.section--community { background-color: var(--color-background); }
+.section--community {
+    background-color: var(--color-background);
+    padding-block: clamp(4rem, 3rem + 2.5vw, 4.5rem);
+}
 
 .collage {
     display: grid;
@@ -2990,7 +2996,7 @@ ul.life__stats {
 }
 
 /* =========================================================
-   11. ANIMACIONES DE AMBIENTE — sutiles, no botones
+   11. ANIMACIONES DE AMBIENTE
    ========================================================= */
 .intro__decor-blob {
     animation: blobFloat 9s ease-in-out infinite;

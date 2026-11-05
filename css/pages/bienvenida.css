@@ -8,6 +8,13 @@
    · Tipografía editorial monumental con clamp().
    · Layout asimétrico de dos columnas.
    · Optimizado de 320px a 4K.
+   ------------------------------------------------------------
+   Cambios de esta iteración:
+   · El hero ya no fuerza `min-height: 70svh` ni `justify-content: center`
+     en desktop. El contenido arranca justo bajo el header.
+   · El canvas de partículas comienza debajo del header, no detrás.
+   · Se incorpora breadcrumb dentro del hero con separación consistente.
+   · Paddings verticales de stats/identity/rector más compactos.
    ============================================================ */
 
 /* ------------------------------------------------------------
@@ -25,12 +32,11 @@
    ============================================================ */
 .welcome-hero {
     position: relative;
-    /* Reduje un poco el padding inferior para que no haya huecos */
-    padding-top: calc(var(--header-h) + clamp(3rem, 8vw, 5rem));
+    /* Padding-top = solo el header. El respiro inferior hasta el
+       breadcrumb lo aporta .welcome-hero__inner. */
+    padding-top: var(--header-h);
     padding-bottom: clamp(3rem, 6vw, 5rem);
-    
-    /* Quitamos el min-height por defecto. El hero se adapta al contenido. */
-    
+
     background-color: var(--color-surface);
     overflow: hidden;
     isolation: isolate;
@@ -50,24 +56,38 @@
     z-index: 0;
 }
 
-/* Canvas de partículas (constelación) */
+/* Canvas de partículas: arranca DEBAJO del header para no
+   mezclarse con la barra institucional. */
 .welcome-hero__canvas {
     position: absolute;
-    inset: 0;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% - var(--header-h));
     pointer-events: none;
     z-index: 1;
     opacity: 0.85;
 }
 
+/* Contenedor interno: aporta el respiro entre el header y el
+   breadcrumb, y entre el breadcrumb y el contenido. */
 .welcome-hero__inner {
     position: relative;
     z-index: 2;
+    padding-top: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 .welcome-hero__content {
     max-width: 62rem;
+}
+
+/* Breadcrumb dentro del hero: sin padding propio arriba,
+   con margen inferior hacia el eyebrow. */
+.welcome-hero__breadcrumbs {
+    padding-block: 0;
+    margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 /* Etiqueta superior tipo editorial */
@@ -75,7 +95,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+    margin: 0 0 clamp(1.25rem, 2.5vw, 2rem);
     font-size: var(--fs-xs);
     font-weight: 500;
     letter-spacing: 0.24em;
@@ -154,22 +174,25 @@
     }
 }
 
-/* Solo en Desktop (PC) devolvemos la altura imponente y centramos */
+/* En desktop: sin min-height forzado ni centrado.
+   El contenido fluye desde arriba para no despegarse del header. */
 @media (min-width: 1024px) {
     .welcome-hero {
-        min-height: 70svh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        padding-bottom: clamp(4rem, 7vw, 6rem);
+    }
+    .welcome-hero__inner {
+        padding-top: clamp(1.5rem, 3vw, 2.5rem);
     }
 }
 
-/* Pantallas muy bajas (móvil horizontal) */
+/* Landscape móvil: mantener comportamiento sin aire vertical forzado */
 @media (max-height: 600px) and (orientation: landscape) {
     .welcome-hero {
-        min-height: auto;
-        padding-top: calc(var(--header-h) + 2.5rem);
-        padding-bottom: 3rem;
+        padding-top: var(--header-h);
+        padding-bottom: 2.5rem;
+    }
+    .welcome-hero__inner {
+        padding-top: 1rem;
     }
 }
 
@@ -183,21 +206,21 @@
    2. IDENTIDAD UNIVERSITARIA
    ============================================================ */
 .welcome-identity {
-    padding-block: clamp(4rem, 10vw, 8rem);
+    padding-block: clamp(3.5rem, 6vw, 5.5rem);
     background-color: var(--color-surface);
 }
 
 .welcome-identity__inner {
     display: grid;
     grid-template-columns: 1fr;
-    gap: clamp(2rem, 5vw, 5rem);
+    gap: clamp(2rem, 4vw, 3.5rem);
     align-items: start;
 }
 
 @media (min-width: 1024px) {
     .welcome-identity__inner {
         grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-        gap: clamp(3rem, 6vw, 6rem);
+        gap: clamp(3rem, 5vw, 5rem);
     }
 }
 
@@ -212,7 +235,7 @@
     letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--color-muted);
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.25rem;
     line-height: 1;
 }
 
@@ -236,7 +259,7 @@
 .welcome-identity__body {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
     font-size: clamp(1rem, 0.94rem + 0.3vw, 1.1875rem);
     line-height: 1.7;
     color: var(--color-text);
@@ -251,7 +274,7 @@
    3. MENSAJE DEL RECTOR
    ============================================================ */
 .welcome-rector {
-    padding-block: clamp(4rem, 10vw, 8rem);
+    padding-block: clamp(3.5rem, 6vw, 5.5rem);
     background-color: var(--color-surface-alt);
     position: relative;
     overflow: hidden;
@@ -277,14 +300,14 @@
     z-index: 1;
     display: grid;
     grid-template-columns: 1fr;
-    gap: clamp(2.5rem, 6vw, 6rem);
+    gap: clamp(2.5rem, 5vw, 4.5rem);
     align-items: center;
 }
 
 @media (min-width: 900px) {
     .welcome-rector__inner {
         grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-        gap: clamp(3rem, 6vw, 6rem);
+        gap: clamp(3rem, 5vw, 5rem);
     }
 }
 
@@ -404,7 +427,6 @@
     line-height: 1.5;
 }
 
-/* Placeholder de datos (nombre/cargo aún no oficiales) */
 .welcome-rector__info strong.is-placeholder,
 .welcome-rector__info span.is-placeholder {
     font-style: italic;
@@ -465,7 +487,6 @@
     line-height: 1.5;
 }
 
-/* Responsive del retrato */
 @media (max-width: 899px) {
     .welcome-rector__portrait {
         aspect-ratio: 4 / 4.5;
@@ -496,10 +517,10 @@
         font-size: clamp(5.5rem, 4rem + 3.2vw, 7.5rem);
     }
     .welcome-identity__inner {
-        gap: clamp(4rem, 8vw, 8rem);
+        gap: clamp(4rem, 7vw, 7rem);
     }
     .welcome-rector__inner {
-        gap: clamp(4rem, 8vw, 7rem);
+        gap: clamp(4rem, 7vw, 6.5rem);
     }
 }
 
@@ -517,11 +538,11 @@
    ============================================================ */
 
 /* ------------------------------------------------------------
-   A. FRANJA DE DATOS (después del hero)
+   A. FRANJA DE DATOS
    ------------------------------------------------------------ */
 .welcome-stats {
     position: relative;
-    padding-block: clamp(3rem, 7vw, 6rem);
+    padding-block: clamp(2.75rem, 5vw, 4.5rem);
     background-color: var(--color-surface);
     overflow: hidden;
     isolation: isolate;
@@ -554,7 +575,7 @@
 .welcome-stats__head {
     text-align: center;
     max-width: 640px;
-    margin: 0 auto clamp(2rem, 4vw, 3rem);
+    margin: 0 auto clamp(1.75rem, 3vw, 2.5rem);
 }
 
 .welcome-stats__eyebrow {

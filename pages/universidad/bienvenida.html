@@ -25,7 +25,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/variables.css">
@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="/css/components/buttons.css">
     <link rel="stylesheet" href="/css/components/header.css">
     <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/components/breadcrumbs.css">
 
     <link rel="stylesheet" href="/css/pages/bienvenida.css">
 
@@ -54,6 +55,15 @@
                     aria-hidden="true"></canvas>
 
             <div class="container welcome-hero__inner">
+
+                <nav class="breadcrumbs welcome-hero__breadcrumbs" aria-label="Ruta de navegación">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/pages/universidad/bienvenida.html">Universidad</a></li>
+                        <li><span aria-current="page">Bienvenida</span></li>
+                    </ol>
+                </nav>
+
                 <div class="welcome-hero__content reveal">
                     <p class="welcome-hero__eyebrow" data-content="hero.eyebrow"></p>
 
@@ -76,7 +86,7 @@
             </div>
         </section>
 
-        <!-- 2. FRANJA DE DATOS (NUEVA) -->
+        <!-- 2. FRANJA DE DATOS -->
         <section class="welcome-stats" aria-labelledby="welcome-stats-title">
             <div class="container">
                 <div class="welcome-stats__head reveal">
@@ -109,7 +119,6 @@
                     <p class="welcome-identity__text" data-content="identity.text1"></p>
                     <p class="welcome-identity__text" data-content="identity.text2"></p>
 
-                    <!-- Mini-ruta académica -->
                     <div class="welcome-identity__route">
                         <p class="welcome-identity__route-label" data-content="route.eyebrow"></p>
                         <div class="welcome-identity__route-steps">

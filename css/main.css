@@ -10,6 +10,26 @@ body {
     overflow-x: hidden;
 }
 
+/* ---------- Sistema tipográfico editorial ---------- */
+h1, h2, h3, h4, h5, h6,
+.hero__title,
+.section__title,
+.page-hero__title,
+.cta__title,
+.card__title,
+.pillar__title,
+.route__title,
+.program-card__title,
+.news-card__title,
+.events__title,
+.welcome-hero__title,
+.welcome-identity__title,
+.welcome-rector__title,
+.welcome-stats__title {
+    font-family: var(--font-display);
+    font-feature-settings: "ss01" on, "cv11" on;
+}
+
 /* ---------- Contenedor ---------- */
 .container {
     width: 100%;
@@ -20,10 +40,17 @@ body {
 .container--narrow { max-width: var(--container-narrow); }
 
 /* ---------- Secciones ---------- */
-.section { padding-block: var(--space-3xl); position: relative; }
+.section {
+    padding-block: clamp(3rem, 2.25rem + 2vw, 4rem);
+    position: relative;
+    scroll-margin-top: calc(var(--header-h) + 1rem);
+}
 .section--alt { background-color: var(--color-background); }
 
-.section__head { max-width: 780px; margin-bottom: var(--space-2xl); }
+.section__head {
+    max-width: 780px;
+    margin-bottom: clamp(1.75rem, 1.2rem + 1.5vw, 2.5rem);
+}
 .section__head--center { margin-inline: auto; text-align: center; }
 .section__head--row {
     display: flex;
@@ -45,65 +72,61 @@ body {
     font-size: clamp(2rem, 1.4rem + 2.8vw, 3.5rem);
     letter-spacing: -.028em;
     color: var(--color-ink);
-    font-weight: 800;
-    line-height: 1.06;
+    font-weight: 700;
+    line-height: 1.08;
 }
 
 .section__lead {
-    margin-top: var(--space-lg);
+    margin-top: clamp(1rem, 0.85rem + 0.5vw, 1.25rem);
     font-size: clamp(1.0625rem, 1rem + 0.55vw, 1.3125rem);
     color: var(--color-muted);
     max-width: 62ch;
-    line-height: 1.6;
+    line-height: 1.65;
     font-weight: 400;
 }
 .section__lead--center { margin-inline: auto; }
 
-/* ---------- Eyebrow ---------- */
+/* ---------- Eyebrow editorial ---------- */
 .eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: .5rem;
-    padding: .4375rem .9375rem .4375rem .75rem;
-    background: linear-gradient(135deg,
-        rgba(48,52,140,.07) 0%,
-        rgba(48,191,151,.08) 100%);
-    border: 1px solid rgba(48,52,140,.14);
-    border-radius: var(--radius-pill);
-    font-size: var(--fs-xs);
-    font-weight: 700;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--color-primary);
-    margin-bottom: var(--space-lg);
-    line-height: 1;
-}
-.eyebrow::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    box-shadow: 0 0 10px rgba(48,191,151,.65);
-    flex-shrink: 0;
-    animation: eyebrowPulse 2.4s ease-in-out infinite;
-}
-@keyframes eyebrowPulse {
-    0%, 100% { transform: scale(1);   opacity: 1;   }
-    50%      { transform: scale(.75); opacity: .65; }
-}
-@media (prefers-reduced-motion: reduce) {
-    .eyebrow::before { animation: none; }
+    gap: 0.625rem;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    font-family: var(--font-display);
+    font-size: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.35;
+    text-transform: none;
+    color: var(--color-accent-text);
+    margin-bottom: clamp(1rem, 0.8rem + 0.6vw, 1.5rem);
 }
 
-.eyebrow--on-dark {
-    background: rgba(48,191,151,.12);
-    border-color: rgba(48,191,151,.30);
+.eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    border-radius: 0;
+    background: var(--color-secondary);
+    box-shadow: none;
+    flex-shrink: 0;
+    animation: none;
+}
+
+.eyebrow--on-dark,
+.cta .eyebrow--on-dark {
+    background: none;
+    border: 0;
     color: #7EE0C2;
 }
 .eyebrow--on-dark::before {
-    background: linear-gradient(135deg, #7EE0C2, #30BF97);
-    box-shadow: 0 0 12px rgba(126,224,194,.85);
+    background: #7EE0C2;
+    box-shadow: none;
+    animation: none;
 }
 
 /* ---------- Tipografía auxiliar ---------- */
@@ -117,8 +140,8 @@ body {
 .text-muted {
     color: var(--color-muted);
     max-width: 65ch;
-    margin-top: var(--space-md);
-    line-height: 1.7;
+    margin-top: 0.875rem;
+    line-height: 1.75;
     font-size: var(--fs-base);
 }
 
@@ -147,10 +170,10 @@ body {
 /* ---------- Scroll reveal ---------- */
 .reveal {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(18px);
     transition:
-        opacity .7s var(--ease-out),
-        transform .7s var(--ease-out);
+        opacity .6s var(--ease-out),
+        transform .6s var(--ease-out);
     transition-delay: var(--reveal-delay, 0ms);
     will-change: opacity, transform;
 }
@@ -161,12 +184,10 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     .reveal { opacity: 1; transform: none; transition: none; }
 }
 
-/* ---------- CTA (bloque oscuro compartido) ----------
-   Usado por home y bienvenida con la misma estructura.
-   Vive aquí para evitar duplicación entre páginas. */
+/* ---------- CTA (bloque oscuro compartido) ---------- */
 .section--cta {
     background-color: var(--color-surface);
-    padding-block: var(--space-3xl);
+    padding-block: clamp(3rem, 2.25rem + 2vw, 4rem);
 }
 
 .cta {
@@ -201,7 +222,6 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .cta .eyebrow--on-dark {
     color: var(--color-secondary);
     margin-bottom: var(--space-sm);
-    letter-spacing: 0.14em;
 }
 
 .cta__title {

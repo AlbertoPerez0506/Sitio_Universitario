@@ -1,9 +1,5 @@
 /* ============================================================
    pages/home.js — Render dinámico de la portada
-   ------------------------------------------------------------
-   · Hero, hero facts, intro, ruta, oferta, vida, galería,
-     collage y CTA se generan desde site-content.js.
-   · Noticias y eventos usan services/api.js (SITE_CONTENT).
    ============================================================ */
 
 import { SITE_CONTENT } from '../../site-content.js';
@@ -41,6 +37,29 @@ function applyTextContent() {
 }
 
 /* ============================================================
+   A.1) Aplicar reveal a los encabezados de sección
+   ------------------------------------------------------------
+   Animamos eyebrow, título y lead por separado (stagger),
+   no el bloque completo. El botón adyacente (si existe) se
+   mantiene estático.
+   ============================================================ */
+function applyHeaderReveals() {
+    document.querySelectorAll('.section__head').forEach(head => {
+        const targets = head.querySelectorAll(
+            '.eyebrow, .section__title, .section__lead'
+        );
+        targets.forEach((el, i) => {
+            if (!el.classList.contains('reveal')) {
+                el.classList.add('reveal');
+                if (i > 0) {
+                    el.setAttribute('data-reveal-delay', String(i * 70));
+                }
+            }
+        });
+    });
+}
+
+/* ============================================================
    B) Hero
    ============================================================ */
 function renderHero() {
@@ -53,7 +72,6 @@ function renderHero() {
         const isFirst = i === 0;
         const Tag     = isFirst ? 'h1' : 'h2';
         const titleId = isFirst ? ' id="hero-title"' : '';
-        //  Lógica de atributos de carga mejorada
         const loadingAttr = isFirst ? 'eager' : 'lazy';
         const fetchpriorityAttr = isFirst ? ' fetchpriority="high"' : '';
         return `
@@ -163,18 +181,11 @@ const FACT_ICONS = {
     bolt:        '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>'
 };
 
-const SPARKLE_SVG = `
-    <svg class="program-card__sparkle" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2.5l1.6 4.5 4.4 1.6-4.4 1.6L12 14.7l-1.6-4.5L6 8.6l4.4-1.6L12 2.5z"/>
-        <path d="M19 13.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2z"/>
-        <path d="M5 14.5l.6 1.6 1.6.6-1.6.6L5 18.9l-.6-1.6L2.8 16.7l1.6-.6L5 14.5z"/>
-    </svg>`;
-
 function buildProgramCard(c, index) {
     const num = String(index + 1).padStart(2, '0');
     const isFeatured = !!c.featured;
     const levelBadge = isFeatured && c.badgeNuevo
-        ? `<span class="program-card__level-badge program-card__level-badge--new">${SPARKLE_SVG}${escapeHTML(c.badgeNuevo)}</span>`
+        ? `<span class="program-card__level-badge program-card__level-badge--new">${escapeHTML(c.badgeNuevo)}</span>`
         : `<span class="program-card__level-badge">${escapeHTML(c.nivel)}</span>`;
 
     const factsHTML = (c.facts || []).map(f => {
@@ -182,12 +193,11 @@ function buildProgramCard(c, index) {
         return `<li>${icon}<span>${escapeHTML(f.text)}</span></li>`;
     }).join('');
 
-    const delay = index * 60;
+    const delay = index * 80;
 
     return `
         <article class="program-card${isFeatured ? ' program-card--featured' : ''} reveal"
-                 ${delay ? `data-reveal-delay="${delay}"` : ''}
-                 ${isFeatured ? 'data-featured-card' : ''}>
+                 ${delay ? `data-reveal-delay="${delay}"` : ''}>
             <figure class="program-card__media">
                 <img src="${escapeHTML(c.imagen)}" alt="${escapeHTML(c.alt)}"
                      width="900" height="600" loading="lazy" decoding="async">
@@ -250,7 +260,6 @@ function renderVintageGallery() {
     const stage = document.querySelector('[data-vintage-stage]');
     if (!stage) return;
 
-    // Idempotencia: eliminar slides previas si se re-renderiza
     stage.querySelectorAll('[data-vintage-slide]').forEach(el => el.remove());
 
     const items = sortVisible(SITE_CONTENT.vidaUniversitaria?.galeria);
@@ -378,18 +387,24 @@ async function initNews() {
 
     let items;
     try { items = await getNews(); }
-    catch (err) { console.error(err); if (emptyEl) emptyEl.hidden = false; return; }
+    catch (err) {
+        console.error(err);
+        if (emptyEl) emptyEl.hidden = false;
+        return;
+    }
 
     const totalItems = items.length;
+
+    /* Sin publicaciones: ocultar el bloque completo. */
+    if (!totalItems) {
+        const section = grid.closest('.section--news');
+        if (section) section.hidden = true;
+        return;
+    }
+
     const totalPages = Math.max(1, Math.ceil(totalItems / CONFIG.NEWS_PER_PAGE));
     let currentPage = 1;
 
-    if (!totalItems) {
-        if (emptyEl) emptyEl.hidden = false;
-        if (pagination) pagination.hidden = true;
-        if (noteEl) noteEl.hidden = true;
-        return;
-    }
     if (emptyEl) emptyEl.hidden = true;
     if (noteEl) noteEl.hidden = false;
 
@@ -398,15 +413,14 @@ async function initNews() {
         const pageItems = items.slice(start, start + CONFIG.NEWS_PER_PAGE);
         grid.innerHTML = '';
         pageItems.forEach((item, i) => {
-            // Fix A: solo la 1ª tarjeta de la página 1 es destacada.
-            // Si prefieres que cada página tenga su hero card, usa: i === 0
             const isFeatured = page === 1 && i === 0;
             const card = buildNewsCard(item, isFeatured);
-            if (i > 0) card.setAttribute('data-reveal-delay', String(Math.min(i * 50, 400)));
+            if (i > 0) {
+                card.setAttribute('data-reveal-delay', String(Math.min(i * 70, 420)));
+            }
             grid.appendChild(card);
         });
 
-        // Observar las tarjetas recién creadas para que sean visibles
         if (window.UTU?.observeReveals) {
             window.UTU.observeReveals(grid);
         } else {
@@ -415,7 +429,10 @@ async function initNews() {
     }
 
     function renderPagination() {
-        if (!pagination || !pagesWrap || totalPages <= 1) { if (pagination) pagination.hidden = true; return; }
+        if (!pagination || !pagesWrap || totalPages <= 1) {
+            if (pagination) pagination.hidden = true;
+            return;
+        }
         pagination.hidden = false;
         pagesWrap.innerHTML = '';
         buildPageRange(currentPage, totalPages).forEach(p => {
@@ -471,6 +488,13 @@ async function initEvents() {
     try { events = await getEvents(); }
     catch (err) { console.error(err); return; }
 
+    /* Sin eventos: ocultar el bloque completo. */
+    if (!events.length) {
+        const section = track.closest('.section--events');
+        if (section) section.hidden = true;
+        return;
+    }
+
     track.innerHTML = events.map(ev => `
         <li class="events__slide">
             <div class="events__body">
@@ -499,60 +523,17 @@ async function initEvents() {
 }
 
 /* ============================================================
-   M) Confeti de la card destacada
-   ============================================================ */
-function launchConfetti(originEl) {
-    if (prefersReducedMotion() || !originEl) return;
-    const rect = originEl.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const colors = ['#30BF97', '#7EE0C2', '#30348C', '#FFB800', '#FF8F00', '#FFFFFF'];
-    for (let i = 0; i < 34; i++) {
-        const bit = document.createElement('span');
-        bit.className = 'confetti-bit';
-        bit.style.left = `${cx}px`;
-        bit.style.top  = `${cy}px`;
-        bit.style.background = colors[Math.floor(Math.random() * colors.length)];
-        bit.style.setProperty('--x', `${(Math.random() - 0.5) * 460}px`);
-        bit.style.setProperty('--y', `${-Math.random() * 280 - 80}px`);
-        bit.style.setProperty('--r', `${Math.random() * 900 - 450}deg`);
-        bit.style.setProperty('--d', `${0.95 + Math.random() * 0.7}s`);
-        document.body.appendChild(bit);
-        setTimeout(() => bit.remove(), 1800);
-    }
-}
-
-function initFeaturedCard() {
-    const card = document.querySelector('[data-featured-card]');
-    if (!card || !('IntersectionObserver' in window) || prefersReducedMotion()) return;
-
-    let fired = false;
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!fired && entry.isIntersecting) {
-                fired = true;
-                setTimeout(() => {
-                    const badge = card.querySelector('.program-card__level-badge--new');
-                    launchConfetti(badge || card);
-                }, 350);
-                observer.disconnect();
-            }
-        });
-    }, { threshold: 0.55 });
-    observer.observe(card);
-}
-
-/* ============================================================
-   N) Init
+   M) Init
    ============================================================ */
 export function init() {
-    // Sincronizar autoplay desde site-content.js
     const carouselRoot = document.querySelector('[data-carousel]');
     if (carouselRoot && SITE_CONTENT.hero?.autoplayMs) {
         carouselRoot.setAttribute('data-autoplay', String(SITE_CONTENT.hero.autoplayMs));
     }
 
     applyTextContent();
+    applyHeaderReveals();
+
     renderHero();
     renderHeroFacts();
     renderIntroFacts();
@@ -566,5 +547,4 @@ export function init() {
     renderCta();
     initNews();
     initEvents();
-    initFeaturedCard();
 }

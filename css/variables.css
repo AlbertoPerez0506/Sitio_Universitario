@@ -1,12 +1,5 @@
 /* ============================================================
    variables.css — Design tokens UTU
-   ------------------------------------------------------------
-   · Hero: usa svh (small viewport height) para garantizar que
-     el contenido siempre quepa en el área visible del navegador
-     móvil (las barras del navegador ya no recortan el fondo).
-   · Fallback a vh para navegadores antiguos.
-   · Sin min-height forzado: el hero se ajusta al espacio
-     disponible en pantallas bajas (landscape móvil).
    ============================================================ */
 
 :root {
@@ -17,7 +10,7 @@
     --color-secondary:      #30BF97;
     --color-secondary-dark: #2DA683;
 
-    /* ---------- Colores exactos del logo (para texto de marca) ---------- */
+    /* ---------- Colores exactos del logo ---------- */
     --color-logo-blue:  #0D378C;
     --color-logo-green: #078C5B;
 
@@ -32,12 +25,17 @@
     --color-border:         #E4E6EF;
     --color-border-strong:  #CFD3E0;
 
+    /* ---------- Acentos textuales accesibles ---------- */
+    --color-accent-text:    #267A65;
+    --color-accent-strong:  #1F6B57;
+
     /* ---------- Gradientes ---------- */
     --gradient-primary: linear-gradient(135deg, #30348C 0%, #303E8C 55%, #232766 100%);
     --gradient-accent:  linear-gradient(135deg, #30BF97 0%, #2DA683 100%);
 
     /* ---------- Tipografía ---------- */
     --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-display: "Manrope", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
     --fs-xs:   clamp(0.75rem,  0.72rem + 0.15vw, 0.8125rem);
     --fs-sm:   clamp(0.875rem, 0.85rem + 0.20vw, 0.9375rem);
@@ -96,14 +94,6 @@
     /* ---------- Alturas útiles ---------- */
     --header-h: 68px;
 
-    /* Hero: altura exacta = viewport visible − header.
-       · svh (small viewport height) reserva el espacio de las
-         barras del navegador móvil. Es lo más estable.
-       · Fallback a vh para navegadores antiguos.
-       · Sin min-height forzado: el hero se ajusta al espacio
-         disponible en pantallas bajas (landscape móvil) y el
-         contenido interno se adapta con las media queries de
-         altura definidas en home.css. */
     --hero-h: calc(100vh  - var(--header-h));
     --hero-h: calc(100svh - var(--header-h));
 }
@@ -116,7 +106,6 @@
     }
 }
 
-/* Respeta la preferencia de movimiento reducido del sistema */
 @media (prefers-reduced-motion: reduce) {
     :root {
         --t-fast: 0.01ms;
