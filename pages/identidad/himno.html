@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#30348C">
+
+    <title>Himno institucional | Universidad Tecnológica del Usumacinta (UTU)</title>
+    <meta name="description" content="Conoce el himno oficial de la Universidad Tecnológica del Usumacinta. Escucha, sigue la letra en modo karaoke y descarga el audio institucional, obra del Prof. Jorge Ocaña Hernández.">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" href="/assets/images/icons/Logo_vertical.webp" type="image/webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/components/breadcrumbs.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/pages/himno.css">
+
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body data-page="himno">
+
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+    <div data-component="header"></div>
+
+    <main id="contenido" data-himno class="himno">
+
+        <!-- ══════════════════════════════════════════════════
+             HERO EDITORIAL
+             ══════════════════════════════════════════════════ -->
+        <section class="himno-hero" aria-labelledby="himno-title">
+            <div class="container himno-hero__inner">
+
+                <nav class="breadcrumbs himno-hero__breadcrumbs" aria-label="Ruta de navegación">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/pages/identidad/himno.html">Identidad</a></li>
+                        <li><span aria-current="page">Himno</span></li>
+                    </ol>
+                </nav>
+
+                <div class="himno-hero__content">
+                    <p class="himno-hero__eyebrow reveal">Identidad institucional</p>
+
+                    <h1 class="himno-hero__title reveal" id="himno-title" data-reveal-delay="60">
+                        El himno de
+                        <span class="himno-hero__title-accent">nuestra universidad.</span>
+                    </h1>
+
+                    <p class="himno-hero__lead reveal" data-reveal-delay="120">
+                        Una expresión de identidad, pertenencia y orgullo universitario
+                        que representa a quienes forman parte de nuestra comunidad.
+                    </p>
+
+                    <p class="himno-hero__credit reveal" data-reveal-delay="180">
+                        <span>Obra escrita y producida por</span>
+                        <strong>Prof. Jorge Ocaña Hernández</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════
+             REPRODUCTOR PREMIUM
+             ══════════════════════════════════════════════════ -->
+        <section class="himno-player" aria-labelledby="himno-player-title">
+            <div class="container">
+
+                <div class="himno-player__card reveal" data-himno-card>
+
+                    <!-- Badge circular tipo vinilo -->
+                    <div class="himno-player__art">
+                        <div class="himno-player__art-glow" aria-hidden="true"></div>
+                        <div class="himno-badge" data-himno-badge aria-hidden="true"></div>
+                    </div>
+
+                    <!-- Contenido principal -->
+                    <div class="himno-player__main">
+
+                        <header class="himno-player__head">
+                            <p class="himno-player__eyebrow">
+                                <span class="himno-player__live" aria-hidden="true">
+                                    <span></span><span></span><span></span><span></span>
+                                </span>
+                                Himno oficial · UTU
+                            </p>
+                            <h2 class="himno-player__title" id="himno-player-title">
+                                Universidad Tecnológica del Usumacinta
+                            </h2>
+                            <p class="himno-player__meta">
+                                Obra original de
+                                <strong>Prof. Jorge Ocaña Hernández</strong>
+                            </p>
+                        </header>
+
+                        <!-- Waveform -->
+                        <div class="himno-player__wave-wrap">
+                            <div class="himno-player__wave"
+                                 data-himno-wave
+                                 role="slider"
+                                 aria-label="Progreso del himno"
+                                 aria-valuemin="0"
+                                 aria-valuemax="100"
+                                 aria-valuenow="0"
+                                 aria-valuetext="0:00 de 0:00"
+                                 tabindex="0">
+                                <div class="himno-player__wave-bars" data-himno-wave-bars aria-hidden="true"></div>
+                            </div>
+                            <div class="himno-player__times" aria-hidden="true">
+                                <span data-himno-current>0:00</span>
+                                <span class="himno-player__times-sep">/</span>
+                                <span data-himno-duration>0:00</span>
+                            </div>
+                        </div>
+
+                        <!-- Controles -->
+                        <div class="himno-player__controls">
+
+                            <div class="himno-player__controls-main">
+                                <button type="button"
+                                        class="himno-player__btn himno-player__btn--skip"
+                                        data-himno-skip="-10"
+                                        aria-label="Retroceder 10 segundos">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+                                        <text x="12" y="15.2" font-size="6" font-weight="700" text-anchor="middle" font-family="Inter, sans-serif" fill="currentColor">10</text>
+                                    </svg>
+                                </button>
+
+                                <button type="button"
+                                        class="himno-player__play"
+                                        data-himno-play
+                                        aria-label="Reproducir himno">
+                                    <svg class="himno-player__play-icon himno-player__play-icon--play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                    <svg class="himno-player__play-icon himno-player__play-icon--pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M6 5h4v14H6zM14 5h4v14h-4z"/>
+                                    </svg>
+                                </button>
+
+                                <button type="button"
+                                        class="himno-player__btn himno-player__btn--skip"
+                                        data-himno-skip="10"
+                                        aria-label="Avanzar 10 segundos">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/>
+                                        <text x="12" y="15.2" font-size="6" font-weight="700" text-anchor="middle" font-family="Inter, sans-serif" fill="currentColor">10</text>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="himno-player__controls-side">
+                                <button type="button"
+                                        class="himno-player__btn himno-player__btn--speed"
+                                        data-himno-speed
+                                        aria-label="Cambiar velocidad de reproducción">
+                                    <span data-himno-speed-label>1×</span>
+                                </button>
+
+                                <a class="himno-player__btn himno-player__btn--download"
+                                   href="/assets/audio/himno-utu.mp3"
+                                   download="himno-utu.mp3"
+                                   data-himno-download
+                                   aria-label="Descargar himno en MP3">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                         aria-hidden="true">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    <span class="himno-player__btn-label">MP3</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Línea en vivo -->
+                        <div class="himno-player__now" data-himno-now>
+                            <span class="himno-player__now-label" data-himno-now-label>
+                                Escucha y sigue la letra
+                            </span>
+                            <p class="himno-player__now-line is-idle"
+                               data-himno-now-line
+                               aria-live="polite">
+                                Pulsa play para comenzar.
+                            </p>
+                        </div>
+
+                        <p class="himno-player__hint" aria-hidden="true">
+                            <kbd>Espacio</kbd> reproduce o pausa ·
+                            <kbd>←</kbd><kbd>→</kbd> retrocede o avanza 5 s
+                        </p>
+
+                        <p class="himno-player__notice" data-himno-notice hidden>
+                            El audio oficial se incorporará próximamente.
+                            Mientras tanto, puedes consultar la letra completa.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Franja de datos -->
+                <ul class="himno-facts reveal" data-reveal-delay="120">
+                    <li class="himno-facts__item">
+                        <span class="himno-facts__label">Autoría</span>
+                        <span class="himno-facts__value">Prof. Jorge Ocaña Hernández</span>
+                    </li>
+                    <li class="himno-facts__item">
+                        <span class="himno-facts__label">Duración</span>
+                        <span class="himno-facts__value" data-himno-fact-duration>—</span>
+                    </li>
+                    <li class="himno-facts__item">
+                        <span class="himno-facts__label">Idioma</span>
+                        <span class="himno-facts__value">Español</span>
+                    </li>
+                    <li class="himno-facts__item">
+                        <span class="himno-facts__label">Formato</span>
+                        <span class="himno-facts__value">MP3 · Descarga libre</span>
+                    </li>
+                </ul>
+            </div>
+
+            <audio data-himno-audio preload="metadata"></audio>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════
+             LETRA — ESTÁTICA / KARAOKE
+             ══════════════════════════════════════════════════ -->
+        <section class="himno-lyrics" aria-labelledby="himno-lyrics-title">
+            <div class="container container--narrow">
+
+                <header class="himno-lyrics__head reveal">
+                    <p class="himno-lyrics__eyebrow">Letra oficial</p>
+                    <h2 class="himno-lyrics__title" id="himno-lyrics-title">
+                        El himno, en palabras.
+                    </h2>
+                </header>
+
+                <div class="himno-tabs reveal" role="tablist" aria-label="Opciones de visualización de la letra">
+                    <button type="button"
+                            role="tab"
+                            id="himno-tab-static"
+                            aria-selected="true"
+                            aria-controls="himno-panel-static"
+                            data-himno-tab="static">
+                        Letra oficial
+                    </button>
+                    <button type="button"
+                            role="tab"
+                            id="himno-tab-karaoke"
+                            aria-selected="false"
+                            aria-controls="himno-panel-karaoke"
+                            tabindex="-1"
+                            data-himno-tab="karaoke">
+                        Karaoke
+                    </button>
+                </div>
+
+                <div role="tabpanel"
+                     id="himno-panel-static"
+                     aria-labelledby="himno-tab-static"
+                     data-himno-panel="static">
+                    <div class="himno-static" data-himno-lyrics="static"></div>
+                </div>
+
+                <div role="tabpanel"
+                     id="himno-panel-karaoke"
+                     aria-labelledby="himno-tab-karaoke"
+                     data-himno-panel="karaoke"
+                     hidden>
+                    <div class="himno-karaoke" data-himno-lyrics="karaoke"></div>
+                </div>
+
+                <p class="sr-only" aria-live="polite" data-himno-karaoke-live></p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <div data-component="footer"></div>
+
+    <script type="module" src="/js/app.js"></script>
+</body>
+</html>
