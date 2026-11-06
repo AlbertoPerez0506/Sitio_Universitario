@@ -9,15 +9,15 @@
     <meta name="description" content="La Universidad Tecnológica del Usumacinta (UTU) forma profesionales con 60% práctica y 40% teoría, dos estadías profesionales y una ruta de TSU a Ingeniería o Licenciatura. Emiliano Zapata, Tabasco.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Universidad Tecnológica del Usumacinta">
-    <link rel="canonical" href="https://www.utu.edu.mx/">
+    <link rel="canonical" href="https://sitiouniversitario.vercel.app/">
 
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_MX">
     <meta property="og:site_name" content="Universidad Tecnológica del Usumacinta">
     <meta property="og:title" content="Universidad Tecnológica del Usumacinta (UTU)">
     <meta property="og:description" content="Formación que se vive. Conocimiento que se aplica.">
-    <meta property="og:url" content="https://www.utu.edu.mx/">
-    <meta property="og:image" content="https://www.utu.edu.mx/assets/images/branding/Logo_vertical.webp">
+    <meta property="og:url" content="https://sitiouniversitario.vercel.app/">
+    <meta property="og:image" content="https://sitiouniversitario.vercel.app/assets/images/branding/Logo_vertical.webp">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- FAVICON -->
@@ -41,7 +41,9 @@
     <link rel="stylesheet" href="/css/components/header.css">
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/components/lightbox.css">
+   
     <link rel="stylesheet" href="/css/pages/home.css">
+     <link rel="stylesheet" href="/css/components/himno.css">  
 
     <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -87,10 +89,12 @@
                 </div>
             </div>
 
-            <ul class="hero__facts container" aria-label="Datos destacados de la UTU" data-hero-facts></ul>
+            <div class="hero__facts-wrap container">
+                <ul class="hero__facts" aria-label="Datos destacados de la UTU" data-hero-facts></ul>
+            </div>
         </section>
 
-        <!-- ============================ INTRO ============================ -->
+        <!-- ============================ INTRO EDITORIAL ============================ -->
         <section class="section section--intro" aria-labelledby="intro-title">
             <div class="container">
                 <div class="intro__grid">
@@ -102,42 +106,33 @@
                         </h2>
                         <p class="section__lead" data-content="institucional.intro.lead"></p>
                         <p class="text-muted" data-content="institucional.intro.texto"></p>
+
                         <ul class="intro__facts" aria-label="Datos institucionales" data-intro-facts></ul>
+
                         <a class="link-arrow" href="/pages/universidad/bienvenida.html" data-content-href="institucional.intro.linkCta.href">
                             <span data-content="institucional.intro.linkCta.label"></span>
                             <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
                         </a>
                     </div>
 
-                    <div class="intro__visual reveal" data-reveal-delay="120">
-                        <div class="intro__decor" aria-hidden="true">
-                            <span class="intro__decor-blob"></span>
-                            <span class="intro__decor-dots"></span>
-                        </div>
-                        <figure class="intro__media">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1000&h=800&q=80&auto=format&fit=crop"
+                    <figure class="intro__visual reveal" data-reveal-delay="120">
+                        <div class="intro__media">
+                            <img src="/assets/images/carreras/CONTADURIA/CONTA4.webp"
                                  alt="Estudiantes de la UTU durante una actividad práctica"
-                                 width="1000" height="800" loading="lazy" decoding="async"
-                                 data-img-fallback="Actividad práctica"
+                                 width="1200" height="900" loading="lazy" decoding="async"
                                  data-img-content="institucional.intro.imagen">
-                        </figure>
-                        <div class="intro__badge" aria-hidden="true">
-                            <span class="intro__badge-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg>
-                            </span>
-                            <span class="intro__badge-text">
-                                <strong data-content="institucional.intro.badge.title"></strong>
-                                <span data-content="institucional.intro.badge.subtitle"></span>
-                            </span>
                         </div>
-                    </div>
+                        <figcaption class="intro__caption">
+                            Formación práctica en laboratorios, talleres y proyectos.
+                        </figcaption>
+                    </figure>
                 </div>
 
                 <ul class="intro__pillars" data-intro-pillars></ul>
             </div>
         </section>
 
-        <!-- ============================ RUTA ============================ -->
+        <!-- ============================ RUTA ACADÉMICA ============================ -->
         <section class="section section--route" id="ruta" aria-labelledby="route-title">
             <div class="container">
                 <header class="section__head section__head--center">
@@ -154,7 +149,7 @@
             </div>
         </section>
 
-        <!-- ============================ OFERTA ============================ -->
+        <!-- ============================ OFERTA EDUCATIVA ============================ -->
         <section class="section section--programs" id="oferta" aria-labelledby="programs-title">
             <div class="container">
                 <header class="section__head section__head--center">
@@ -167,6 +162,14 @@
                 </header>
 
                 <div class="programs__grid" data-programs-grid></div>
+
+                <div class="programs__mixed" data-programs-mixed-wrap hidden>
+                    <header class="programs__subhead">
+                        <h3 class="programs__subtitle">Modalidades mixtas</h3>
+                        <p class="programs__subtext">Opciones diseñadas para quienes estudian y trabajan.</p>
+                    </header>
+                    <div class="programs__grid programs__grid--mixed" data-programs-mixed></div>
+                </div>
 
                 <p class="programs__note">
                     <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
@@ -196,7 +199,7 @@
                     </div>
 
                     <div class="vintage reveal" data-reveal-delay="120"
-                         data-vintage-gallery data-vintage-autoplay="5500"
+                         data-vintage-gallery data-vintage-autoplay="0"
                          role="region" aria-roledescription="galería de fotos"
                          aria-label="Galería de paraescolares de la UTU">
                         <div class="vintage__stage" data-vintage-stage>
@@ -219,9 +222,10 @@
                 </div>
             </div>
         </section>
+        
 
-        <!-- ============================ NOTICIAS ============================ -->
-        <section class="section section--news" aria-labelledby="news-title">
+        <!-- ============================ ACTUALIDAD: NOTICIAS ============================ -->
+        <section class="section section--news" aria-labelledby="news-title" hidden>
             <div class="container">
                 <header class="section__head section__head--row">
                     <div>
@@ -258,8 +262,8 @@
             </div>
         </section>
 
-        <!-- ============================ EVENTOS ============================ -->
-        <section class="section section--events" aria-labelledby="events-title">
+        <!-- ============================ ACTUALIDAD: EVENTOS ============================ -->
+        <section class="section section--events" aria-labelledby="events-title" hidden>
             <div class="container">
                 <header class="section__head section__head--row">
                     <div>
@@ -278,7 +282,7 @@
             </div>
         </section>
 
-        <!-- ============================ COLLAGE ============================ -->
+        <!-- ============================ COMUNIDAD Y CAMPUS ============================ -->
         <section class="section section--community" aria-labelledby="community-title">
             <div class="container">
                 <header class="section__head section__head--center">

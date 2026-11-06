@@ -1,5 +1,9 @@
 /* ============================================================
    buttons.css — Sistema de botones
+   ------------------------------------------------------------
+   Los botones principales usan --radius-btn (8px) según el
+   sistema visual del rediseño. Los CTAs especiales del header
+   y footer conservan su radio pill propio.
    ============================================================ */
 
 .btn {
@@ -9,7 +13,7 @@
     justify-content: center;
     gap: .5rem;
     padding: .75rem 1.35rem;
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-btn);
     font-family: inherit;
     font-size: var(--fs-sm);
     font-weight: 600;

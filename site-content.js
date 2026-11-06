@@ -87,16 +87,15 @@ export const SITE_CONTENT = {
                 alt: 'Estudiantes de la UTU durante una actividad práctica',
                 fallback: 'Actividad práctica'
             },
-            badge: { title: 'Educación pública', subtitle: 'de calidad' },
             facts: [
-                { icon: 'i-calendar',    value: '2003',            label: 'Año de fundación', orden: 1 },
-                { icon: 'i-location',    value: 'Emiliano Zapata', label: 'Tabasco, México',  orden: 2 },
-                { icon: 'i-certificate', value: 'Pública',         label: 'Educación superior', orden: 3 }
+                { value: '2003',            label: 'Año de fundación',   orden: 1 },
+                { value: 'Emiliano Zapata', label: 'Tabasco, México',    orden: 2 },
+                { value: 'Pública',         label: 'Educación superior', orden: 3 }
             ],
             pillars: [
-                { icon: 'i-practice', num: '01', title: 'Formación práctica', text: 'Competencias desarrolladas mediante prácticas, proyectos, laboratorios y experiencias profesionales.', orden: 1 },
-                { icon: 'i-link',     num: '02', title: 'Vinculación con el sector productivo', text: 'Relación con empresas, organizaciones e instituciones que acerca a los estudiantes a su área profesional.', orden: 2 },
-                { icon: 'i-users',    num: '03', title: 'Formación integral', text: 'Actividades culturales, deportivas y paraescolares que complementan la preparación profesional.', orden: 3 }
+                { num: '01', title: 'Formación práctica', text: 'Competencias desarrolladas mediante prácticas, proyectos, laboratorios y experiencias profesionales.', orden: 1 },
+                { num: '02', title: 'Vinculación con el sector productivo', text: 'Relación con empresas, organizaciones e instituciones que acerca a los estudiantes a su área profesional.', orden: 2 },
+                { num: '03', title: 'Formación integral', text: 'Actividades culturales, deportivas y paraescolares que complementan la preparación profesional.', orden: 3 }
             ]
         },
 
@@ -122,8 +121,8 @@ export const SITE_CONTENT = {
     oferta: {
         head: {
             eyebrow: 'Oferta educativa',
-            title: '8 programas,',
-            titleAccent: 'una misma ruta',
+            title: 'Programas con',
+            titleAccent: 'continuidad',
             lead: 'TSU con continuidad a Ingeniería o Licenciatura. Dos estadías profesionales, 2 títulos y 2 cédulas profesionales.'
         },
         nota: 'La apertura de grupos está sujeta al cupo mínimo por cuatrimestre y a la disponibilidad docente. Consulta con Control Escolar antes de inscribirte.',
@@ -135,19 +134,17 @@ export const SITE_CONTENT = {
                 visible: true,
                 nombre: 'Entornos Virtuales y Negocios Digitales',
                 nivel: 'Ingeniería',
-                eyebrow: 'TSU + Continuidad a Ingeniería',
                 tagline: 'Diseña soluciones digitales, plataformas y experiencias conectadas.',
                 area: 'Tecnología',
                 areaClass: 'tech',
                 imagen: '/assets/images/carreras/TI/ti22.webp',
                 alt: 'Entornos virtuales y negocios digitales',
                 facts: [
-                    { icon: 'clock',       text: '2 años + 1 año 4 meses' },
-                    { icon: 'certificate', text: '2 títulos + 2 cédulas' }
+                    { text: '2 años + 1 año 4 meses' },
+                    { text: '2 títulos + 2 cédulas' }
                 ],
                 enlace: '/pages/oferta-educativa/carrera-01.html',
-                ctaLabel: 'Ver programa',
-                featured: false
+                ctaLabel: 'Ver programa'
             },
             {
                 id: 'carrera-02',
@@ -155,19 +152,17 @@ export const SITE_CONTENT = {
                 visible: true,
                 nombre: 'Biotecnología',
                 nivel: 'Ingeniería',
-                eyebrow: 'TSU + Continuidad a Ingeniería',
                 tagline: 'Investiga y aplica procesos biológicos en laboratorio y campo.',
                 area: 'Ciencias de la vida',
                 areaClass: 'bio',
                 imagen: '/assets/images/carreras/BIO/BIO9.webp',
                 alt: 'Biotecnología UTU',
                 facts: [
-                    { icon: 'clock',       text: '2 años + 1 año 4 meses' },
-                    { icon: 'certificate', text: '2 títulos + 2 cédulas' }
+                    { text: '2 años + 1 año 4 meses' },
+                    { text: '2 títulos + 2 cédulas' }
                 ],
                 enlace: '/pages/oferta-educativa/carrera-02.html',
-                ctaLabel: 'Ver programa',
-                featured: false
+                ctaLabel: 'Ver programa'
             },
             {
                 id: 'carrera-03',
@@ -175,19 +170,17 @@ export const SITE_CONTENT = {
                 visible: true,
                 nombre: 'Negocios y Mercadotecnia',
                 nivel: 'Licenciatura',
-                eyebrow: 'TSU + Continuidad a Licenciatura',
                 tagline: 'Construye marcas, estrategias comerciales y experiencias de cliente.',
                 area: 'Negocios',
                 areaClass: 'biz',
                 imagen: '/assets/images/carreras/NEGOCIOS/negocios.webp',
                 alt: 'Negocios y Mercadotecnia UTU',
                 facts: [
-                    { icon: 'clock',       text: '2 años + 1 año 4 meses' },
-                    { icon: 'certificate', text: '2 títulos + 2 cédulas' }
+                    { text: '2 años + 1 año 4 meses' },
+                    { text: '2 títulos + 2 cédulas' }
                 ],
                 enlace: '/pages/oferta-educativa/carrera-03.html',
-                ctaLabel: 'Ver programa',
-                featured: false
+                ctaLabel: 'Ver programa'
             },
             {
                 id: 'carrera-04',
@@ -195,19 +188,17 @@ export const SITE_CONTENT = {
                 visible: true,
                 nombre: 'Gastronomía',
                 nivel: 'Licenciatura',
-                eyebrow: 'TSU + Continuidad a Licenciatura',
                 tagline: 'Domina técnicas culinarias y gestión de servicios gastronómicos.',
                 area: 'Gastronomía',
                 areaClass: 'gas',
                 imagen: '/assets/images/carreras/GASTRONOMIA/gastro11.webp',
                 alt: 'Gastronomía UTU',
                 facts: [
-                    { icon: 'clock',       text: '2 años + 1 año 4 meses' },
-                    { icon: 'certificate', text: '2 títulos + 2 cédulas' }
+                    { text: '2 años + 1 año 4 meses' },
+                    { text: '2 títulos + 2 cédulas' }
                 ],
                 enlace: '/pages/oferta-educativa/carrera-04.html',
-                ctaLabel: 'Ver programa',
-                featured: false
+                ctaLabel: 'Ver programa'
             },
             {
                 id: 'carrera-05',
@@ -215,19 +206,17 @@ export const SITE_CONTENT = {
                 visible: true,
                 nombre: 'Gestión y Desarrollo Turístico',
                 nivel: 'Licenciatura',
-                eyebrow: 'TSU + Continuidad a Licenciatura',
                 tagline: 'Diseña destinos, experiencias y proyectos turísticos sostenibles.',
                 area: 'Turismo',
                 areaClass: 'tur',
                 imagen: '/assets/images/carreras/TURISMO/TURISMO5.webp',
                 alt: 'Gestión y desarrollo turístico',
                 facts: [
-                    { icon: 'clock',       text: '2 años + 1 año 4 meses' },
-                    { icon: 'certificate', text: '2 títulos + 2 cédulas' }
+                    { text: '2 años + 1 año 4 meses' },
+                    { text: '2 títulos + 2 cédulas' }
                 ],
                 enlace: '/pages/oferta-educativa/carrera-05.html',
-                ctaLabel: 'Ver programa',
-                featured: false
+                ctaLabel: 'Ver programa'
             },
             {
                 id: 'carrera-06',
@@ -235,19 +224,17 @@ export const SITE_CONTENT = {
                 visible: true,
                 nombre: 'Protección Civil',
                 nivel: 'Licenciatura',
-                eyebrow: 'TSU + Continuidad a Licenciatura',
                 tagline: 'Formación en atención prehospitalaria y gestión de riesgos.',
                 area: 'Salud',
                 areaClass: 'salud',
                 imagen: '/assets/images/carreras/PARAMEDICO/paramedico.webp',
                 alt: 'Paramédico y protección civil',
                 facts: [
-                    { icon: 'clock',       text: '2 años + 1 año 4 meses' },
-                    { icon: 'certificate', text: '2 títulos + 2 cédulas' }
+                    { text: '2 años + 1 año 4 meses' },
+                    { text: '2 títulos + 2 cédulas' }
                 ],
                 enlace: '/pages/oferta-educativa/carrera-06.html',
-                ctaLabel: 'Ver programa',
-                featured: false
+                ctaLabel: 'Ver programa'
             },
             {
                 id: 'carrera-07',
@@ -255,19 +242,17 @@ export const SITE_CONTENT = {
                 visible: true,
                 nombre: 'Contaduría',
                 nivel: 'Licenciatura',
-                eyebrow: 'TSU + Continuidad a Licenciatura',
                 tagline: 'Domina la información financiera, fiscal y de auditoría.',
                 area: 'Finanzas',
                 areaClass: 'fin',
                 imagen: '/assets/images/carreras/CONTADURIA/CONTA.2.webp',
                 alt: 'Contaduría UTU',
                 facts: [
-                    { icon: 'clock',       text: '2 años + 1 año 4 meses' },
-                    { icon: 'certificate', text: '2 títulos + 2 cédulas' }
+                    { text: '2 años + 1 año 4 meses' },
+                    { text: '2 títulos + 2 cédulas' }
                 ],
                 enlace: '/pages/oferta-educativa/carrera-07.html',
-                ctaLabel: 'Ver programa',
-                featured: false
+                ctaLabel: 'Ver programa'
             },
             {
                 id: 'modalidad-mixta-contaduria',
@@ -275,20 +260,17 @@ export const SITE_CONTENT = {
                 visible: true,
                 nombre: 'Contaduría Modalidad Mixta',
                 nivel: 'Modalidad Mixta',
-                eyebrow: 'TSU + Continuidad · Estudia y trabaja',
                 tagline: 'Combina sesiones sabatinas y trabajo autónomo. Diseñada para quienes estudian y trabajan.',
                 area: 'Modalidad Mixta',
                 areaClass: 'mixta',
                 imagen: '/assets/images/carreras/CONTADURIA/CONTA.webp',
-                alt: 'Modalidad Mixta UTU — Estudia y trabaja',
+                alt: 'Contaduría Modalidad Mixta UTU',
                 facts: [
-                    { icon: 'clock', text: 'Horario sabatino' },
-                    { icon: 'bolt',  text: 'Cupo limitado' }
+                    { text: 'Horario sabatino' },
+                    { text: 'Cupo limitado' }
                 ],
                 enlace: '/pages/oferta-educativa/index.html',
-                ctaLabel: 'Consultar programas',
-                featured: true,
-                badgeNuevo: 'Nueva opción 2026'
+                ctaLabel: 'Consultar programas'
             },
             {
                 id: 'modalidad-mixta-ti',
@@ -296,20 +278,17 @@ export const SITE_CONTENT = {
                 visible: true,
                 nombre: 'TI Modalidad Mixta',
                 nivel: 'Modalidad Mixta',
-                eyebrow: 'TSU + Continuidad · Estudia y trabaja',
                 tagline: 'Combina sesiones sabatinas y trabajo autónomo. Diseñada para quienes estudian y trabajan.',
                 area: 'Modalidad Mixta',
                 areaClass: 'mixta',
                 imagen: '/assets/images/carreras/TI/ti44.webp',
-                alt: 'Modalidad Mixta UTU — Estudia y trabaja',
+                alt: 'TI Modalidad Mixta UTU',
                 facts: [
-                    { icon: 'clock', text: 'Horario sabatino' },
-                    { icon: 'bolt',  text: 'Cupo limitado' }
+                    { text: 'Horario sabatino' },
+                    { text: 'Cupo limitado' }
                 ],
                 enlace: '/pages/oferta-educativa/index.html',
-                ctaLabel: 'Consultar programas',
-                featured: true,
-                badgeNuevo: 'Nueva opción 2027'
+                ctaLabel: 'Consultar programas'
             },
             {
                 id: 'modalidad-mixta-gastronomia',
@@ -317,20 +296,17 @@ export const SITE_CONTENT = {
                 visible: true,
                 nombre: 'Gastronomía Modalidad Mixta',
                 nivel: 'Modalidad Mixta',
-                eyebrow: 'TSU + Continuidad · Estudia y trabaja',
                 tagline: 'Combina sesiones sabatinas y trabajo autónomo. Diseñada para quienes estudian y trabajan.',
                 area: 'Modalidad Mixta',
                 areaClass: 'mixta',
                 imagen: '/assets/images/carreras/GASTRONOMIA/gastro.webp',
-                alt: 'Modalidad Mixta UTU — Estudia y trabaja',
+                alt: 'Gastronomía Modalidad Mixta UTU',
                 facts: [
-                    { icon: 'clock', text: 'Horario sabatino' },
-                    { icon: 'bolt',  text: 'Cupo limitado' }
+                    { text: 'Horario sabatino' },
+                    { text: 'Cupo limitado' }
                 ],
                 enlace: '/pages/oferta-educativa/index.html',
-                ctaLabel: 'Consultar programas',
-                featured: true,
-                badgeNuevo: 'Nueva opción 2027'
+                ctaLabel: 'Consultar programas'
             }
         ]
     },
@@ -368,6 +344,10 @@ export const SITE_CONTENT = {
 
     /* ============================================================
        6. NOTICIAS
+       ------------------------------------------------------------
+       La sección permanece oculta mientras no existan publicaciones
+       oficiales verificadas. Cuando existan, llenar `items` y la
+       portada mostrará automáticamente la sección.
        ============================================================ */
     noticias: {
         head: {
@@ -377,33 +357,20 @@ export const SITE_CONTENT = {
             lead: 'Actividades académicas, culturales, deportivas e institucionales.',
             ctaLabel: 'Ver todas'
         },
-        nota: 'Contenido demostrativo. Pendiente de sustituirse por publicaciones oficiales.',
-        items: [
-            { id: 'n-01', title: 'Presentación de proyectos integradores del cuatrimestre', excerpt: 'Estudiantes de todas las carreras expusieron sus proyectos finales ante docentes, invitados del sector productivo y la comunidad universitaria.', category: 'academico', categoryLabel: 'Académico', date: '2026-09-15', readMinutes: 4, image: '/assets/images/carreras/BIO/BIO2.webp', url: '/pages/noticias/proyectos-integradores.html' },
-            { id: 'n-02', title: 'Concurso interno de inglés: edición 2026', excerpt: 'La UTU celebró su concurso anual de inglés con la participación de estudiantes de todos los niveles.', category: 'academico', categoryLabel: 'Académico', date: '2026-09-10', readMinutes: 3, image: '/assets/images/carreras/BIO/BIO3.webp', url: '/pages/noticias/concurso-ingles.html' },
-            { id: 'n-03', title: 'Aniversario de la UTU: una trayectoria desde 2003', excerpt: 'La comunidad universitaria celebró un año más de historia institucional con actividades culturales y académicas.', category: 'institucional', categoryLabel: 'Institucional', date: '2026-09-05', readMinutes: 5, image: '/assets/images/carreras/BIO/BIO4.webp', url: '/pages/noticias/aniversario.html' },
-            { id: 'n-04', title: 'Encuentro deportivo entre universidades tecnológicas', excerpt: 'Equipos de fútbol, básquetbol y voleibol de la región se reunieron en las instalaciones de la UTU.', category: 'deporte', categoryLabel: 'Deporte', date: '2026-09-02', readMinutes: 3, image: '/assets/images/carreras/BIO/BIO5.webp', url: '/pages/noticias/encuentro-deportivo.html' },
-            { id: 'n-05', title: 'Taller de habilidades blandas para estudiantes de nuevo ingreso', excerpt: 'Comunicación efectiva, trabajo en equipo y liderazgo fueron algunos de los temas abordados.', category: 'academico', categoryLabel: 'Académico', date: '2026-08-28', readMinutes: 4, image: '/assets/images/carreras/BIO/BIO6.webp', url: '/pages/noticias/taller-habilidades.html' },
-            { id: 'n-06', title: 'Exposición de proyectos de Biotecnología', excerpt: 'Estudiantes presentaron investigaciones y prototipos desarrollados durante el cuatrimestre.', category: 'academico', categoryLabel: 'Académico', date: '2026-08-22', readMinutes: 4, image: '/assets/images/carreras/BIO/BIO9.webp', url: '/pages/noticias/expo-biotecnologia.html' },
-            { id: 'n-07', title: 'Bienvenida al nuevo ciclo escolar', excerpt: 'Autoridades universitarias dieron la bienvenida a la nueva generación de estudiantes.', category: 'institucional', categoryLabel: 'Institucional', date: '2026-08-19', readMinutes: 2, image: '/assets/images/carreras/CONTADURIA/CONTA4.webp', url: '/pages/noticias/bienvenida.html' },
-            { id: 'n-08', title: 'Demostración gastronómica y operación de bar', excerpt: 'Estudiantes de Gastronomía mostraron técnicas de coctelería y montaje de servicios.', category: 'evento', categoryLabel: 'Evento', date: '2026-08-12', readMinutes: 3, image: '/assets/images/carreras/CONTADURIA/CONTA5.webp', url: '/pages/noticias/demostracion-gastronomica.html' },
-            { id: 'n-09', title: 'Concierto de Tamborileros en el campus', excerpt: 'El grupo representativo de la UTU ofreció una presentación abierta a toda la comunidad.', category: 'cultura', categoryLabel: 'Cultura', date: '2026-08-06', readMinutes: 2, image: '/assets/images/carreras/CONTADURIA/CONTA9.webp', url: '/pages/noticias/concierto-tamborileros.html' }
-        ]
+        nota: '',
+        items: []
     },
 
     /* ============================================================
        7. EVENTOS
+       ------------------------------------------------------------
+       Igual que noticias: se muestra solo cuando existan eventos
+       oficiales. No usar contenido demostrativo.
        ============================================================ */
     eventos: {
         head: { eyebrow: 'Próximos eventos', title: 'Agenda institucional' },
-        nota: 'Contenido demostrativo. Pendiente de sustituirse por eventos oficiales.',
-        items: [
-            { title: 'Ceremonia de bienvenida al ciclo 2026-B',    date: '12 OCT 2026', place: 'Auditorio de Turismo',           text: 'Presentación de autoridades y entrega de reconocimientos a estudiantes destacados.' },
-            { title: 'Feria de vinculación con el sector productivo', date: '05 NOV 2026', place: 'Explanada principal',          text: 'Empresas de la región presentan oportunidades de estadía y colaboración.' },
-            { title: 'Encuentro deportivo interfacultades',        date: '22 NOV 2026', place: 'Cancha techada',               text: 'Fútbol, básquetbol y voleibol con participación de todas las carreras.' },
-            { title: 'Muestra gastronómica de fin de cuatrimestre', date: '06 DIC 2026', place: 'Laboratorio de Gastronomía',  text: 'Estudiantes presentan platillos y técnicas desarrolladas durante el cuatrimestre.' },
-            { title: 'Concierto navideño de Tamborileros',         date: '15 DIC 2026', place: 'Auditorio Edificio 1',         text: 'Presentación abierta a la comunidad universitaria y público general.' }
-        ]
+        nota: '',
+        items: []
     },
 
     /* ============================================================
@@ -414,12 +381,12 @@ export const SITE_CONTENT = {
         title: '#UTUSumacinta',
         lead: 'Comunidad, cultura, deporte, laboratorios, proyectos y vida universitaria.',
         imagenes: [
-            { src: '/assets/images/carreras/CONTADURIA/CONTA4.webp', alt: 'Comunidad UTU 1', cell: 'a', orden: 1 },
+            { src: '/assets/images/carreras/CONTADURIA/CONTA4.webp',  alt: 'Comunidad UTU 1', cell: 'a', orden: 1 },
             { src: '/assets/images/carreras/CONTADURIA/CONTA5.webp',  alt: 'Comunidad UTU 2', cell: 'b', orden: 2 },
-            { src: '/assets/images/carreras/CONTADURIA/CONTA5.webp',  alt: 'Comunidad UTU 3', cell: 'c', orden: 3 },
-            { src: '/assets/images/carreras/CONTADURIA/CONTA9.webp',   alt: 'Comunidad UTU 4', cell: 'd', orden: 4 },
-            { src: '/assets/images/carreras/CONTADURIA/CONTA.2.webp', alt: 'Comunidad UTU 5', cell: 'e', orden: 5 },
-            { src: '/assets/images/carreras/BIO/BIO11.webp', alt: 'Comunidad UTU 6', cell: 'f', orden: 6 }
+            { src: '/assets/images/carreras/CONTADURIA/CONTA9.webp',  alt: 'Comunidad UTU 3', cell: 'c', orden: 3 },
+            { src: '/assets/images/carreras/CONTADURIA/CONTA.2.webp', alt: 'Comunidad UTU 4', cell: 'd', orden: 4 },
+            { src: '/assets/images/carreras/BIO/BIO11.webp',          alt: 'Comunidad UTU 5', cell: 'e', orden: 5 },
+            { src: '/assets/images/carreras/BIO/BIO9.webp',           alt: 'Comunidad UTU 6', cell: 'f', orden: 6 }
         ]
     },
 
